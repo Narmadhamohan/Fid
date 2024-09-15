@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressions, Statements, and Blocks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .sticky-note {
+            background-color: #ffeb3b;
+            border: 1px solid #f1c40f;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 250px;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+        }
+        .sticky-note .title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .sticky-note .content {
+            font-size: 14px;
+        }
+        .sticky-note-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mind Map: Expressions, Statements, and Blocks</h1>
+    <div class="sticky-note-container">
+
+        <div class="sticky-note">
+            <div class="title">Expressions</div>
+            <div class="content">
+                An expression is a combination of variables, operators, and method invocations that evaluates to a <em><u><b>single value.</b></u></em>
+				
+				<br><br>
+				The data type of the value returned by an expression depends on the <u>elements</u> used in the expression.
+                <br><br>
+                Example:<br>
+                <code>int result = 1 + 2;<br>
+				int result = 1 + 2; // result is now 3<br>
+if (value1 == value2) <br>
+    System.out.println("value1 == value2");<br>
+				
+				
+				</code><br>
+				                <br><br>
+
+				an expression can return int and other types of values as well, such as boolean or String.
+												                <br><br>
+
+                <code>System.out.println("Hello World!");</code>
+
+            </div>
+        </div>
+
+        <div class="sticky-note">
+            <div class="title">Compound Expressions</div>
+            <div class="content">
+			
+			<ul>
+			<li>
+                Compound expressions are made up of smaller expressions. 
+                <br><br>
+				</li>
+			<li>	example of a compound expression:
+
+ 
+				1 * 2 * 3
+								                <br><br>
+</li>
+				<li>Order in which the expression is evaluated is:  Important or not.??
+								                <br><br>
+
+				important if we have other type of expressions: 
+								                <br><br>
+
+				x + y / 100    // ambiguous
+
+				</li>
+				                <br><br>
+				<li>
+                Example(Unambiguous, Recommended):<br>
+                <code>(x + y) / 100;</code>
+				<br>
+				</li>			                <br><br>
+				</ul>
+				<u>Code Tip!</u>
+				When writing compound expressions, be explicit and indicate with parentheses which operators should be evaluated first. 
+				<br><br>This practice makes code easier to read and to maintain.
+            </div>
+        </div>
+
+        <div class="sticky-note">
+            <div class="title">Statements</div>
+            <div class="content">
+                Statements represent a complete unit of execution. They can be assignment, increment, or method invocation statements.
+                <br><br>
+                Example:<br>
+                <code>aValue = 8933.234;</code><br>
+                <code>aValue++;</code>
+				
+				
+				
+				<br><br>
+				Statements are roughly equivalent to sentences in natural languages.
+            </div>
+        </div>
+
+        <div class="sticky-note">
+            <div class="title">Blocks</div>
+            <div class="content">
+                A block is a group of statements enclosed in braces. It can be used wherever a single statement is allowed.
+                <br><br>
+                Example:<br>
+				<a href="expressions_programs.html">Block sample code</a>
+                <code>A block is a group of zero or more statements between balanced braces and can be used anywhere a single statement is allowed. The following example, BlockDemo, illustrates the use of blocks:</code>
+            </div>
+        </div>
+
+        <div class="sticky-note">
+            <div class="title">Control Flow Statements</div>
+            <div class="content">
+                These statements regulate the execution order of other statements, such as loops and conditionals.
+                <br><br>
+                Example:<br>
+                <code>if (condition) {<br>...<br>} else {<br>...<br>}</code>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

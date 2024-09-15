@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .slide {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        .code pre {
+            font-size: 16px;
+            background-color: #eee;
+            padding: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .nav-buttons a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1 -->
+    <div class="slide">
+        <h2>Slide 1: Introduction</h2>
+        <img src="slides/slide1.jpg" alt="Slide 1">
+        <div class="code">
+            <h3>Example Program 1: The Equality and Relational Operators
+</h3>
+            <pre>
+class ComparisonDemo {
+
+    public static void main(String[] args){
+        int value1 = 1;
+        int value2 = 2;
+        if(value1 == value2)
+            System.out.println("value1 == value2");
+        if(value1 != value2)
+            System.out.println("value1 != value2");
+        if(value1 > value2)
+            System.out.println("value1 > value2");
+        if(value1 < value2)
+            System.out.println("value1 < value2");
+        if(value1 <= value2)
+            System.out.println("value1 <= value2");
+    }
+}
+Output:
+
+value1 != value2
+value1 <  value2
+value1 <= value2
+
+            </pre>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <h2>Slide 2: The Conditional Operators</h2>
+        <img src="slides/slide2.jpg" alt="Slide 2">
+        <div class="code">
+            <h3>Example Program 2: The Conditional Operators</h3>
+            <pre>
+class ConditionalDemo1 {
+
+    public static void main(String[] args){
+        int value1 = 1;
+        int value2 = 2;
+        if((value1 == 1) && (value2 == 2))
+            System.out.println("value1 is 1 AND value2 is 2");
+        if((value1 == 1) || (value2 == 1))
+            System.out.println("value1 is 1 OR value2 is 1");
+    }
+}
+
+
+class ConditionalDemo2 {
+
+    public static void main(String[] args){
+        int value1 = 1;
+        int value2 = 2;
+        int result;
+        boolean someCondition = true;
+        result = someCondition ? value1 : value2;
+
+        System.out.println(result);
+    }
+}
+
+            </pre>
+        </div>
+    </div
+	 <!-- Slide 3 -->
+    <div class="slide">
+        <h2>Slide 2:Example 3: The Type Comparison Operator instanceof
+
+ </h2>
+        <img src="slides/slide3.jpg" alt="Slide 3">
+        <div class="code">
+            <h3>Example Program 3:</h3>
+            <pre>
+
+class InstanceofDemo {
+    public static void main(String[] args) {
+
+        Parent obj1 = new Parent();
+        Parent obj2 = new Child();
+
+        System.out.println("obj1 instanceof Parent: "
+            + (obj1 instanceof Parent));
+        System.out.println("obj1 instanceof Child: "
+            + (obj1 instanceof Child));
+        System.out.println("obj1 instanceof MyInterface: "
+            + (obj1 instanceof MyInterface));
+        System.out.println("obj2 instanceof Parent: "
+            + (obj2 instanceof Parent));
+        System.out.println("obj2 instanceof Child: "
+            + (obj2 instanceof Child));
+        System.out.println("obj2 instanceof MyInterface: "
+            + (obj2 instanceof MyInterface));
+    }
+}
+
+class Parent {}
+class Child extends Parent implements MyInterface {}
+interface MyInterface {}
+Output:
+
+obj1 instanceof Parent: true
+obj1 instanceof Child: false
+obj1 instanceof MyInterface: false
+obj2 instanceof Parent: true
+obj2 instanceof Child: true
+obj2 instanceof MyInterface: true
+
+            </pre>
+        </div>
+    </div
+	
+	
+	
+	
+	
+	
+
+    <div class="nav-buttons">
+        <a href="#">Previous</a>
+        <a href="#">Next</a>
+    </div>
+
+</body>
+</html>

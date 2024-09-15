@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .slide {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        .code pre {
+            font-size: 16px;
+            background-color: #eee;
+            padding: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .nav-buttons a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1 -->
+    <div class="slide">
+        <h2>Slide 1: Introduction</h2>
+        <img src="slides/slide1.jpg" alt="Slide 1">
+        <div class="code">
+            <h3>Example Program 1:</h3>
+            <pre>
+int a = 10, b = 20, c = 30;
+
+// Correct:
+if (a > b && b < c || a < c) {
+    System.out.println("Condition is true");
+}
+
+// Explanation:
+- `&&` has higher precedence than `||`, so `a > b && b < c` is evaluated first.
+- Then, the result of this expression is combined with `a < c` using the `||` operator.
+
+            </pre>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <h2>Slide 2: Data Structures</h2>
+        <img src="slides/slide2.jpg" alt="Slide 2">
+        <div class="code">
+            <h3>Example Program 2:</h3>
+            <pre>
+int a = 5, b = 10, result;
+
+// Correct:
+result = (a > b) ? a : b;
+
+// Explanation:
+- The conditional operator `?:` is evaluated first because it has higher precedence than `=`.
+- After deciding between `a` and `b`, the result is assigned to the `result` variable.
+
+            </pre>
+        </div>
+    </div
+	 <!-- Slide 3 -->
+    <div class="slide">
+        <h2>Slide 2:Example 3: Assignment (=) Associativity
+ </h2>
+        <img src="slides/slide3.jpg" alt="Slide 3">
+        <div class="code">
+            <h3>Example Program 3:</h3>
+            <pre>
+int x, y, z;
+
+// Correct:
+x = y = z = 50; // Right-associative
+
+// Explanation:
+- Assignment operators are right-associative, meaning `z = 50` is evaluated first, then `y = z`, and finally `x = y`.
+<br>
+
+Example 4: Logical NOT (!) vs Logical AND (&&)
+
+boolean a = true, b = false;
+
+// Correct:
+if (!a && b) {
+    System.out.println("Condition is true");
+}
+
+// Explanation:
+- The `!` (logical NOT) operator has higher precedence than `&&`, so `!a` is evaluated first.
+- Then, the result of `!a` is combined with `b` using the `&&` operator.
+
+            </pre>
+        </div>
+    </div
+	
+	
+	
+	
+	
+	
+
+    <div class="nav-buttons">
+        <a href="#">Previous</a>
+        <a href="#">Next</a>
+    </div>
+
+</body>
+</html>

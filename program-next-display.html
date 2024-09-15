@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .slide {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        .code pre {
+            font-size: 16px;
+            background-color: #eee;
+            padding: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .nav-buttons a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1 -->
+    <div class="slide">
+        <h2>Slide 1: Introduction</h2>
+        <img src="slides/slide1.jpg" alt="Slide 1">
+        <div class="code">
+            <h3>Example Program 1:</h3>
+            <pre>
+// JavaScript Example
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+console.log(greet('Student'));
+            </pre>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <h2>Slide 2: Data Structures</h2>
+        <img src="slides/slide2.jpg" alt="Slide 2">
+        <div class="code">
+            <h3>Example Program 2:</h3>
+            <pre>
+// Python Example
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+
+print(factorial(5))
+            </pre>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#">Previous</a>
+        <a href="#">Next</a>
+    </div>
+
+</body>
+</html>
