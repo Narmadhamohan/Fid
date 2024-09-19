@@ -1,0 +1,52 @@
+char vs byte in c and java
+
+char in c holds and prints with %c and %d
+
+
+reference vs pointer in java
+C:\Users\Dell\Desktop\Dada\Content_Creation\VariablesConstantsDatatypes
+
+Structures, struct's struct, string handling in c
+files
+java - data type
+
+all program execution - help vignesh
+then reaorder and link the programs
+content integration using html
+
+Then make quick pdfs for oops
+
+	different types of inheritance choosing
+	Generic method - subtypes, classes, super
+	class hierachy  - vehicle, car, EVcar, EVCarSepcial edition
+	person with name ,id, student with class, sportsStudent,
+	overloading -> try passing different inputs
+casting  -> hw the method call -> overriding happens
+Encapsulation, abstraction, poymorphism  - need of inh?
+terms: derived class - base class
+parametrized constructor, which constructor is called?
+object creation s1(100), s2(), s3=100....
+object is passed by reference
+private member - accessing -compile time error? runtime error?
+class{}m;? array with size
+interface and implemntations
+
+java:
+sustring, final.. etc,.. 
+
+
+Then complete flowgarithm
+
+1st week - basic pgmng, oops, java, flog?
+2nd week - Data structures, Psql, networking?
+3rd week - networking,html?
+
+
+1st week - ds half
+2nd week - ds half
+File handling in java: 
+string and string handling in C
+multi dim arrays
+
+
+

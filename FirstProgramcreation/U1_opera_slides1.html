@@ -109,59 +109,73 @@
 </nav>
 
 <!-- Menu with Slide Thumbnails -->
+<div class="menu-container">
+  <div class="menu-item" onclick="showContent('slide1')">
+    <img src="https://via.placeholder.com/200x150.png?text=Slide+1" alt="Basic Setup">
+    <h3>Basic setup
+<ol>	
+<li style="text-align:left">A Checklist</li>
+<input type="text" placeholder="JDK, TextEditor">
+<li style="text-align:left">Creating Your First Application
+<ul><li>Create a Source File</li><li>
+Compile the Source File into a .class File
+</li><li>Run the Program</li></ul></li>
+</ol>
+
+<textarea rows="10" 
+                  cols="20" 
+                  name="blog">
+				  
+>>>>>C:\myapplication>javac HelloWorldApp.java
+
+ 
+ >>>>>>>
+ Directory of C:\myapplication
+
+
+             432 HelloWorldApp.class
+			 267 HelloWorldApp.java
+               2 File(s)            699 bytes
+               2 Dir(s)  93,298,032,640 bytes free
+>>>> java HelloWorldApp
+>>>>  java -cp . HelloWorldApp
+
+
+ 
+        </textarea>
+</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide2')">
+    <img src="https://via.placeholder.com/200x150.png?text=Slide+2" alt="Slide 2">
+    <h3>Slide 2: Key Concepts</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide3')">
+    <img src="https://via.placeholder.com/200x150.png?text=Slide+3" alt="Slide 3">
+    <h3>Slide 3: Visual Data</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide4')">
+    <img src="https://via.placeholder.com/200x150.png?text=Slide+4" alt="Slide 4">
+    <h3>Slide 4: Conclusion</h3>
+  </div>
+</div>
 
 <!-- Slide Content -->
 <div class="content" id="slide1">
   <h2>Slide 1: Topic Overview</h2>
- <!-- <img src="https://via.placeholder.com/800x600.png?text=Slide+1" alt="Slide 1 Image"> -->
-  <p>
-  •	Definition: Symbols that perform operations on variables and values.
-  <br><br>
-  operators are evaluated based on two primary factors:
-
-Precedence: Determines which operator is evaluated first when multiple operators appear in an expression.
-Associativity: Determines the order in which operators of the same precedence level are evaluated (left to right or right to left).
-
-  </p>
-  
-     <img src="operator_precedence.png" style="size:800" alt="Slide 1 Image">
-	 	 <img src="operators.png" style="size:800" alt="operators">
-
-	 <img src="Associativity.png" style="size:800" alt="Associativity">
-
+  <img src="https://via.placeholder.com/800x600.png?text=Slide+1" alt="Slide 1 Image">
+  <p>This is the first slide of the presentation, introducing the topic and objectives of the session.</p>
 </div>
 
 <div class="content" id="slide2">
   <h2>Slide 2: Key Concepts</h2>
- <!-- <img src="https://via.placeholder.com/800x600.png?text=Slide+2" alt="Slide 2 Image"> -->
-  
-  <h3>The Simple Assignment Operator</h3>
-<br>
-  <p>  it assigns the value on its right to the operand on its left:
-<br><br>
- int cadence = 0;
- int speed = 0;
- int gear = 1;
-This operator can also be used on objects to assign object references.
-
-<h3>The Arithmetic Operators</h3>
-<img src="Arithmetic_operators.png" alt="arithetic">
-
-<h3>The Unary Operators</h3>
-<img src="Unary_operators.png" alt="unary">
-<img src = "java-operator-precedence.png" alt="java operator precedence">
-
-
-</p>
+  <img src="https://via.placeholder.com/800x600.png?text=Slide+2" alt="Slide 2 Image">
+  <p>The second slide covers the key concepts that will be discussed in this presentation.</p>
 </div>
 
 <div class="content" id="slide3">
   <h2>Slide 3: Visual Data</h2>
   <img src="https://via.placeholder.com/800x600.png?text=Slide+3" alt="Slide 3 Image">
   <p>The third slide provides visual data and diagrams to explain the concepts in detail.</p>
-  <a href="ArithmeticDemo.java">ARithmeticDemo</a>
-  <a href="ConcatDemo.java">ConcatDemo</a>
-  <a href="UnaryDemo.java">UnaryDemo</a>
 </div>
 
 <div class="content" id="slide4">
