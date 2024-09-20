@@ -1,0 +1,2 @@
+Give pattern programs
+give flogarithm - loop checking

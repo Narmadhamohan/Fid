@@ -1,0 +1,42 @@
+hello
+variables    //datatypes
+themes/var.c
+operators
+
+
+
+2
+condition.c
+loop.c
+Refer JAva
+
+3
+array
+arraytwodim
+
+Refer JAVA
+
+4
+passarrayasfunction
+mising here
+5
+pointer
+pointermemeorymap
+stringjandling
+
+staticmemory
+dynamicmemalc
+autostorageclass
+
+6
+Tell them to write parts of the cycle or any vehicle
+struct
+refer theme
+
+7
+
+files
+
+externfile1
+externfile2
+refer theme
