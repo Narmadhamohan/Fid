@@ -1,0 +1,24 @@
+#include <stdio.h>  
+// Function with void return type  
+void printHello() {  
+    printf("Hello, world!\n");  
+}  
+// Function with void parameter  
+void processInput(void) {  
+    printf("Processing input...\n");  
+}  
+   
+int main() {  
+    // Calling a void function  
+    printHello();  
+   
+    // Calling a function with void parameter  
+    processInput();  
+   
+    // Using a void pointer  
+    int number = 10;  
+    void* dataPtr = &number;  
+    printf("Value of number: %d\n", *(int*)dataPtr);  
+   
+    return 0;  
+}  

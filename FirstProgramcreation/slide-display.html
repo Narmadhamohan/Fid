@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- <title>Interactive TOC with Sticky Notes</title> -->
+ <title>Fundamentals of Programming</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Introduction to Programming</div>
+    <div class="sticky-note" onclick="showContent('slide2')">LL HL ML</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Variables,Constants and Datatypes</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Operators and Expressions</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Questions</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Introduction to Programming</h2>
+	  <img src="map_Directions.jpeg" alt="Instructions">
+	  <img src="alarm.jpeg" alt="Instructions">
+	   <img src="programmming_lntro_2.png" width="60%" alt="Instructions">
+	  
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>LL HL ML</h2>
+	  <p> What's machine code?</p>
+	  
+		<ul style="align: center;">
+		<li>Zeroes</li>
+		<li>Ones</li>
+		<ul>
+		<hr>
+	  
+	  <h2>What's Low level Language?</h2>
+	  <img src="HL_LL_MDL_LVL/0s_1s_lang_3.png" width="50%" alt="low level">
+	  <a href="HL_LL_MDL_LVL/4-bit-Microprocessor-Computer.jpg">microprocessor</a>
+	  <a href="HL_LL_MDL_LVL/Assemblyprogram.png">Assembly program</a>
+	  
+	  <hr>
+	  <h2>Types of Programming Languages</h2>
+	  <a href="HL_LL_MDL_LVL/hl_example.png"> Types</a>
+	  <hr>
+	  	  <h2>What's High level and Middle level Language?</h2>
+
+	  <img src="HL_LL_MDL_LVL/Mdlll_high_ll.png" width="50%" alt="HL_ML">
+	  
+	  
+	  
+      <p>Different Types of Programming(Low Level,High Level and Middel Level)</p>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Variables,Constants and Datatypes</h2>
+      <p>This is the content for Slide 3. More details can be added here.</p>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Operators and Expressions</h2>
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Questions</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>
