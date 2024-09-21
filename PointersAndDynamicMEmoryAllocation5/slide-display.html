@@ -119,85 +119,95 @@
 
   <!-- TOC Sticky Notes -->
   <div class="sticky-notes">
-    <div class="sticky-note" onclick="showContent('slide1')">Introduction to Arrays</div>
-    <div class="sticky-note" onclick="showContent('slide2')">1D and Multi D Arrays</div>
-    <div class="sticky-note" onclick="showContent('slide3')">Matrices</div>
-    <div class="sticky-note" onclick="showContent('slide4')">Slide4</div>
-    <div class="sticky-note" onclick="showContent('slide5')">Questions</div>
+    <div class="sticky-note" onclick="showContent('slide1')">	Introduction to Pointers, Memory Mapping</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Static and Dynamic Memory Allocation</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Storage Classes</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Arrays and Pointers</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Functions and Pointers</div>
+	    <div class="sticky-note" onclick="showContent('slide6')">Strings and String Handling</div>
+			    <div class="sticky-note" onclick="showContent('slide7')">Questions</div>
+
+
+	
+
+
   </div>
 
   <div class="content">
     <!-- Slide Content -->
     <div id="slide1" class="slide-content">
-      <h2>Introduction to Arrays</h2>
+      <h2>Introduction to Pointers, Memory Mapping</h2>
 	  
-	  	  <img src="Array_intro_1.png" width="80%" alt="Array_intro_1">
-
-	  <hr>
-	  
-	  <label for="Index0">Index 0</label>
-	 <input type="textbox" placeholder="Enter element" label="Array Elements" name="Index0"></input>
-	 	  <label for="Index1">Index1</label>
-
-	 	 <input type="textbox" placeholder="Enter element" label="Array Elements" name="Index1"></input>
-	  <label for="Index2">Index2</label>
-	 <input type="textbox" placeholder="Enter element" label="Array Elements" name="Index2"></input>
-
-	 <label for="size">Size</label>
-	 <select  label="size" name="size">
-		<option value="3">3</option>
-		<option value="5">5</option>
-		<option value="10">10</option>
-	</select>
+	  	  <img src="pointer_1.png" width="80%" alt="pointer_1">	
 	<hr>
-	<img src="Array_2.png" width="80%" alt="Array_2">
-		<img src="Array_creating_dec_init_3.png" width="80%" alt="Array_2">
+	<img src="pointer_2.png" width="80%" alt="pointer_2">
+		<img src="pointer_3.png" width="80%" alt="pointer_3">
+		<img src="Memory_allocation_C1.png" width="80%" alt="pointer_3">
+		<img src="Memory_representation_C4.png" width="80%" alt="pointer_3">
+		<img src="pointers_1.png" width="80%" alt="pointer_3">
+		<img src="Memory_Allocation_C3.png" width="80%" alt="pointer_3">
 
-	 
 	 <hr>
-	 <h2> int[] tokenArray= <input type="textbox" name="tokenarray"> </h2>
-	 <button name="What's the size?" onclick='alert("Number of elements in int[]={10}")'>Array</button>
-	  
       <p>This is the content for Slide 1. More details can be added here.</p>
     </div>
 
     <div id="slide2" class="slide-content">
-      <h2>Single Dimensional Array</h2>
-	  
-	  
-	  <img src="Array_manipulations_5.png" width="50%" alt="Java Array Methods">
-	  <p> Array programs in Java and C </p>
-	  <img src="Array_MultiDimensionalArray_4.png" width="80%" alt="Multi Dimensional">
-      <p>This is the content for Slide 2. More details can be added here.</p>
+      <h2>Static and Dynamic Memory Allocation</h2>
+	   
+	  <img src=" Memory_Allocation_Static_dynamic_C2.png" width="50%" alt="Comparison">
+	  	  <a href="Dynamicmemory.docx" >Why Dynamic</a>
     </div>
 
     <div id="slide3" class="slide-content">
-      <h2>Matrices</h2>
-	  <p>More than one matrix combine to perform some manipulations</p>
+      <h2>Storage Classes</h2>
+	  
+	  <img src=" pointers_1.png" width="50%" alt="Comparison">
+
       <p>This is the content for Slide 3. More details can be added here.</p>
     </div>
 
     <div id="slide4" class="slide-content">
-	<h2>What's array?</h2>
+	<h2>Arrays and Pointers</h2>
 	
-      <h2>size of array. How it's stored.</h2>
-	  <h2>size of one element</h2>
-	  <h2>Number of elements</h2>
+		<p>Array - Single-dimensional pointer</p>
+		<p>Array - Multi-dimensional pointer</p>
+		<p>Refer program multi-dim - loop</p>
+	<a href="PointerArithmetic.pdf">PointerArithmetic</a>
+	
 	  <img src="For.png" width="50%" alt="Loops">
 	  <img src="while_doWhile.png" width="50%" alt="while loops">
       <p>This is the content for Slide 4. More details can be added here.</p>
     </div>
 
     <div id="slide5" class="slide-content">
-	<p>Flowgarithm</p>
+	<p>Functions and Pointers</p>
+	<p>Arrays passed as pass by reference in C</p>
+
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+	
+	    <div id="slide6" class="slide-content">
+	<p>Strings and String Handling</p>
+	<p>Refer String handling program</p>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+	
+		    <div id="slide7" class="slide-content">
+	<p>Questions</p>
 	<p>Questions</p>
 	<img src="questions_C.png" width="50%" alt="Control flow statements questions">
 	
-      <h2>Slide 5 Content</h2>
-	  <p>How do you declare string array</p>
-      <p>This is the content for Slide 5. More details can be added here.</p>
+      <h2>How you use *?</h2>
+	  <p>How you use *(*)</p>
+	  <p> pointer address + 1</p>
+	  <p> & usage </p>
+	  <p>Memory allocation</p>
+	  
+	  
     </div>
+	
   </div>
+
 
   <script>
     // Function to show content based on clicked sticky note

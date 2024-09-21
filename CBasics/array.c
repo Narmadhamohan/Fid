@@ -10,6 +10,9 @@ int main() {
     printf("a[4] %d\n",a[4]);
     printf("a[5] %d\n",a[5]);
       printf("\n\n");
+
+
+
     for (i=0;i<=5;i++)
     {
         printf("a[] %d\n",a[i]);

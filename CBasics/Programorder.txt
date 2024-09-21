@@ -12,14 +12,18 @@ Refer JAva
 
 3
 array
+arrayloop
 arraytwodim
 
 Refer JAVA
 
 4
 passarrayasfunction
+Refer java programs
 mising here
 5
+arraytwodim-loop
+passarrayasfunction
 pointer
 pointermemeorymap
 stringjandling
