@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Features of OOP</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Data Encasulation</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Inheritance</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Single Inheritance Multiple inheritance</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Multi Level, Hybrid inheritance</div>
+	    <div class="sticky-note" onclick="showContent('slide5')">Walk Through Encapsulation and Inheritance</div>
+
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+<h2>Introduction to Class
+	  </h2>
+     
+					<h2>Introduction to Classes in Java</h2>
+<p>
+    In Java, a <strong>class</strong> is a blueprint for creating objects. It defines a data structure that contains attributes (fields) and methods (functions) that operate on the data. Classes enable encapsulation, allowing data and methods to be bundled together.
+</p>
+
+<h3>Key Concepts</h3>
+<ul>
+    <li><strong>Attributes:</strong> Variables that hold the state of an object.</li>
+    <li><strong>Methods:</strong> Functions defined in a class that define the behavior of objects.</li>
+    <li><strong>Object:</strong> An instance of a class that represents a specific entity.</li>
+</ul>
+
+<h3>Basic Syntax</h3>
+<pre><code>
+class ClassName {
+    // Attributes
+    dataType attributeName;
+
+    // Constructor
+    ClassName(parameters) {
+        // Initialization code
+    }
+
+    // Methods
+    returnType methodName(parameters) {
+        // Method body
+    }
+}
+</code></pre>
+
+<h3>Example</h3>
+<pre><code>
+class Car {
+    // Attributes
+    String color;
+    String model;
+
+    // Constructor
+    Car(String c, String m) {
+        color = c;
+        model = m;
+    }
+
+    // Method
+    void displayInfo() {
+        System.out.println("Car model: " + model + ", Color: " + color);
+    }
+}
+
+// Creating an object
+Car myCar = new Car("Red", "Toyota");
+myCar.displayInfo();  // Output: Car model: Toyota, Color: Red
+</code></pre>
+
+
+<hr>
+<hr>
+<h2>Java Inner Classes, Static Classes, Nested Classes, and Final Classes</h2>
+
+<h3>1. Inner Class</h3>
+<p>
+    An <strong>inner class</strong> is a class defined within another class. It has access to the outer class's members, including private members.
+</p>
+<pre><code>
+class Outer {
+    private String outerField = "Outer field";
+
+    class Inner {
+        void display() {
+            System.out.println(outerField);  // Accessing outer class's field
+        }
+    }
+}
+</code></pre>
+
+<h3>2. Static Nested Class</h3>
+<p>
+    A <strong>static nested class</strong> is similar to an inner class but is declared static. It cannot access non-static members of the outer class directly.
+</p>
+<pre><code>
+class Outer {
+    static String staticField = "Static outer field";
+
+    static class StaticNested {
+        void display() {
+            System.out.println(staticField);  // Accessing static field of outer class
+        }
+    }
+}
+</code></pre>
+
+<h3>3. Final Class</h3>
+<p>
+    A <strong>final class</strong> cannot be subclassed or extended. It is used to restrict inheritance.
+</p>
+<pre><code>
+final class FinalClass {
+    void display() {
+        System.out.println("I am a final class");
+    }
+}
+
+// The following would cause a compile-time error:
+// class SubClass extends FinalClass { }
+</code></pre>
+
+<h3>Summary</h3>
+<ul>
+    <li><strong>Inner Class:</strong> Can access all members of the outer class.</li>
+    <li><strong>Static Nested Class:</strong> Can only access static members of the outer class.</li>
+    <li><strong>Final Class:</strong> Cannot be subclassed, ensuring it remains unchanged.</li>
+</ul>
+
+<hr><hr>
+<h2>When to Use Different Types of Classes in Java</h2>
+
+<h3>1. Inner Class</h3>
+<p>
+    Use an <strong>inner class</strong> when:
+</p>
+<ul>
+    <li>You need to logically group classes that are only used in one place.</li>
+    <li>The inner class needs access to the outer class's instance variables and methods, including private ones.</li>
+    <li>You want to enhance encapsulation and maintainability of the code.</li>
+</ul>
+
+<h3>2. Static Nested Class</h3>
+<p>
+    Use a <strong>static nested class</strong> when:
+</p>
+<ul>
+    <li>You want to group classes that are related but do not require access to the instance variables of the outer class.</li>
+    <li>You want to define a class that does not depend on the state of the outer class.</li>
+    <li>You want to create helper classes that can be instantiated independently.</li>
+</ul>
+
+<h3>3. Final Class</h3>
+<p>
+    Use a <strong>final class</strong> when:
+</p>
+<ul>
+    <li>You want to prevent inheritance, ensuring that the class cannot be extended.</li>
+    <li>You want to provide a complete implementation that should not be modified.</li>
+    <li>You are implementing utility classes (like the <code>java.lang.Math</code> class) where inheritance is unnecessary.</li>
+</ul>
+<hr><hr>
+<h2>Examples of Class Types in Java's Built-In Libraries</h2>
+
+<h3>1. Inner Class Example: <code>java.awt.EventQueue</code></h3>
+<p>
+    The <code>EventQueue</code> class has an inner class called <code>EventDispatchThread</code>. This inner class is used to handle event dispatching within the AWT (Abstract Window Toolkit) framework.
+</p>
+<pre><code>
+EventQueue queue = EventQueue.getCurrentEventQueue();
+EventDispatchThread thread = queue.new EventDispatchThread();
+</code></pre>
+
+<h3>2. Static Nested Class Example: <code>java.util.EnumSet</code></h3>
+<p>
+    The <code>EnumSet</code> class uses a static nested class called <code>EnumSet.View</code>. This nested class is used to represent a view of an <code>EnumSet</code> and operates independently of the outer class instance.
+</p>
+<pre><code>
+EnumSet<Day> weekend = EnumSet.of(Day.SATURDAY, Day.SUNDAY);
+EnumSet.View<Day> view = EnumSet.View.of(weekend);
+</code></pre>
+
+<h3>3. Final Class Example: <code>java.lang.String</code></h3>
+<p>
+    The <code>String</code> class is declared as final, meaning it cannot be subclassed. This is done to maintain the immutability and security of string objects.
+</p>
+<pre><code>
+String greeting = "Hello, World!";
+</code></pre>
+
+<h3>Summary</h3>
+<ul>
+    <li><strong>Inner Class:</strong> <code>java.awt.EventQueue.EventDispatchThread</code></li>
+    <li><strong>Static Nested Class:</strong> <code>java.util.EnumSet.View</code></li>
+    <li><strong>Final Class:</strong> <code>java.lang.String</code></li>
+</ul>
+
+
+<p>
+    Classes in Java facilitate modularity and code reusability, forming the foundation of object-oriented programming.
+</p>
+
+	 
+	 
+    </div>
+
+    <div id="slide2" class="slide-content">
+	
+	
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Access Specfiers (private,public and protected)</h2>
+	  <img src="AccessSpecifier.png" width="60%" alt="PAckages">
+	  <img src="JavaAccessSpecifier.jpg" width="60%" alt="accessspecifier">
+
+	
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Constructors and Destructors</h2>
+<ul>
+    <li>Base class constructor</li>
+	<li>Super class constructor</li>
+	<li>DEfault and parametrized constructor</li>
+</ul>
+
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Slide 5 Content</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Introduction to OOP</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Need for OOP</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Characteristic Features of OOP</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Its Usage</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Questions</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Object-Oriented Programming (OOP) is a paradigm designed to improve the structure and organization of software systems, making it easier to manage complexity in larger software projects.
+	  </h2>
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+	<table>
+		<thead>
+			<tr>
+			<th>Modularity</th>
+			<th>Reusability</th>
+			<th>Scalability and Maintenance</th>
+			<th>Data Security and Encapsulation</th>
+			<th>Real-World Mapping</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+			<tr>
+			<td>OOP breaks down large problems into smaller, more manageable modules (objects). This modular approach improves code organization and simplifies maintenance.</td>
+			<td>Once a class or object is defined, it can be reused across different programs or parts of the same program. This avoids redundancy and reduces the amount of code developers need to write.</td>
+			<td>OOP systems are easier to extend and modify as the program evolves. New functionality can be added with minimal changes to existing code, making programs scalable.</td>
+			<td>OOP enforces data encapsulation, hiding internal details from external objects. This protects data and reduces dependencies between different components of the program, enhancing security and reliability.</td>
+			<td>OOP models real-world entities as objects, making the design and understanding of systems more intuitive. Classes define properties and behaviors that reflect real-world entities.</td>
+			</tr>
+		
+		</tbody>
+	</table>
+	
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Characteristic Features of OOP</h2>
+
+	<img src="4pillars.jfif" width="60%" alt="Pillars">
+	<img src="quickreference_oops.png" width="60%" alt="Pillarsdesc">
+	
+	<h2>Classes and Objects:<h2>
+
+<p><b>Class:</b> A blueprint or template for creating objects. It defines a datatype by bundling data and methods that manipulate the data.</p>
+<p><b>Object:</b> An instance of a class that represents a real-world entity with attributes (data) and behaviors (methods).</p>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Usage of Object-Oriented Programming (OOP)</h2>
+<ul>
+    <li><strong>Software Development:</strong> Used in applications from desktop to web, leveraging languages like Java, C++, and Python.</li>
+    <li><strong>Graphical User Interfaces (GUI):</strong> Ideal for creating interactive UI components like buttons and forms.</li>
+    <li><strong>Real-Time Systems:</strong> Models real-time entities in applications such as robotics and simulations.</li>
+    <li><strong>Database Management Systems (DBMS):</strong> Facilitates complex relationships in object-oriented databases and ORM tools.</li>
+    <li><strong>Game Development:</strong> Structures game logic and models characters and environments effectively.</li>
+    <li><strong>Web Development:</strong> Frameworks like Django and Spring utilize OOP for handling requests and managing data.</li>
+</ul>
+
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Slide 5 Content</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

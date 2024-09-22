@@ -1,0 +1,30 @@
+Basic fundamentals - 2 days
+oops-basic java programming - 2.50 days
+Basic algorithm - 1 day
+
+
+
+data structures - 2 days
+networking - 1 day
+sql - 2.50 days
+html - 1 day
+
+Total - 11 days plan
+
+
+
+basic fundamentals: 8hrs
+Give break after 2 hours:
+
+
+OOPS: 7hrs
+Basic java programming: 9hrs+10hrs
+Basic algorithm: 4hrs
+Data structures - 16hrs
+networking - 8hrs
+SQL - 10hrs + 3 hrs
+HTML - 4 hrs + 2hrs
+
+
+
+
