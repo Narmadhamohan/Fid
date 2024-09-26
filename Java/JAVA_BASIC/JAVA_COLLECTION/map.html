@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Differences Between HashMap and TreeMap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Key Differences Between HashMap and TreeMap</h1>
+  </header>
+
+  <h2>Comparison Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>HashMap</th>
+        <th>TreeMap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Null Values</td>
+        <td>Allows one null key and multiple null values</td>
+        <td>Does not allow null key, but allows null values</td>
+      </tr>
+      <tr>
+        <td>Order</td>
+        <td>No Order</td>
+        <td>Sorted by keys</td>
+      </tr>
+      <tr>
+        <td>Usage</td>
+        <td>Storing key-value pairs without order</td>
+        <td>Storing key-value pairs in sorted order</td>
+      </tr>
+      <tr>
+        <td>Complexity (Add/Remove/Search)</td>
+        <td>O(1) / O(1) / O(1)</td>
+        <td>O(log n) / O(log n) / O(log n)</td>
+      </tr>
+      <tr>
+        <td>Performance</td>
+        <td>Faster for general use</td>
+        <td>Slower due to sorting</td>
+      </tr>
+      <tr>
+        <td>Implementation</td>
+        <td>Hash table</td>
+        <td>Red-Black tree</td>
+      </tr>
+      <tr>
+        <td>Examples</td>
+        <td>HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();</td>
+        <td>TreeMap&lt;String, Integer&gt; map = new TreeMap&lt;&gt;();</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

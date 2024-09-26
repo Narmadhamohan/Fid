@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Java Exception Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+        }
+        .topic {
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #fffa90;
+            padding: 15px;
+            border: 1px solid #f5e575;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .topic:hover {
+            background-color: #f1f1f1;
+        }
+        .note {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: 1px solid #f5e575;
+            width: 100%;
+            background-color: #f9f9f9;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        .hierarchy img {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Built-in Exceptions Section -->
+    <div class="topic" onclick="toggleNote('note1')">Builtin Exceptions</div>
+    <div id="note1" class="note">
+        <h3>Builtin Exceptions in Java</h3>
+        <p>Java provides several built-in exceptions that are automatically thrown during runtime when certain conditions are met. These are part of the standard Java library.</p>
+        <ul>
+            <li><strong>NullPointerException:</strong> Thrown when trying to use a `null` object reference.</li>
+            <li><strong>ArrayIndexOutOfBoundsException:</strong> Thrown when accessing an invalid array index.</li>
+            <li><strong>ArithmeticException:</strong> Thrown during arithmetic errors, like division by zero.</li>
+        </ul>
+        <strong>Example:</strong>
+        <pre><code>
+public class BuiltInExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[5];
+            System.out.println(arr[10]); // This will throw ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Handling Exceptions Section -->
+    <div class="topic" onclick="toggleNote('note2')">Handling Exceptions</div>
+    <div id="note2" class="note">
+        <h3>Handling Exceptions in Java</h3>
+        <p>Handling exceptions in Java ensures that runtime errors are dealt with smoothly, preventing abrupt program termination.</p>
+        <ul>
+            <li><strong>try:</strong> Contains code that might throw exceptions.</li>
+            <li><strong>catch:</strong> Catches and handles the exceptions thrown by the `try` block.</li>
+            <li><strong>finally:</strong> Block that executes regardless of whether an exception was thrown or caught. Often used for cleanup.</li>
+        </ul>
+        <strong>Example:</strong>
+        <pre><code>
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        } finally {
+            System.out.println("This will always be executed.");
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Custom Exceptions Section -->
+    <div class="topic" onclick="toggleNote('note3')">Custom Exceptions</div>
+    <div id="note3" class="note">
+        <h3>Creating Custom Exceptions in Java</h3>
+        <p>You can define your own exception classes to represent specific error conditions in your program by extending either the `Exception` class or the `RuntimeException` class.</p>
+        <ul>
+            <li><strong>Checked exceptions:</strong> Must be declared in method signatures using `throws` keyword and are checked during compile-time.</li>
+            <li><strong>Unchecked exceptions:</strong> Do not need to be declared in method signatures and are checked at runtime.</li>
+        </ul>
+        <strong>Example:</strong>
+        <pre><code>
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        } catch (CustomException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+    }
+
+    static void checkAge(int age) throws CustomException {
+        if (age < 18) {
+            throw new CustomException("Age must be 18 or older to vote.");
+        } else {
+            System.out.println("You are eligible to vote.");
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Throwing Exceptions Section -->
+    <div class="topic" onclick="toggleNote('note4')">Throwing Exceptions</div>
+    <div id="note4" class="note">
+        <h3>Throwing Exceptions in Java</h3>
+        <p>The `throw` keyword in Java allows you to explicitly throw an exception, signaling an error condition during the program's execution.</p>
+        <ul>
+            <li>Use `throw` followed by an instance of the `Exception` class or one of its subclasses.</li>
+            <li>This is often used to throw user-defined or unchecked exceptions.</li>
+        </ul>
+        <strong>Example:</strong>
+        <pre><code>
+public class ThrowingExceptionExample {
+    public static void main(String[] args) {
+        try {
+            validate(0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+
+    static void validate(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("Number must be greater than zero.");
+        } else {
+            System.out.println("Valid number: " + number);
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Exception Hierarchy Section -->
+    <div class="topic" onclick="toggleNote('note5')">Exception Hierarchy</div>
+    <div id="note5" class="note hierarchy">
+        <h3>Java Exception Hierarchy</h3>
+        <p>The Java exception hierarchy starts from the root class `Throwable`, which has two main branches: `Error` and `Exception`. All exceptions in Java are derived from these classes.</p>
+        <ul>
+            <li><strong>Throwable:</strong> The superclass of all errors and exceptions.</li>
+            <li><strong>Error:</strong> Represents serious issues that are not typically handled by applications (e.g., `OutOfMemoryError`).</li>
+            <li><strong>Exception:</strong> Represents conditions that applications might want to catch (e.g., `IOException`).</li>
+            <li><strong>RuntimeException:</strong> A subclass of `Exception` that represents exceptions that can occur during the runtime (e.g., `NullPointerException`).</li>
+        </ul>
+        <img src="https://www.tutorialspoint.com/java/images/exception_hierarchy.jpg" alt="Java Exception Hierarchy">
+    </div>
+</div>
+
+<script>
+    function toggleNote(noteId) {
+        const note = document.getElementById(noteId);
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

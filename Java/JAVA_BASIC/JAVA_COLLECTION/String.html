@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Comparison in Java</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    .step {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+
+    .example {
+      background-color: #e7f5ff;
+      border: 1px solid #bee3f8;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Understanding String Comparison in Java</h1>
+  </header>
+
+  <h2>1. Using equals()</h2>
+  <div class="step">
+    <p>
+      The <code>equals()</code> method checks for value equality. It compares the actual contents of the strings.
+    </p>
+    <pre>
+      String str1 = "hello";
+      String str2 = new String("hello");
+
+      System.out.println(str1.equals(str2)); // Output: true
+    </pre>
+    <p>In this example, <code>str1.equals(str2)</code> returns <code>true</code> because the contents are the same.</p>
+  </div>
+
+  <h2>2. Using == Operator</h2>
+  <div class="step">
+    <p>
+      The <code>==</code> operator checks for reference equality. It determines whether both references point to the same object in memory.
+    </p>
+    <pre>
+      String str1 = "hello";
+      String str2 = new String("hello");
+
+      System.out.println(str1 == str2); // Output: false
+    </pre>
+    <p>In this example, <code>str1 == str2</code> returns <code>false</code> because they are different objects in memory.</p>
+  </div>
+
+  <h2>3. Using compareTo()</h2>
+  <div class="step">
+    <p>
+      The <code>compareTo()</code> method compares two strings lexicographically. It returns:
+      <ul>
+        <li>A negative integer if the first string is lexicographically less than the second.</li>
+        <li>Zero if the strings are equal.</li>
+        <li>A positive integer if the first string is lexicographically greater than the second.</li>
+      </ul>
+    </p>
+    <pre>
+      String str1 = "apple";
+      String str2 = "banana";
+
+      System.out.println(str1.compareTo(str2)); // Output: -1
+    </pre>
+    <p>In this example, <code>str1.compareTo(str2)</code> returns a negative value because "apple" is less than "banana".</p>
+  </div>
+
+  <h2>What is Lexicographical Order?</h2>
+  <div class="step">
+    <p>
+      Lexicographical order is similar to dictionary order. It compares the strings based on the Unicode value of each character.
+      The comparison is done character by character from left to right.
+    </p>
+    <p>For example, consider the following strings:</p>
+    <pre>
+      "apple"  // Unicode values: 97, 112, 112, 108, 101
+      "banana" // Unicode values: 98, 97, 110, 97, 110
+    </pre>
+    <p>
+      Comparing "apple" and "banana":
+      <ul>
+        <li>The first character 'a' (Unicode 97) is less than 'b' (Unicode 98).</li>
+        <li>Since 'a' is less than 'b', "apple" is lexicographically less than "banana".
+        </li>
+      </ul>
+    </p>
+  </div>
+
+  <h2>Summary of Results</h2>
+  <div class="example">
+    <pre>
+      str1.equals(str2)   // true
+      str1 == str2        // false
+      str1.compareTo(str2) // -1 (if str1 is "apple" and str2 is "banana")
+    </pre>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>
+    In Java, use <code>equals()</code> for value comparison, <code>==</code> for reference comparison, and <code>compareTo()</code> for lexicographic ordering. Lexicographical order compares strings based on the Unicode values of their characters.
+  </p>
+
+</body>
+</html>

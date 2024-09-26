@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding LinkedHashSet and Hash Codes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    .math {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>LinkedHashSet and Hash Codes</h1>
+  </header>
+
+  <h2>Overview of LinkedHashSet</h2>
+  <p>
+    A <strong>LinkedHashSet</strong> is a collection that maintains a linked list of the entries in the set, in the order they were inserted. It allows for the storage of unique elements, and it combines the benefits of both HashSet and LinkedList:
+  </p>
+  <ul>
+    <li>Fast access, insertion, and deletion like HashSet.</li>
+    <li>Maintains insertion order like LinkedList.</li>
+  </ul>
+
+  <h2>Hash Codes</h2>
+  <p>
+    Every object in Java has a method called <code>hashCode()</code> that returns an integer value, which is used by hash-based collections like HashSet and LinkedHashSet. This hash code is generated based on the attributes of the object.
+  </p>
+  <div class="math">
+    <p>hashCode() = (prime1 * field1) + (prime2 * field2) + ... + (primeN * fieldN)</p>
+  </div>
+  <p>
+    The hash code helps in quickly locating the bucket in which the object is stored, leading to faster performance for search and retrieval.
+  </p>
+
+  <h2>LinkedHashSet vs. TreeSet</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>LinkedHashSet</th>
+        <th>TreeSet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Order</td>
+        <td>Insertion order maintained</td>
+        <td>Sorted order maintained</td>
+      </tr>
+      <tr>
+        <td>Null Values</td>
+        <td>Allows one null value</td>
+        <td>Does not allow null values</td>
+      </tr>
+      <tr>
+        <td>Complexity (Add/Remove/Search)</td>
+        <td>O(1) / O(1) / O(1)</td>
+        <td>O(log n) / O(log n) / O(log n)</td>
+      </tr>
+      <tr>
+        <td>Implementation</td>
+        <td>Hash table with linked list</td>
+        <td>Red-Black tree</td>
+      </tr>
+      <tr>
+        <td>Examples</td>
+        <td>LinkedHashSet&lt;String&gt; set = new LinkedHashSet&lt;&gt;();</td>
+        <td>TreeSet&lt;String&gt; set = new TreeSet&lt;&gt;();</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Syntax Differences</h2>
+  <p>
+    Here is how you can define and use LinkedHashSet and TreeSet in Java:
+  </p>
+  <pre class="math">
+    // LinkedHashSet
+    LinkedHashSet&lt;String&gt; linkedHashSet = new LinkedHashSet&lt;&gt;();
+    linkedHashSet.add("Element1");
+    linkedHashSet.add("Element2");
+    
+    // TreeSet
+    TreeSet&lt;String&gt; treeSet = new TreeSet&lt;&gt;();
+    treeSet.add("Element1");
+    treeSet.add("Element2");
+  </pre>
+
+  <h2>Role of Comparator</h2>
+  <p>
+    A <strong>Comparator</strong> is used to define a custom sorting order for TreeSet. When you want to store elements in a specific order (like descending or based on a custom attribute), you can implement the <code>Comparator</code> interface:
+  </p>
+  <pre class="math">
+    TreeSet&lt;String&gt; treeSet = new TreeSet&lt;(new Comparator&lt;String&gt;() {
+        public int compare(String s1, String s2) {
+            return s2.compareTo(s1); // Descending order
+        }
+    });
+  </pre>
+
+  <h2>Conclusion</h2>
+  <p>
+    Understanding the differences between LinkedHashSet and TreeSet, as well as the role of hash codes and comparators, is crucial for effective data management in Java. LinkedHashSet is optimal when insertion order matters, while TreeSet is preferable for sorted data.
+  </p>
+
+</body>
+</html>

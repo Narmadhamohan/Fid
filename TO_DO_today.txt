@@ -1,0 +1,17 @@
+1. Today's assignment  - Day 2 - LMS
+
+
+
+Prepare for oops+Basic foundation
+Assessment program for tomorrow+mcqs
+Projects - CodeDocs/java/overall1
+concepts - CodeDocs/Team/yourname_OOPS_conceptNotes.md
+
+
+
+String operations: 
+pass by reference
+class with pointer -> breaks encapsulation
+
+Destructors
+Data encapsulation:  -> displaying only necessary data, Data abstraction,

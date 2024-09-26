@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Functional Interfaces in Java</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    pre {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Functional Interfaces in Java</h1>
+  </header>
+
+  <h2>Overview</h2>
+  <p>
+    A <strong>Functional Interface</strong> is an interface that contains exactly one abstract method. 
+    These interfaces can be represented with lambda expressions, enabling a functional programming style in Java.
+  </p>
+
+  <h2>Significance of Functional Interfaces</h2>
+  <p>
+    Functional interfaces allow you to pass behavior as parameters to methods, making your code more flexible and reusable. 
+    They play a crucial role in enabling features such as the Stream API and event handling.
+  </p>
+
+  <h2>Example of a Functional Interface</h2>
+  <pre>
+    // Defining a functional interface
+    @FunctionalInterface
+    interface MyFunctionalInterface {
+        void performAction(String message);
+    }
+
+    // Using a lambda expression
+    MyFunctionalInterface action = (msg) -> System.out.println(msg);
+    action.performAction("Hello, Functional Interface!");
+  </pre>
+
+  <h2>Common Built-in Functional Interfaces</h2>
+  <p>Java provides several built-in functional interfaces in the <code>java.util.function</code> package:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Functional Interface</th>
+        <th>Description</th>
+        <th>Example Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Supplier&lt;T&gt;</td>
+        <td>Represents a supplier of results.</td>
+        <td><pre>Supplier&lt;String&gt; supplier = () -&gt; "Hello";</pre></td>
+      </tr>
+      <tr>
+        <td>Consumer&lt;T&gt;</td>
+        <td>Represents an operation that accepts a single input argument and returns no result.</td>
+        <td><pre>Consumer&lt;String&gt; consumer = msg -&gt; System.out.println(msg);</pre></td>
+      </tr>
+      <tr>
+        <td>Function&lt;T, R&gt;</td>
+        <td>Represents a function that accepts one argument and produces a result.</td>
+        <td><pre>Function&lt;String, Integer&gt; lengthFunction = str -&gt; str.length();</pre></td>
+      </tr>
+      <tr>
+        <td>Predicate&lt;T&gt;</td>
+        <td>Represents a predicate (boolean-valued function) of one argument.</td>
+        <td><pre>Predicate&lt;Integer&gt; isEven = num -&gt; num % 2 == 0;</pre></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Usage in Streams</h2>
+  <p>
+    Functional interfaces are often used in the context of streams for operations like filtering and mapping. 
+    Here’s an example using a Predicate in a stream:
+  </p>
+  <pre>
+    List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+    List&lt;Integer&gt; evenNumbers = numbers.stream()
+        .filter(isEven) // Using Predicate
+        .collect(Collectors.toList());
+    System.out.println(evenNumbers); // Output: [2, 4, 6]
+  </pre>
+
+  <h2>Conclusion</h2>
+  <p>
+    Understanding functional interfaces is essential for leveraging lambda expressions and functional programming features in Java. 
+    They provide a powerful way to create reusable code and improve the expressiveness of your applications.
+  </p>
+
+</body>
+</html>

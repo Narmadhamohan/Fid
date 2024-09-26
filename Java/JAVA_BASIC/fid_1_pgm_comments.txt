@@ -1,0 +1,19 @@
+Naming convention for class name
+
+check account balances as their methods. Based on the customers request, it needs to perform deposit, withdraw and balance checking and dis
+plays the accno, name, balance as the output.
+
+
+Vijayaraj
+
+Good - all assignments
+
+Afrid
+Good - but folder structure not clear
+
+Radha - A.java?
+deposit or withdrawal or balance - need to chek from user
+
+
+public class CafetriaBillCal {
+    public static void main(String[] args){create object and call the normal function}

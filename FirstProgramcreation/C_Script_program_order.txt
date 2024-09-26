@@ -1,0 +1,122 @@
+hello
+no - variables    //datatypes
+themes/var.c
+themes/varconversion for type casting
+inputread
+operators
+
+
+
+2
+Refer java also
+condition.c
+loop.c
+Refer JAva
+
+3
+Refer java also
+array
+arrayloop
+arraytwodim
+
+Refer JAVA
+
+4
+passarrayasfunction
+Refer java programs
+mising here
+5
+arraytwodim-loop
+passarrayasfunction
+pointer
+pointermemeorymap
+stringjandling
+
+staticmemory
+dynamicmemalc
+autostorageclass
+
+6
+Tell them to write parts of the cycle or any vehicle
+struct
+refer theme
+
+7
+
+files
+
+externfile1
+externfile2
+refer theme
+
+
+
+
++++++++++++++++++Var.c++++++++++++++++++++++++++++
+
+
+#include <stdio.h>
+#include <stdbool.h>  // Include for boolean type
+
+int main() {
+    // Player-related variables with primary data types
+
+
+    unsigned int player_age = 25;           // Unsigned int for player's age
+    int player_score = 3500;       // Unsigned int for player's score
+    signed int deduction = -20;
+    short player_rank = 5;                  // Short for player’s rank (small range)
+
+    float player_height = 6.2f;              // Float to hold the player's height in feet
+    double player_innings = 6.213; 
+    bool is_active = true;                  // Boolean type for player's active status (true/false)
+    
+    char player_initial = 'J';              // Char for player's initial
+    char player_name[50] = "Shantanu";      // String to hold the player's name
+
+
+    const int MAX_LIMIT = 10;
+//    MAX_LIMIT = 20;
+
+
+    // Display player information
+    printf("Player Age: %u\n", player_age);
+    //%u also works
+        printf("Player Score: %d\n", player_score);
+        printf("Player Score: %d\n", deduction);
+        printf("Player Rank: %d\n", player_rank);
+
+
+    printf("Player Height: %.3f feet\n", player_height);
+    printf("Player Innings: %lf\n", player_innings);
+    printf("Is Player Active: %s\n", is_active ? "Yes" : "No");
+
+
+    printf("Player Initial: %c\n", player_initial);
+    printf("Player Name: %s\n", player_name);
+
+
+    printf("Player MAX_LIMIT: %d\n", MAX_LIMIT);
+
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++varconversion.c+++++++++++++++++++++++++++++++
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 3;
+
+    // Without typecasting: integer division
+    float result1 = a / b;  // result is still an int and assigned to float
+    printf("Without typecasting: %f\n", result1);  // prints 3.000000
+
+    // With typecasting: float division
+    float result2 = (float) a / b;  // 'a' is cast to float before division
+    printf("With typecasting: %f\n", result2);  // prints 3.333333
+
+    return 0;
+}
+
