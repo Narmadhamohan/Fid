@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Structures: Trees</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+
+    .question-section {
+      margin-top: 20px;
+    }
+
+    .question-section input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    .question-section button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Data Structures: Trees</h1>
+    <p>Understanding key concepts and definitions</p>
+  </header>
+
+  <!-- Navigation for slides -->
+  <nav>
+    <a href="#" onclick="showContent('slide1')">Introduction to Trees</a>
+    <a href="#" onclick="showContent('slide2')">Binary Trees</a>
+    <a href="#" onclick="showContent('slide3')">Complete Binary Tree</a>
+    <a href="#" onclick="showContent('slide4')">Tree Traversal</a>
+    <a href="#" onclick="showContent('slide5')">Threaded Binary Tree</a>
+    <a href="#" onclick="showContent('slide6')">B-Tree</a>
+  </nav>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content active">
+      <h2>Introduction to Trees</h2>
+      <ul>
+        <li><strong>Definition:</strong> A tree is a hierarchical data structure consisting of nodes connected by edges.</li>
+        <li><strong>Components:</strong> Root, nodes, edges, leaves.</li>
+        <li><strong>Characteristics:</strong> Each node has zero or more children; there are no cycles.</li>
+      </ul>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Binary Trees</h2>
+      <ul>
+        <li><strong>Definition:</strong> A binary tree is a tree in which each node has at most two children.</li>
+        <li><strong>Types:</strong>
+          <ul>
+            <li>Full Binary Tree</li>
+            <li>Perfect Binary Tree</li>
+            <li>Balanced Binary Tree</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Complete Binary Tree</h2>
+      <ul>
+        <li><strong>Definition:</strong> A complete binary tree is a binary tree in which all levels are fully filled except possibly the last level.</li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>All nodes are as far left as possible.</li>
+            <li>Height is minimized.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Tree Traversal</h2>
+      <ul>
+        <li><strong>Definition:</strong> Tree traversal is the process of visiting all the nodes in a tree.</li>
+        <li><strong>Types:</strong>
+          <ul>
+            <li>In-order (Left, Root, Right)</li>
+            <li>Pre-order (Root, Left, Right)</li>
+            <li>Post-order (Left, Right, Root)</li>
+            <li>Level-order (Breadth-first)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Threaded Binary Tree</h2>
+      <ul>
+        <li><strong>Definition:</strong> A threaded binary tree is a binary tree in which null pointers are replaced by pointers to the in-order predecessor or successor.</li>
+        <li><strong>Benefits:</strong>
+          <ul>
+            <li>Allows for faster in-order traversal.</li>
+            <li>Reduces the space used for null pointers.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide6" class="slide-content">
+      <h2>B-Tree</h2>
+      <ul>
+        <li><strong>Definition:</strong> A B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.</li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>Nodes can have multiple children.</li>
+            <li>All leaf nodes are at the same level.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content question-section">
+    <h2>Test Your Understanding</h2>
+    <p>What is the maximum number of children a binary tree node can have?</p>
+    <input type="text" id="answer" placeholder="Your Answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active'));
+      document.getElementById(slideId).classList.add('active');
+    }
+
+    function checkAnswer() {
+      const answer = document.getElementById('answer').value.trim();
+      const result = document.getElementById('result');
+      if (answer === '2') {
+        result.textContent = 'Correct! A binary tree node can have a maximum of 2 children.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect! Try again.';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>

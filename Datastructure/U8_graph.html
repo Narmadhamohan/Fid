@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Presentation on Graphs</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    header {
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #4a90e2;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .menu-item {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 15px;
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .menu-item h3 {
+      padding: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: white;
+      text-align: left; /* Left-align the content */
+      border-radius: 10px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .content img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Interactive Presentation on Graphs</h1>
+  <p>Select a slide below to explore the content</p>
+</header>
+
+<nav>
+  <a href="#" onclick="showContent('slide1')">Introduction to Graphs</a>
+  <a href="#" onclick="showContent('slide2')">Graph Traversals & Kruskal's Algorithm</a>
+  <a href="#" onclick="showContent('slide3')">Shortest Path Algorithm</a>
+  <a href="#" onclick="showContent('slide4')">Implementation of Graphs</a>
+</nav>
+
+<!-- Menu with Slide Thumbnails -->
+<div class="menu-container">
+  <div class="menu-item" onclick="showContent('slide1')">
+    <img src="https://via.placeholder.com/200x150.png?text=Introduction+to+Graphs" alt="Introduction to Graphs">
+    <h3>Introduction to Graphs</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide2')">
+    <img src="https://via.placeholder.com/200x150.png?text=Graph+Traversals" alt="Graph Traversals">
+    <h3>Graph Traversals & Kruskal's Algorithm</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide3')">
+    <img src="https://via.placeholder.com/200x150.png?text=Shortest+Path" alt="Shortest Path Algorithm">
+    <h3>Shortest Path Algorithm</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide4')">
+    <img src="https://via.placeholder.com/200x150.png?text=Implementation+of+Graphs" alt="Implementation of Graphs">
+    <h3>Implementation of Graphs</h3>
+  </div>
+</div>
+
+<!-- Slide Content -->
+<div class="content" id="slide1">
+  <h2>Introduction to Graphs</h2>
+  <p>A graph is a collection of nodes (vertices) connected by edges. There are two main types of graphs:</p>
+  <ul>
+    <li><strong>Directed Graph:</strong> Edges have a direction.</li>
+    <li><strong>Undirected Graph:</strong> Edges have no direction.</li>
+  </ul>
+  <p><strong>Example:</strong> A simple graph with vertices A, B, C, and edges AB, AC.</p>
+</div>
+
+<div class="content" id="slide2">
+  <h2>Graph Traversals & Kruskal's Algorithm</h2>
+  <p>Graph traversals are methods to visit all vertices in a graph:</p>
+  <ul>
+    <li><strong>Breadth-First Search (BFS):</strong> Visits all neighbors before moving to the next level.</li>
+    <li><strong>Depth-First Search (DFS):</strong> Visits as far as possible down one branch before backtracking.</li>
+  </ul>
+  <p><strong>Kruskal's Algorithm:</strong> Used to find the Minimum Spanning Tree (MST) of a graph.</p>
+  <p><strong>Rules:</strong></p>
+  <ul>
+    <li>Sort all edges in non-decreasing order of their weights.</li>
+    <li>Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far.</li>
+    <li>If it doesn't form a cycle, include this edge in the MST.</li>
+    <li>Repeat until there are (V - 1) edges in the MST (where V is the number of vertices).</li>
+  </ul>
+  <p><strong>Example:</strong> Given edges with weights, find the MST.</p>
+  <p><strong>Input:</strong> Edges (A-B, 1), (A-C, 3), (B-C, 2)</p>
+  <p><strong>Output:</strong> Minimum Spanning Tree includes edges A-B, B-C.</p>
+</div>
+
+<div class="content" id="slide3">
+  <h2>Shortest Path Algorithm</h2>
+  <p><strong>Dijkstra's Algorithm:</strong> Finds the shortest path from a starting vertex to all other vertices.</p>
+  <p><strong>Rules:</strong></p>
+  <ul>
+    <li>Initialize distances from the source to all vertices as infinity, except the source itself (which is 0).</li>
+    <li>Use a priority queue to repeatedly select the vertex with the smallest distance.</li>
+    <li>Update the distances to neighboring vertices if a shorter path is found.</li>
+  </ul>
+  <p><strong>Example:</strong> Given a weighted graph, calculate the shortest path.</p>
+  <p><strong>Input:</strong> Graph with vertices A, B, C and edges A-B (1), A-C (4), B-C (2)</p>
+  <p><strong>Output:</strong> Shortest path from A to C is A-B-C with a distance of 3.</p>
+</div>
+
+<div class="content" id="slide4">
+  <h2>Implementation of Graphs</h2>
+  <p><strong>Graph Representation:</strong></p>
+  <ul>
+    <li><strong>Adjacency Matrix:</strong> A 2D array where each cell (i, j) indicates if there is an edge from vertex i to vertex j.</li>
+    <li><strong>Adjacency List:</strong> A list of lists where each list corresponds to a vertex and contains a list of its adjacent vertices.</li>
+  </ul>
+  <p><strong>Example:</strong> Represent a graph using an adjacency list.</p>
+  <p><strong>Input:</strong> Vertices A, B, C with edges A-B, A-C.</p>
+  <p><strong>Output:</strong> Adjacency List: A -> [B, C], B -> [A], C -> [A].</p>
+</div>
+
+<script>
+  function showContent(slideId) {
+    const contents = document.querySelectorAll('.content');
+    contents.forEach(content => content.classList.remove('active')); // Hide all content
+
+    const selectedContent = document.getElementById(slideId);
+    selectedContent.classList.add('active'); // Show selected slide content
+  }
+</script>
+
+</body>
+</html>

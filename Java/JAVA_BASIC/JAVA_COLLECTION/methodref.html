@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Java Method Reference and Lambda Expressions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+        }
+        .topic {
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #fffa90;
+            padding: 15px;
+            border: 1px solid #f5e575;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .topic:hover {
+            background-color: #f1f1f1;
+        }
+        .note {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: 1px solid #f5e575;
+            width: 100%;
+            background-color: #f9f9f9;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Method Reference Section -->
+    <div class="topic" onclick="toggleNote('note1')">Method Reference</div>
+    <div id="note1" class="note">
+        <h3>Method Reference in Java</h3>
+        <p>Method reference is a shorthand notation of a lambda expression to call a method directly by referring to it with a double colon <code>::</code> syntax.</p>
+        <p>Types of method references:</p>
+        <ul>
+            <li><strong>Reference to a static method:</strong> <code>ClassName::staticMethodName</code></li>
+            <li><strong>Reference to an instance method of a particular object:</strong> <code>object::instanceMethodName</code></li>
+            <li><strong>Reference to an instance method of an arbitrary object of a particular type:</strong> <code>ClassName::instanceMethodName</code></li>
+            <li><strong>Reference to a constructor:</strong> <code>ClassName::new</code></li>
+        </ul>
+        <strong>Example:</strong>
+        <pre><code>
+// Static method reference
+class MethodReferenceExample {
+    public static void main(String[] args) {
+        // Lambda expression
+        Runnable r1 = () -> MethodReferenceExample.sayHello();
+        
+        // Method reference
+        Runnable r2 = MethodReferenceExample::sayHello;
+
+        r1.run();
+        r2.run();
+    }
+
+    public static void sayHello() {
+        System.out.println("Hello from method reference!");
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- When to Choose Lambda or Method Reference -->
+    <div class="topic" onclick="toggleNote('note2')">Lambda vs Method Reference</div>
+    <div id="note2" class="note">
+        <h3>When to Choose Lambda vs Method Reference</h3>
+        <p>In Java, both Lambda expressions and Method references are ways to simplify code, but choosing between the two depends on the specific situation:</p>
+
+        <ul>
+            <li><strong>Use Lambda Expression when:</strong></li>
+            <ul>
+                <li>You need to perform custom logic inside the lambda.</li>
+                <li>The logic involves more than just invoking a method. For example, you may need to combine multiple actions inside the lambda.</li>
+                <li>It improves readability, especially for inline or short functions.</li>
+            </ul>
+
+            <li><strong>Use Method Reference when:</strong></li>
+            <ul>
+                <li>The lambda expression is simply calling an existing method.</li>
+                <li>It makes the code cleaner and more concise because the method reference eliminates boilerplate code.</li>
+                <li>You are dealing with a static method, instance method, or constructor, and want a quick reference.</li>
+            </ul>
+
+        </ul>
+
+        <strong>Example:</strong>
+        <ul>
+            <li>Using Lambda:</li>
+            <pre><code>
+List<String> names = Arrays.asList("John", "Jane", "Doe");
+names.forEach(name -> System.out.println(name)); // Lambda Expression
+            </code></pre>
+
+            <li>Using Method Reference:</li>
+            <pre><code>
+names.forEach(System.out::println); // Method Reference
+            </code></pre>
+
+            <li>Example of a Lambda involving multiple actions:</li>
+            <pre><code>
+List<String> names = Arrays.asList("John", "Jane", "Doe");
+
+names.forEach(name -> {
+    System.out.println("Processing: " + name);
+    String uppercaseName = name.toUpperCase();
+    System.out.println("Uppercased: " + uppercaseName);
+    // More logic can go here
+});
+            </code></pre>
+            <p><strong>Explanation:</strong> In this case, the lambda expression is preferred because it allows us to do multiple things such as printing, modifying the name, and any other logic. A method reference is less suitable here because it can only refer to a single method, not multiple actions or steps.</p>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function toggleNote(noteId) {
+        const note = document.getElementById(noteId);
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

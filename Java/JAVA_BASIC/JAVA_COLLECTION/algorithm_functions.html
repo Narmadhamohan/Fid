@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions and Arrays - Interactive Learning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+        }
+        .topic {
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #d1e7dd;
+            padding: 15px;
+            border: 1px solid #badbcc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .topic:hover {
+            background-color: #c3e6cb;
+        }
+        .note {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: 1px solid #badbcc;
+            width: 100%;
+            background-color: #f1f1f1;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Introduction to Functions Section -->
+    <div class="topic" onclick="toggleNote('note1')">Introduction to Functions</div>
+    <div id="note1" class="note">
+        <h3>What is a Function?</h3>
+        <p>A function is a block of code designed to perform a particular task. Functions help in code reusability and modular programming.</p>
+        <ul>
+            <li>Functions can take inputs (called parameters) and can return outputs (results).</li>
+            <li>Functions allow breaking down complex problems into smaller, manageable parts.</li>
+            <li>Java provides predefined functions like <code>System.out.println()</code>, or users can define their own functions.</li>
+        </ul>
+    </div>
+
+    <!-- Predefined and User-Defined Functions Section -->
+    <div class="topic" onclick="toggleNote('note2')">Predefined and User Defined Functions</div>
+    <div id="note2" class="note">
+        <h3>Predefined Functions</h3>
+        <p>Predefined functions are built into Java, such as <code>Math.sqrt()</code>, <code>System.out.println()</code>.</p>
+        <h3>User Defined Functions</h3>
+        <p>Functions created by the programmer are called user-defined functions. They are declared using the <code>void</code> or return type, followed by the function name and parameters.</p>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class Calculator {
+    // Predefined function: Math.sqrt()
+    public void calculateSquareRoot(int number) {
+        double result = Math.sqrt(number);
+        System.out.println("Square Root: " + result);
+    }
+    
+    // User-defined function
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Function Parameters and Function Call Section -->
+    <div class="topic" onclick="toggleNote('note3')">Function Parameters and Function Call</div>
+    <div id="note3" class="note">
+        <h3>Function Parameters and Function Call</h3>
+        <ul>
+            <li><strong>Parameters:</strong> Functions can accept inputs called parameters. For example, <code>int a</code> and <code>int b</code> are parameters.</li>
+            <li><strong>Function Call:</strong> Functions are called by their name, followed by parentheses. Example: <code>add(10, 20);</code></li>
+        </ul>
+        <pre><code>
+public class FunctionExample {
+    // Function with parameters
+    public void greet(String name) {
+        System.out.println("Hello, " + name);
+    }
+
+    public static void main(String[] args) {
+        FunctionExample example = new FunctionExample();
+        example.greet("John"); // Function call with argument
+    }
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+    function toggleNote(noteId) {
+        const note = document.getElementById(noteId);
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+
+IF “1”
+   print response
+       “I AM CASE 1”
+
+
+IF “2”
+   print response
+       “I AM CASE 2”

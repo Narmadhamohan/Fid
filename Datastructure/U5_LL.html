@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Structures: Queues and Linked Lists</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+
+    .question-section {
+      margin-top: 20px;
+    }
+
+    .question-section input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    .question-section button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Data Structures: Queues and Linked Lists</h1>
+    <p>Understanding key concepts and formulas</p>
+  </header>
+
+  <!-- Navigation for slides -->
+  <nav>
+    <a href="#" onclick="showContent('slide1')">Introduction to Circular Queue</a>
+    <a href="#" onclick="showContent('slide2')">Calculating Circular Queue Formula</a>
+    <a href="#" onclick="showContent('slide3')">Introduction to Linked List</a>
+    <a href="#" onclick="showContent('slide4')">Operations on Linked Lists</a>
+    <a href="#" onclick="showContent('slide5')">Singly Linked List Operations</a>
+    <a href="#" onclick="showContent('slide6')">Doubly Linked Lists & Circular Lists</a>
+    <a href="#" onclick="showContent('slide7')">Operations of Linked List using Stacks</a>
+    <a href="#" onclick="showContent('slide8')">Operations of Linked List using Queues</a>
+  </nav>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content active">
+      <h2>Introduction to Circular Queue</h2>
+      <ul>
+        <li><strong>Definition:</strong> A circular queue is a linear data structure that connects the last position back to the first position.</li>
+        <li><strong>Advantage:</strong> Efficiently utilizes space by allowing reuse of empty slots.</li>
+        <li><strong>Key Operations:</strong>
+          <ul>
+            <li><strong>Enqueue:</strong> Add an element to the rear.</li>
+            <li><strong>Dequeue:</strong> Remove an element from the front.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Calculating Circular Queue Formula</h2>
+      <h3>Formula Derivation:</h3>
+      <p>To keep track of the front and rear positions in a circular queue, we use modular arithmetic.</p>
+      <h3>Key Variables:</h3>
+      <ul>
+        <li><strong>Front:</strong> Points to the front element.</li>
+        <li><strong>Rear:</strong> Points to the last element.</li>
+        <li><strong>Size:</strong> Total number of elements currently in the queue.</li>
+        <li><strong>Capacity:</strong> Maximum number of elements the queue can hold.</li>
+      </ul>
+      <h3>Enqueue Operation:</h3>
+      <p>When adding an element, the formula used is:</p>
+      <code>rear = (rear + 1) % capacity</code>
+      <h3>Dequeue Operation:</h3>
+      <p>When removing an element, the formula used is:</p>
+      <code>front = (front + 1) % capacity</code>
+      <h3>Time Complexity:</h3>
+      <ul>
+        <li><strong>Enqueue:</strong> O(1)</li>
+        <li><strong>Dequeue:</strong> O(1)</li>
+      </ul>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Introduction to Linked List</h2>
+      <ul>
+        <li><strong>Definition:</strong> A linked list is a linear data structure consisting of a sequence of elements where each element points to the next.</li>
+        <li><strong>Components:</strong> Nodes, which contain data and a reference to the next node.</li>
+        <li><strong>Types:</strong>
+          <ul>
+            <li>Singly Linked List</li>
+            <li>Doubly Linked List</li>
+            <li>Circular Linked List</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Operations on Linked Lists</h2>
+      <ul>
+        <li><strong>Insertion:</strong> Adding a new node.</li>
+        <li><strong>Deletion:</strong> Removing a node.</li>
+        <li><strong>Traversal:</strong> Accessing each node to read data.</li>
+        <li><strong>Search:</strong> Finding a node by its value.</li>
+      </ul>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Singly Linked List Operations</h2>
+      <ul>
+        <li><strong>Insertion at Head:</strong> O(1)</li>
+        <li><strong>Insertion at Tail:</strong> O(n)</li>
+        <li><strong>Deletion:</strong> O(n)</li>
+        <li><strong>Traversal:</strong> O(n)</li>
+      </ul>
+    </div>
+
+    <div id="slide6" class="slide-content">
+      <h2>Doubly Linked Lists & Circular Lists</h2>
+      <ul>
+        <li><strong>Doubly Linked List:</strong> Each node points to both the next and previous nodes.</li>
+        <li><strong>Circular Linked List:</strong> Last node points back to the first node.</li>
+        <li><strong>Advantages:</strong> Efficient bidirectional traversal and easier deletion.</li>
+      </ul>
+    </div>
+
+    <div id="slide7" class="slide-content">
+      <h2>Operations of Linked List using Stacks</h2>
+      <ul>
+        <li><strong>Push:</strong> Add a node to the top of the stack.</li>
+        <li><strong>Pop:</strong> Remove the top node and return its value.</li>
+        <li><strong>Peek:</strong> View the top node without removing it.</li>
+      </ul>
+    </div>
+
+    <div id="slide8" class="slide-content">
+      <h2>Operations of Linked List using Queues</h2>
+      <ul>
+        <li><strong>Enqueue:</strong> Add a node to the end of the queue.</li>
+        <li><strong>Dequeue:</strong> Remove the node from the front of the queue.</li>
+        <li><strong>Peek:</strong> View the front node without removing it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content question-section">
+    <h2>Test Your Understanding</h2>
+    <p>What is the formula used to update the rear position in a circular queue?</p>
+    <input type="text" id="answer" placeholder="Your Answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active'));
+      document.getElementById(slideId).classList.add('active');
+    }
+
+    function checkAnswer() {
+      const answer = document.getElementById('answer').value.trim();
+      const result = document.getElementById('result');
+      if (answer === 'rear = (rear + 1) % capacity') {
+        result.textContent = 'Correct! The formula for updating the rear is rear = (rear + 1) % capacity.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect! Try again.';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>

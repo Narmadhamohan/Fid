@@ -1,0 +1,76 @@
+Depth-First Search (DFS)
+Step 1: Start at the root node (or starting node), mark it as visited, and process it (e.g., print it).
+Here’s how you would do it for DFS:
+
+java
+Copy code
+Set<Integer> visited = new HashSet<>();
+
+public void dfs(int currentNode) {
+    visited.add(currentNode);    // Mark the node as visited
+    System.out.print(currentNode + " ");  // Process the node (print it)
+}
+***************************************************
+
+Step 2:
+Check all the neighbors (adjacent nodes) of the current node. 
+For each neighbor that hasn't been visited yet, call the DFS function recursively on that neighbor.
+
+Here’s the code for this step:
+
+java
+Copy code
+for (int neighbor : adjList.getOrDefault(currentNode, new ArrayList<>())) {
+    if (!visited.contains(neighbor)) {
+        dfs(neighbor);  // Call DFS on the unvisited neighbor
+    }
+}
+This will explore deeper into the graph by moving to the unvisited neighbors.
+ Let me know when you’re ready to proceed!
+*************
+Example:
+
+0->1 and 0 -> 2
+
+So, in our example:
+
+For node 0, the neighbors are 1 and 2.
+For node 1, the neighbors are 3 and 4.
+For node 2, the neighbor is 5.
+The difference lies in how you explore those neighbors:
+
+BFS explores all neighbors of the current node at the current depth before moving deeper.
+DFS goes deep into one neighbor before backtracking to explore others.
+Let me know when you're ready to continue with the next step for DFS!
+
+
+************************
+
+
+Step 3:
+Repeat the process: After checking all neighbors of the current node and calling DFS on each unvisited neighbor, the recursion will backtrack once all neighbors have been explored. This continues until all reachable nodes are visited.
+
+The full DFS method looks like this:
+
+java
+Copy code
+public void dfs(int currentNode) {
+    visited.add(currentNode);    // Mark the node as visited
+    System.out.print(currentNode + " ");  // Process the node (print it)
+
+    // Check neighbors and call DFS on unvisited ones
+    for (int neighbor : adjList.getOrDefault(currentNode, new ArrayList<>())) {
+        if (!visited.contains(neighbor)) {
+            dfs(neighbor);  // Call DFS on the unvisited neighbor
+        }
+    }
+}
+Main Method:
+You would call the DFS method starting from the initial node (for example, 0):
+
+java
+Copy code
+Set<Integer> visited = new HashSet<>();
+System.out.print("DFS traversal starting from node 0: ");
+dfs(0);  // Start DFS from node 0
+This will explore the graph depth-wise until all reachable nodes are visited.

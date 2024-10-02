@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Time Complexity is O(n^2) for Selection Sort</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 1.1em;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .important {
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .formula {
+            background-color: #f4f4f4;
+            border-left: 4px solid #00f;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Why Time Complexity is O(n<sup>2</sup>) for Selection Sort</h1>
+
+    <h2>How Selection Sort Works</h2>
+    <p>The algorithm repeatedly selects the smallest (or largest) element from the unsorted part of the array and swaps it with the first unsorted element. After each iteration, the sorted part of the array grows by one element, and the unsorted part shrinks.</p>
+
+    <h3>Example of Selection Sort</h3>
+    <p>Consider sorting this array: <code>[5, 3, 8, 4, 2]</code></p>
+    <ul>
+        <li>First Pass: Find the minimum in <code>[5, 3, 8, 4, 2]</code> (min = 2) and swap with 5. Array becomes: <code>[2, 3, 8, 4, 5]</code></li>
+        <li>Second Pass: Find the minimum in <code>[3, 8, 4, 5]</code> (min = 3). No swap needed. Array remains: <code>[2, 3, 8, 4, 5]</code></li>
+        <li>Third Pass: Find the minimum in <code>[8, 4, 5]</code> (min = 4) and swap with 8. Array becomes: <code>[2, 3, 4, 8, 5]</code></li>
+        <li>Fourth Pass: Find the minimum in <code>[8, 5]</code> (min = 5) and swap with 8. Array becomes: <code>[2, 3, 4, 5, 8]</code></li>
+        <li>Fifth Pass: Only one element left, so the array is now sorted.</li>
+    </ul>
+
+    <h2>Why Time Complexity is O(n<sup>2</sup>)</h2>
+    <p>Let's analyze how many comparisons are made at each step.</p>
+
+    <h3>Number of Comparisons per Pass:</h3>
+    <ul>
+        <li>In the first pass, the algorithm looks at <code>n</code> elements.</li>
+        <li>In the second pass, it looks at <code>n - 1</code> elements.</li>
+        <li>This continues until the last pass where it looks at just <code>1</code> element.</li>
+    </ul>
+
+    <p>The total number of comparisons is:</p>
+    <div class="formula">
+        <code>(n) + (n - 1) + (n - 2) + ... + 1 = n(n - 1)/2</code>
+    </div>
+    <p>This simplifies to <code>O(n<sup>2</sup>)</code> because the highest-order term is <code>n<sup>2</sup></code>, and constants are ignored in Big-O notation.</p>
+
+    <h2>Key Points:</h2>
+    <ul>
+        <li><span class="important">Best Case:</span> Even if the array is already sorted, Selection Sort still has to scan the entire unsorted part to find the minimum in each pass, resulting in <code>O(n<sup>2</sup>)</code> comparisons.</li>
+        <li><span class="important">Worst Case:</span> If the array is completely unsorted, the same number of comparisons occur, as Selection Sort doesn’t benefit from any pre-existing order.</li>
+    </ul>
+
+    <h3>Number of Swaps</h3>
+    <p>The number of swaps is always <code>O(n)</code>, as the algorithm swaps at most one element per pass. However, since comparisons dominate the time complexity, the overall time complexity remains <code>O(n<sup>2</sup>)</code>.</p>
+
+</body>
+</html>

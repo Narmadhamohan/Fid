@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Web Pages</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4a90e2;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: white;
+            text-align: left;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            color: #4a90e2;
+        }
+
+        pre {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .business-case {
+            background-color: #eaf5ff;
+            border-left: 4px solid #4a90e2;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Intro to Web Pages</h1>
+    <p>A Comprehensive Guide for Students</p>
+</header>
+
+<nav>
+    <a href="#intro">Introduction</a>
+    <a href="#basics">Basics of HTML</a>
+    <a href="#tables">Tables</a>
+    <a href="#images">Images</a>
+    <a href="#css">CSS Basics</a>
+</nav>
+
+<div class="content" id="intro">
+    <h2>Introduction to Web Pages</h2>
+    <p>Web pages are the fundamental building blocks of the internet. They are documents that can be displayed in a web browser and are written using HTML (HyperText Markup Language).</p>
+</div>
+
+<div class="content" id="basics">
+    <h2>Basics of HTML</h2>
+    <h3>Elements and Tags</h3>
+    <ul>
+        <li>HTML documents are made up of <strong>elements</strong> defined by <strong>tags</strong>.</li>
+        <li>Common tags include:
+            <ul>
+                <li>&lt;html&gt; - The root element</li>
+                <li>&lt;head&gt; - Contains meta-information</li>
+                <li>&lt;body&gt; - Contains the content of the document</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Structure of an HTML Document</h3>
+    <pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Title</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>This is my first web page.</p>
+</body>
+</html>
+    </pre>
+
+    <h3>HTML5 Features</h3>
+    <ul>
+        <li>New semantic elements: &lt;header&gt;, &lt;footer&gt;, &lt;article&gt;, &lt;section&gt;</li>
+        <li>Improved support for multimedia: Audio and Video elements</li>
+        <li>Canvas for graphics and animation</li>
+    </ul>
+
+    <div class="business-case">
+        <h3>Business Case Scenario</h3>
+        <p>Imagine a local bakery wants to create a simple website to showcase their products. They will use HTML to create pages with headings, paragraphs, and images to attract customers.</p>
+    </div>
+</div>
+
+<div class="content" id="tables">
+    <h2>HTML Tables</h2>
+    <h3>Creating Tables</h3>
+    <ul>
+        <li>Tables are created using the &lt;table&gt; tag.</li>
+        <li>Use &lt;tr&gt; for table rows, &lt;td&gt; for table data (cells).</li>
+    </ul>
+    <pre>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td>Jane</td>
+        <td>30</td>
+    </tr>
+</table>
+    </pre>
+    <h3>Table Attributes</h3>
+    <ul>
+        <li><strong>Cellpadding:</strong> Space between cell content and cell border</li>
+        <li><strong>Cellspacing:</strong> Space between cells</li>
+        <li><strong>Border:</strong> Width of the table border</li>
+        <li><strong>Rowspan:</strong> Merges cells vertically</li>
+        <li><strong>Colspan:</strong> Merges cells horizontally</li>
+    </ul>
+</div>
+
+<div class="content" id="images">
+    <h2>Images in HTML</h2>
+    <h3>Inserting Images</h3>
+    <ul>
+        <li>Use the &lt;img&gt; tag with <strong>src</strong>, <strong>height</strong>, and <strong>width</strong> attributes.</li>
+    </ul>
+    <pre>
+<img src="path/to/image.jpg" alt="Description of image" height="200" width="300">
+    </pre>
+    <h3>Anchor Elements</h3>
+    <ul>
+        <li>The &lt;a&gt; tag is used to create hyperlinks.</li>
+    </ul>
+    <pre>
+<a href="https://www.example.com">Visit Example</a>
+    </pre>
+
+    <h3>Audio and Video Elements</h3>
+    <ul>
+        <li>Use the &lt;audio&gt; tag to embed sound.</li>
+        <li>Use the &lt;video&gt; tag to embed videos.</li>
+    </ul>
+    <pre>
+<audio controls>
+    <source src="audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    </pre>
+</div>
+
+<div class="content" id="css">
+    <h2>Basics of CSS</h2>
+    <h3>What is CSS?</h3>
+    <p>Cascading Style Sheets (CSS) is used to style HTML documents.</p>
+    
+    <h3>Types of CSS</h3>
+    <ul>
+        <li><strong>Inline CSS:</strong> Directly within HTML tags.</li>
+        <li><strong>Internal CSS:</strong> Inside &lt;style&gt; tags in the &lt;head&gt; section.</li>
+        <li><strong>External CSS:</strong> In a separate .css file linked to HTML.</li>
+    </ul>
+
+    <h3>CSS Selectors</h3>
+    <ul>
+        <li><strong>Element Selector:</strong> Selects elements by their tag name.</li>
+        <li><strong>Class Selector:</strong> Selects elements with a specific class.</li>
+        <li><strong>ID Selector:</strong> Selects a unique element with a specific ID.</li>
+    </ul>
+    
+    <h3>Common CSS Properties</h3>
+    <ul>
+        <li><strong>Text:</strong> color, font-size, text-align</li>
+        <li><strong>Border:</strong> border-style, border-width</li>
+        <li><strong>Table:</strong> border-collapse, border-spacing</li>
+        <li><strong>Image:</strong> width, height, object-fit</li>
+        <li><strong>Padding:</strong> padding-top, padding-bottom</li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Types of Trees with Proofs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+
+    .example-section, .proof-section {
+      margin-top: 20px;
+    }
+
+    .question-section {
+      margin-top: 20px;
+    }
+
+    .question-section input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    .question-section button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .example-section input {
+      margin: 5px;
+      padding: 5px;
+    }
+
+    /* Tree Styles */
+    .tree {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .node {
+      background-color: #e5f3ff;
+      border: 2px solid #0072ff;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    .dotted-line {
+      position: absolute;
+      border-left: 2px dotted #0072ff;
+      height: 50px;
+      top: 100%;
+    }
+
+    .arrow {
+      position: absolute;
+      border-top: 2px solid #0072ff;
+      width: 0;
+      height: 0;
+      left: 50%;
+      top: 100%;
+      margin-left: -5px;
+      transform: translateX(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #0072ff;
+    }
+
+    .line-2 {
+      left: 25%;
+    }
+
+    .line-3 {
+      left: 75%;
+    }
+
+    .line-4 {
+      left: 12.5%;
+    }
+
+    .line-5 {
+      left: 37.5%;
+    }
+
+    .line-6 {
+      left: 62.5%;
+    }
+
+    .line-7 {
+      left: 87.5%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Types of Trees with Proofs</h1>
+    <p>Understanding different types of binary trees with examples and proofs</p>
+  </header>
+
+  <!-- Navigation for slides -->
+  <nav>
+    <a href="#" onclick="showContent('slide1')">Full Binary Tree</a>
+    <a href="#" onclick="showContent('slide2')">Perfect Binary Tree</a>
+    <a href="#" onclick="showContent('slide3')">Balanced Binary Tree</a>
+  </nav>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content active">
+      <h2>Full Binary Tree</h2>
+      <ul>
+        <li><strong>Definition:</strong> A full binary tree is a binary tree in which every node other than the leaves has exactly two children.</li>
+        <li><strong>Characteristics:</strong>
+          <ul>
+            <li>All leaf nodes are at the same level.</li>
+            <li>The number of leaf nodes is always one more than the number of internal nodes.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Formula:</strong> If 'n' is the number of internal nodes, the total number of nodes (N) can be calculated as:</p>
+      <p><strong>N = 2n + 1</strong></p>
+
+      <div class="proof-section">
+        <h3>Proof:</h3>
+        <p>Let's consider a Full Binary Tree with 'n' internal nodes:</p>
+        <div class="tree">
+          <div class="node">1</div>
+          <div class="dotted-line" style="left: 40%;"></div>
+          <div class="arrow" style="left: 50%;"></div>
+        </div>
+        <div class="tree">
+          <div class="node">2</div>
+          <div class="dotted-line line-2"></div>
+          <div class="arrow line-2"></div>
+          <div class="node">3</div>
+          <div class="dotted-line line-3"></div>
+          <div class="arrow line-3"></div>
+        </div>
+        <div class="tree">
+          <div class="node">4</div>
+          <div class="dotted-line line-4"></div>
+          <div class="arrow line-4"></div>
+          <div class="node">5</div>
+          <div class="dotted-line line-5"></div>
+          <div class="arrow line-5"></div>
+          <div class="node">6</div>
+          <div class="dotted-line line-6"></div>
+          <div class="arrow line-6"></div>
+          <div class="node">7</div>
+          <div class="dotted-line line-7"></div>
+          <div class="arrow line-7"></div>
+        </div>
+        <p>In the tree above, we can see:</p>
+        <ul>
+          <li>Each internal node contributes exactly two children.</li>
+          <li>Therefore, the number of leaf nodes = (n + 1).</li>
+          <li>Total nodes = Leaf nodes + Internal nodes = (n + 1) + n = 2n + 1.</li>
+        </ul>
+      </div>
+
+      <div class="example-section">
+        <h3>Example:</h3>
+        <p>If there are <strong>3 internal nodes</strong>, what is the total number of nodes?</p>
+        <input type="number" id="fullBinaryInput" placeholder="Enter internal nodes" />
+        <button onclick="calculateFullBinary()">Calculate</button>
+        <div id="fullBinaryResult" class="result"></div>
+      </div>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Perfect Binary Tree</h2>
+      <ul>
+        <li><strong>Definition:</strong> A perfect binary tree is a binary tree in which all interior nodes have two children and all leaves are at the same level.</li>
+        <li><strong>Characteristics:</strong>
+          <ul>
+            <li>Height of the tree is minimal.</li>
+            <li>All nodes at the last level are filled.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Formula:</strong> The number of nodes (N) in a perfect binary tree of height 'h' can be calculated as:</p>
+      <p><strong>N = 2<sup>h+1</sup> - 1</strong></p>
+
+      <div class="proof-section">
+        <h3>Proof:</h3>
+        <p>Let's consider a Perfect Binary Tree with height 'h':</p>
+        <div class="tree">
+          <div class="node">1</div>
+          <div class="dotted-line" style="left: 40%;"></div>
+          <div class="arrow" style="left: 50%;"></div>
+        </div>
+        <div class="tree">
+          <div class="node">2</div>
+          <div class="dotted-line line-2"></div>
+          <div class="arrow line-2"></div>
+          <div class="node">3</div>
+          <div class="dotted-line line-3"></div>
+          <div class="arrow line-3"></div>
+        </div>
+        <div class="tree">
+          <div class="node">4</div>
+          <div class="dotted-line line-4"></div>
+          <div class="arrow line-4"></div>
+          <div class="node">5</div>
+          <div class="dotted-line line-5"></div>
+          <div class="arrow line-5"></div>
+          <div class="node">6</div>
+          <div class="dotted-line line-6"></div>
+          <div class="arrow line-6"></div>
+          <div class="node">7</div>
+          <div class="dotted-line line-7"></div>
+          <div class="arrow line-7"></div>
+        </div>
+        <p>For a perfect binary tree of height 'h', each level has:</p>
+        <ul>
+          <li>Level 0: 1 node</li>
+          <li>Level 1: 2 nodes</li>
+          <li>Level 2: 4 nodes</li>
+          <li>Level h: 2<sup>h</sup> nodes</li>
+        </ul>
+        <p>Thus, the total number of nodes is:</p>
+        <p><strong>N = 1 + 2 + 4 + ... + 2<sup>h</sup> = 2<sup>h+1</sup> - 1</strong></p>
+      </div>
+
+      <div class="example-section">
+        <h3>Example:</h3>
+        <p>If the height of the tree is <strong>3</strong>, what is the total number of nodes?</p>
+        <input type="number" id="perfectBinaryInput" placeholder="Enter height" />
+        <button onclick="calculatePerfectBinary()">Calculate</button>
+        <div id="perfectBinaryResult" class="result"></div>
+      </div>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Balanced Binary Tree</h2>
+      <ul>
+        <li><strong>Definition:</strong> A balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differ by more than one.</li>
+        <li><strong>Characteristics:</strong>
+          <ul>
+            <li>Height is minimized.</li>
+            <li>Better performance for operations like insertion, deletion, and searching.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Formula:</strong> The maximum height (h) of a balanced binary tree with 'n' nodes can be calculated as:</p>
+      <p><strong>h ≤ log<sub>2</sub>(n + 1)</strong></p>
+
+      <div class="proof-section">
+        <h3>Proof:</h3>
+        <p>For a balanced binary tree, consider:</p>
+        <div class="tree">
+          <div class="node">1</div>
+          <div class="dotted-line" style="left: 40%;"></div>
+          <div class="arrow" style="left: 50%;"></div>
+        </div>
+        <div class="tree">
+          <div class="node">2</div>
+          <div class="dotted-line line-2"></div>
+          <div class="arrow line-2"></div>
+          <div class="node">3</div>
+          <div class="dotted-line line-3"></div>
+          <div class="arrow line-3"></div>
+        </div>
+        <div class="tree">
+          <div class="node">4</div>
+          <div class="dotted-line line-4"></div>
+          <div class="arrow line-4"></div>
+          <div class="node">5</div>
+          <div class="dotted-line line-5"></div>
+          <div class="arrow line-5"></div>
+          <div class="node">6</div>
+          <div class="dotted-line line-6"></div>
+          <div class="arrow line-6"></div>
+          <div class="node">7</div>
+          <div class="dotted-line line-7"></div>
+          <div class="arrow line-7"></div>
+        </div>
+        <p>Each level 'i' can have at most 2<sup>i</sup> nodes:</p>
+        <ul>
+          <li>At height 0: 1 node (2<sup>0</sup>)</li>
+          <li>At height 1: 2 nodes (2<sup>1</sup>)</li>
+          <li>At height 2: 4 nodes (2<sup>2</sup>)</li>
+          <li>At height 3: 8 nodes (2<sup>3</sup>)</li>
+        </ul>
+        <p>Thus, for 'n' nodes, the maximum height is:</p>
+        <p><strong>h ≤ log<sub>2</sub>(n + 1)</strong></p>
+      </div>
+
+      <div class="example-section">
+        <h3>Example:</h3>
+        <p>If there are <strong>15 nodes</strong>, what is the maximum height?</p>
+        <input type="number" id="balancedBinaryInput" placeholder="Enter number of nodes" />
+        <button onclick="calculateBalancedBinary()">Calculate</button>
+        <div id="balancedBinaryResult" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked navigation
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active'));
+      document.getElementById(slideId).classList.add('active');
+    }
+
+    // Calculation Functions
+    function calculateFullBinary() {
+      const input = document.getElementById('fullBinaryInput').value;
+      const internalNodes = parseInt(input);
+      if (!isNaN(internalNodes)) {
+        const totalNodes = 2 * internalNodes + 1;
+        document.getElementById('fullBinaryResult').textContent = `Total nodes: ${totalNodes}`;
+      } else {
+        document.getElementById('fullBinaryResult').textContent = `Please enter a valid number!`;
+      }
+    }
+
+    function calculatePerfectBinary() {
+      const input = document.getElementById('perfectBinaryInput').value;
+      const height = parseInt(input);
+      if (!isNaN(height)) {
+        const totalNodes = Math.pow(2, height + 1) - 1;
+        document.getElementById('perfectBinaryResult').textContent = `Total nodes: ${totalNodes}`;
+      } else {
+        document.getElementById('perfectBinaryResult').textContent = `Please enter a valid number!`;
+      }
+    }
+
+    function calculateBalancedBinary() {
+      const input = document.getElementById('balancedBinaryInput').value;
+      const nodes = parseInt(input);
+      if (!isNaN(nodes)) {
+        const maxHeight = Math.floor(Math.log2(nodes + 1));
+        document.getElementById('balancedBinaryResult').textContent = `Maximum height: ${maxHeight}`;
+      } else {
+        document.getElementById('balancedBinaryResult').textContent = `Please enter a valid number!`;
+      }
+    }
+  </script>
+
+</body>
+</html>

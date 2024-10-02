@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Trainer - Introduction, Variables, and Operators</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+        }
+        .topic {
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #fffa90;
+            padding: 15px;
+            border: 1px solid #f5e575;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .topic:hover {
+            background-color: #f1f1f1;
+        }
+        .note {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: 1px solid #f5e575;
+            width: 100%;
+            background-color: #f9f9f9;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Introduction to Algorithm Section -->
+    <div class="topic" onclick="toggleNote('note1')">Introduction to Algorithm</div>
+    <div id="note1" class="note">
+        <h3>What is an Algorithm?</h3>
+        <p>An algorithm is a step-by-step procedure to solve a problem or perform a task. In computer science, algorithms are a fundamental concept that forms the basis for programming and software development.</p>
+        <ul>
+            <li><strong>Characteristics of an Algorithm:</strong></li>
+            <ul>
+                <li><strong>Finiteness:</strong> The algorithm must terminate after a finite number of steps.</li>
+                <li><strong>Definiteness:</strong> Each step of the algorithm must be precisely defined.</li>
+                <li><strong>Input:</strong> The algorithm receives input data.</li>
+                <li><strong>Output:</strong> The algorithm produces output data.</li>
+                <li><strong>Effectiveness:</strong> The steps should be basic enough to be carried out by a person or a machine.</li>
+            </ul>
+        </ul>
+
+        <strong>Business Case Scenario - Finding the Shortest Route:</strong>
+        <p>Imagine a company wants to optimize delivery routes for its drivers. The goal is to find the shortest route between multiple locations to minimize fuel consumption and time. We can apply a shortest-path algorithm (like Dijkstra’s algorithm) to solve this problem.</p>
+        
+        <strong>Question:</strong> How can algorithms like Dijkstra’s be used to optimize the delivery route?
+        
+        <strong>Answer:</strong>
+        <p>By modeling the delivery locations as nodes and the roads as edges, Dijkstra’s algorithm can calculate the shortest path from the warehouse (starting node) to each delivery location (end node). This minimizes fuel consumption and time, leading to more efficient operations.</p>
+    </div>
+
+    <!-- Flowcharts and Pseudocode Section -->
+    <div class="topic" onclick="toggleNote('note2')">Flowcharts and Pseudocode</div>
+    <div id="note2" class="note">
+        <h3>Flowcharts and Pseudocode</h3>
+        <p><strong>Flowcharts:</strong> A flowchart is a diagram that represents the sequence of steps in an algorithm. It uses standard symbols like rectangles (process), diamonds (decisions), and arrows (flow of control) to illustrate the flow.</p>
+        <p><strong>Pseudocode:</strong> Pseudocode is a high-level description of an algorithm using plain language and structured programming constructs. It helps bridge the gap between an algorithm and actual code by describing the logic without using strict syntax.</p>
+        
+        <strong>Example: Business Profit Calculation Algorithm</strong>
+        <p>We want to calculate the total profit for a business based on revenue and costs.</p>
+        
+        <h4>Pseudocode:</h4>
+        <pre><code>
+// Inputs: revenue, cost
+START
+    READ revenue
+    READ cost
+    profit = revenue - cost
+    IF profit > 0 THEN
+        PRINT "Profit is: " + profit
+    ELSE
+        PRINT "No profit."
+END
+        </code></pre>
+
+        <h4>Flowchart:</h4>
+        <p>(Imagine a flowchart that visualizes the above steps)</p>
+    </div>
+
+    <!-- Variables, Constants, and Datatypes Section -->
+    <div class="topic" onclick="toggleNote('note3')">Variables, Constants and Datatypes</div>
+    <div id="note3" class="note">
+        <h3>Variables, Constants, and Datatypes</h3>
+        <ul>
+            <li><strong>Variables:</strong> A variable is a storage location identified by a name that can hold data that may change during the execution of the program.</li>
+            <li><strong>Constants:</strong> A constant is a value that cannot be changed once defined.</li>
+            <li><strong>Data Types:</strong> Data types define the kind of data a variable can hold, such as integers, floating-point numbers, characters, or booleans.</li>
+        </ul>
+
+        <strong>Business Case Scenario - Inventory Management:</strong>
+        <p>A business needs to track product quantities in a warehouse. It uses variables to store the number of items, and constants to store the maximum storage capacity of the warehouse.</p>
+        
+        <strong>Question:</strong> How would you define the inventory variables and constants in a Java program?
+        
+        <strong>Answer:</strong>
+        <pre><code>
+public class InventoryManagement {
+    // Constant for maximum storage capacity
+    final int MAX_CAPACITY = 1000;
+    
+    // Variable to store the current stock
+    int currentStock;
+
+    public InventoryManagement(int stock) {
+        this.currentStock = stock;
+    }
+
+    public void addStock(int quantity) {
+        if (currentStock + quantity <= MAX_CAPACITY) {
+            currentStock += quantity;
+            System.out.println("Stock updated. Current stock: " + currentStock);
+        } else {
+            System.out.println("Cannot add stock. Exceeds max capacity.");
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Operators and Expressions Section -->
+    <div class="topic" onclick="toggleNote('note4')">Operators and Expressions</div>
+    <div id="note4" class="note">
+        <h3>Operators and Expressions</h3>
+        <ul>
+            <li><strong>Arithmetic Operators:</strong> Used to perform mathematical calculations (+, -, *, /, %).</li>
+            <li><strong>Relational Operators:</strong> Used to compare values (==, !=, >, <, >=, <=).</li>
+            <li><strong>Logical Operators:</strong> Used for logical operations (&&, ||, !).</li>
+        </ul>
+
+        <strong>Business Case Scenario - Employee Salary Calculation:</strong>
+        <p>We need to calculate the total salary of an employee by combining basic salary, bonuses, and deducting taxes.</p>
+        
+        <strong>Question:</strong> How can arithmetic and relational operators be used to calculate the salary?
+        
+        <strong>Answer:</strong>
+        <pre><code>
+public class SalaryCalculator {
+    public static void main(String[] args) {
+        double basicSalary = 50000;
+        double bonus = 5000;
+        double tax = 0.2;  // 20% tax rate
+
+        // Calculate gross salary
+        double grossSalary = basicSalary + bonus;
+        
+        // Calculate net salary after tax
+        double netSalary = grossSalary - (grossSalary * tax);
+        
+        System.out.println("Net Salary: " + netSalary);
+    }
+}
+        </code></pre>
+    </div>
+</div>
+
+<script>
+    function toggleNote(noteId) {
+        const note = document.getElementById(noteId);
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

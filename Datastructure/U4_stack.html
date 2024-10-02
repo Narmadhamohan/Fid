@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Stack in Queue Explained</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+
+    .question-section {
+      margin-top: 20px;
+    }
+
+    .question-section input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    .question-section button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Multiple Stack in Queue Explained</h1>
+    <p>Understanding the concept and the formula derivation</p>
+  </header>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content active">
+      <h2>Multiple Stacks in Queue</h2>
+      <ul>
+        <li><strong>Definition:</strong> Using two stacks to implement a queue.</li>
+        <li><strong>Purpose:</strong> Manage queue operations using stack operations (push and pop).</li>
+        <li><strong>Key Operations:</strong> 
+          <ul>
+            <li><strong>Enqueue:</strong> Push elements onto stack1.</li>
+            <li><strong>Dequeue:</strong> Pop elements from stack2 after transferring from stack1.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>How to Derive the Formula</h2>
+      <p>Using two stacks, <strong>stack1</strong> and <strong>stack2</strong>, we can derive the queue operations.</p>
+      <h3>Enqueue Operation:</h3>
+      <ul>
+        <li>Simply push the element onto <strong>stack1</strong>.</li>
+        <li>Formula: <code>stack1.push(element)</code></li>
+      </ul>
+      
+      <h3>Dequeue Operation:</h3>
+      <ul>
+        <li>If <strong>stack2</strong> is empty, transfer all elements from <strong>stack1</strong> to <strong>stack2</strong> by popping from <strong>stack1</strong> and pushing onto <strong>stack2</strong>.</li>
+        <li>This reverses the order of elements, allowing the first element to be on top of <strong>stack2</strong>.</li>
+        <li>Formula: 
+          <code>
+            while (!stack1.isEmpty()) {<br>
+              stack2.push(stack1.pop());<br>
+            }<br>
+            return stack2.pop();
+          </code>
+        </li>
+      </ul>
+
+      <h3>Time Complexity:</h3>
+      <ul>
+        <li><strong>Enqueue:</strong> O(1) - Push onto stack1.</li>
+        <li><strong>Dequeue:</strong> O(n) - Transfer elements to stack2 if stack2 is empty, then pop from stack2.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content question-section">
+    <h2>Test Your Understanding</h2>
+    <p>What is the primary operation used to transfer elements from stack1 to stack2 during dequeue?</p>
+    <input type="text" id="answer" placeholder="Your Answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById('answer').value.trim().toLowerCase();
+      const result = document.getElementById('result');
+      if (answer === 'pop') {
+        result.textContent = 'Correct! The primary operation is pop, used to transfer elements.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect! Try again.';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>

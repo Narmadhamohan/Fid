@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Arrays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+        }
+        .topic {
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #cce5ff;
+            padding: 15px;
+            border: 1px solid #b8daff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .topic:hover {
+            background-color: #bbe1fa;
+        }
+        .note {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: 1px solid #b8daff;
+            width: 100%;
+            background-color: #f1f1f1;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Introduction to Arrays Section -->
+    <div class="topic" onclick="toggleNote('note1')">Introduction to Arrays</div>
+    <div id="note1" class="note">
+        <h3>What is an Array?</h3>
+        <p>An array is a data structure used to store multiple values of the same type in a single variable.</p>
+        <ul>
+            <li>Arrays can hold primitives and objects in Java.</li>
+            <li>Each item in an array is called an element, and each element is accessed by its index.</li>
+            <li>Arrays have fixed size in Java, meaning their length is defined when created and cannot be changed.</li>
+        </ul>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class ArrayExample {
+    public static void main(String[] args) {
+        // Declaration and initialization of an array
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // Access elements by index
+        System.out.println("First element: " + numbers[0]);
+        System.out.println("Third element: " + numbers[2]);
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Single Dimensional Arrays and Multi-Dimensional Arrays Section -->
+    <div class="topic" onclick="toggleNote('note2')">Single Dimensional Arrays and Multi-Dimensional Arrays</div>
+    <div id="note2" class="note">
+        <h3>Single Dimensional and Multi-Dimensional Arrays</h3>
+        <ul>
+            <li><strong>Single Dimensional Array:</strong> It is a linear array where elements are stored in a single row.</li>
+            <li><strong>Multi-Dimensional Array:</strong> It is an array of arrays, meaning each element is itself an array.</li>
+        </ul>
+        <pre><code>
+public class MultiDimensionalArrayExample {
+    public static void main(String[] args) {
+        // 2D array (multi-dimensional array)
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        // Access elements in 2D array
+        System.out.println("Element at (0,0): " + matrix[0][0]);
+        System.out.println("Element at (2,2): " + matrix[2][2]);
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Matrices Section -->
+    <div class="topic" onclick="toggleNote('note3')">Matrices</div>
+    <div id="note3" class="note">
+        <h3>What is a Matrix?</h3>
+        <p>A matrix is a two-dimensional array, where each element is defined by a pair of indices (row and column).</p>
+        <p>Matrices are used in various mathematical and computational problems like graph representations, image processing, etc.</p>
+    </div>
+</div>
+
+<script>
+    function toggleNote(noteId) {
+        const note = document.getElementById(noteId);
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

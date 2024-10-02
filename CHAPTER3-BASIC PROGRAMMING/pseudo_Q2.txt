@@ -1,0 +1,65 @@
+Question 3) Integer a, p
+                   Set a = 5
+                   a = a + 1
+                   a = a * 2
+                   a = a / 2
+                   p = a / 5 + 6
+                   print p 
+Answer: 7
+
+
+Question 4) Integer a, b, c
+                    Set b = 40, a = 20, c = 20
+                    a = a + c
+                    c = c + a
+                    a = a + c
+                    c = c + a
+                    Print a + b + c 
+Answer: 300
+
+
+Questions 4) What will be the output of the following pseudocode for a = 10, b = 11?
+
+
+                     Integer funn(Integer a, Integer b)
+                     if(0)
+                          return a – b – funn(-7, -1)
+                     End if
+                          a = a + a + a + a
+                     return a
+                     End function funn()
+Answer: 40
+
+
+Question 2) What will be the output of the following pseudocode for p=7, q=2?
+
+
+Integer funn(Integer p, Integer q)
+           if(p + q < 10)
+                 Return 1 + funn(p + 1, q + 1)
+              Else
+                 Return 2
+           End if
+Answer: 3
+
+Question 3) What will be the output of the following pseudocode for a=2, b=7, c=7?
+
+
+      Integer funn(Integer a, Integer b, Integer c)
+      if ((b + a) < (a – b))
+            a = a + c
+            b = (10 + 10) + c
+      End if
+      Return a + b + c
+Answer: 16
+
+Question 4) What will be the output of the following pseudocode? 
+
+
+String str1 = “err”, str2 = “krr”
+Print (count consonant(upper(reverse(str2) + reverse(str1))))
+Answer: 5
+
+
+
+https://www.geeksforgeeks.org/what-is-pseudocode-a-complete-tutorial/?ref=next_article

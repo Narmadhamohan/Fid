@@ -1,0 +1,16 @@
+ bridge between the program and the algorithm or flowchart.
+
+
+Algorithm: It’s an organized logical sequence of the actions or the approach towards a particular problem. 
+A programmer implements an algorithm to solve a problem. 
+Algorithms are expressed using natural verbal but somewhat technical annotations. 
+
+A Pseudocode is defined as a step-by-step description of an algorithm. Pseudocode does not use any programming language in its representation instead it uses the simple English language text as it is intended for human understanding rather than machine reading.
+Pseudocode is the intermediate state between an idea and its implementation(code) in a high-level language.
+
+
+Pseudo code: It’s simply an implementation of an algorithm in the form of annotations 
+and informative text written in plain English. 
+
+
+It has no syntax like any of the programming language and thus can’t be compiled or interpreted by the computer.

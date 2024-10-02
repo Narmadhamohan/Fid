@@ -1,0 +1,28 @@
+Another popular algorithm for finding a Minimum Spanning Tree (MST) is Kruskal's Algorithm. Unlike Prim's algorithm, which builds the MST by adding vertices, Kruskal's algorithm builds the MST by adding edges. It starts with an empty forest and adds edges in increasing order of weight, ensuring no cycles are formed.
+
+Kruskal's Algorithm Overview
+Sort all edges in the graph in non-decreasing order of their weight.
+Initialize an empty MST and a disjoint-set (union-find) data structure to keep track of connected components.
+For each edge, if adding it to the MST does not form a cycle (i.e., the vertices of the edge are in different components), add it to the MST.
+Repeat until there are 
+𝑉−1
+V−1 edges in the MST, where 
+𝑉   V is the number of vertices.
+
+
+
+
+
+// Input: Graph with vertices (0, 1, 2, 3) and edges:
+// (0, 1) weight = 10
+// (0, 2) weight = 6
+// (0, 3) weight = 5
+// (1, 3) weight = 15
+// (2, 3) weight = 4
+
+// Output:
+Edges in the MST:
+2 -- 3 == 4
+0 -- 3 == 5
+0 -- 1 == 10
+Total weight of MST: 19

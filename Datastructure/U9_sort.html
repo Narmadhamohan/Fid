@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Presentation: Searching and Sorting Algorithms</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    header {
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #4a90e2;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .menu-item {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 15px;
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: white;
+      text-align: left;
+      border-radius: 10px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .example {
+      background-color: #f9f9f9;
+      border-left: 4px solid #4a90e2;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Interactive Presentation on Searching and Sorting Algorithms</h1>
+  <p>Select a topic below to explore the content</p>
+</header>
+
+<nav>
+  <a href="#" onclick="showContent('slide1')">Searching Types</a>
+  <a href="#" onclick="showContent('slide2')">Linear and Binary Search</a>
+  <a href="#" onclick="showContent('slide3')">Sorting Algorithms</a>
+  <a href="#" onclick="showContent('slide4')">Hash Functions</a>
+</nav>
+
+<!-- Menu with Slide Thumbnails -->
+<div class="menu-container">
+  <div class="menu-item" onclick="showContent('slide1')">
+    <img src="https://via.placeholder.com/200x150.png?text=Searching+Types" alt="Searching Types">
+    <h3>Searching Types</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide2')">
+    <img src="https://via.placeholder.com/200x150.png?text=Linear+%26+Binary+Search" alt="Linear and Binary Search">
+    <h3>Linear & Binary Search</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide3')">
+    <img src="https://via.placeholder.com/200x150.png?text=Sorting+Algorithms" alt="Sorting Algorithms">
+    <h3>Sorting Algorithms</h3>
+  </div>
+  <div class="menu-item" onclick="showContent('slide4')">
+    <img src="https://via.placeholder.com/200x150.png?text=Hash+Functions" alt="Hash Functions">
+    <h3>Hash Functions</h3>
+  </div>
+</div>
+
+<!-- Slide Content -->
+<div class="content" id="slide1">
+  <h2>Searching Types</h2>
+  <p>Searching algorithms are used to find a specific value within a data structure.</p>
+  <ul>
+    <li><strong>Linear Search:</strong> Sequentially checks each element until the desired element is found.</li>
+    <li><strong>Binary Search:</strong> Efficiently finds an element in a sorted array by repeatedly dividing the search interval in half.</li>
+  </ul>
+</div>
+
+<div class="content" id="slide2">
+  <h2>Linear and Binary Search</h2>
+  <h3>Linear Search</h3>
+  <p>Linear search goes through each element one by one.</p>
+  <pre>
+function linearSearch(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i; // Return the index of the target
+        }
+    }
+    return -1; // Target not found
+}
+  </pre>
+
+  <h3>Binary Search</h3>
+  <p>Binary search works only on sorted arrays.</p>
+  <pre>
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] === target) {
+            return mid; // Target found
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1; // Target not found
+}
+  </pre>
+</div>
+
+<div class="content" id="slide3">
+  <h2>Sorting Algorithms</h2>
+  <p>Sorting algorithms arrange the elements of a list in a specific order.</p>
+  <ul>
+    <li><strong>Selection Sort:</strong> Repeatedly selects the minimum element and moves it to the sorted portion.</li>
+    <li><strong>Bubble Sort:</strong> Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.</li>
+    <li><strong>Insertion Sort:</strong> Builds the final sorted array one item at a time.</li>
+    <li><strong>Heap Sort:</strong> Converts the array into a heap structure and then sorts it.</li>
+  </ul>
+
+  <h3>Example of Selection Sort:</h3>
+  <pre>
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        // Swap
+        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+    return arr;
+}
+  </pre>
+</div>
+
+<div class="content" id="slide4">
+  <h2>Hash Functions</h2>
+  <p>Hash functions map data of arbitrary size to fixed-size values.</p>
+  <ul>
+    <li><strong>Types of Hash Functions:</strong> 
+      <ul>
+        <li>Division Method</li>
+        <li>Multiplication Method</li>
+        <li>Universal Hashing</li>
+      </ul>
+    </li>
+    <li><strong>Collision:</strong> Occurs when two different inputs produce the same hash value.</li>
+    <li><strong>Collision Resolution Techniques:</strong>
+      <ul>
+        <li>Chaining: Stores multiple values in a single hash table index.</li>
+        <li>Open Addressing: Finds another open slot in the hash table.</li>
+      </ul>
+    </li>
+    <li><strong>Perfect Hashing:</strong> A hashing scheme that avoids collisions entirely.</li>
+  </ul>
+</div>
+
+<script>
+  function showContent(slideId) {
+    const contents = document.querySelectorAll('.content');
+    contents.forEach(content => content.classList.remove('active')); // Hide all content
+
+    const selectedContent = document.getElementById(slideId);
+    selectedContent.classList.add('active'); // Show selected slide content
+  }
+</script>
+
+</body>
+</html>

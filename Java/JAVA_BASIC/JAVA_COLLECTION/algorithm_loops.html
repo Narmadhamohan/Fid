@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Statements in Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .topic {
+            margin: 20px 0;
+            cursor: pointer;
+            background-color: #d9edf7;
+            padding: 15px;
+            border: 1px solid #bce8f1;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .topic:hover {
+            background-color: #c4e3f3;
+        }
+        .note {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Control Statements in Java</h1>
+
+    <!-- If Statement -->
+    <div class="topic" onclick="toggleNote('note1')">If Statement</div>
+    <div id="note1" class="note">
+        <h3>If Statement</h3>
+        <p>An <code>if</code> statement evaluates a condition and executes a block of code only if the condition is true.</p>
+        <ul>
+            <li>The basic structure is: <code>if (condition) { // block of code }</code></li>
+            <li>An optional <code>else</code> block can be used for handling the case when the condition is false.</li>
+        </ul>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class IfExample {
+    public static void main(String[] args) {
+        int number = 10;
+
+        // if statement
+        if (number > 0) {
+            System.out.println("The number is positive.");
+        } else {
+            System.out.println("The number is non-positive.");
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Switch Statement -->
+    <div class="topic" onclick="toggleNote('note2')">Switch Statement</div>
+    <div id="note2" class="note">
+        <h3>Switch Statement</h3>
+        <p>A <code>switch</code> statement allows multi-way branching based on the value of an expression. It is often used as an alternative to a series of <code>if-else</code> statements.</p>
+        <ul>
+            <li>It compares the value of an expression with multiple cases.</li>
+            <li>If a match is found, the corresponding block of code is executed.</li>
+            <li>An optional <code>default</code> case can handle situations where no match is found.</li>
+        </ul>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class SwitchExample {
+    public static void main(String[] args) {
+        int day = 3;
+
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            default:
+                System.out.println("Invalid day");
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- While Loop -->
+    <div class="topic" onclick="toggleNote('note3')">While Loop</div>
+    <div id="note3" class="note">
+        <h3>While Loop</h3>
+        <p>The <code>while</code> loop executes a block of code as long as the specified condition is <code>true</code>.</p>
+        <ul>
+            <li>If the condition is false initially, the loop does not execute.</li>
+            <li>The condition is checked before each iteration of the loop.</li>
+        </ul>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class WhileExample {
+    public static void main(String[] args) {
+        int i = 0;
+
+        while (i < 5) {
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Do..While Loop -->
+    <div class="topic" onclick="toggleNote('note4')">Do..While Loop</div>
+    <div id="note4" class="note">
+        <h3>Do..While Loop</h3>
+        <p>The <code>do..while</code> loop is similar to the <code>while</code> loop, but it guarantees that the code inside the loop will execute at least once, regardless of the condition.</p>
+        <ul>
+            <li>The condition is checked after the loop body has been executed.</li>
+        </ul>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class DoWhileExample {
+    public static void main(String[] args) {
+        int i = 0;
+
+        do {
+            System.out.println(i);
+            i++;
+        } while (i < 5);
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- For Loop -->
+    <div class="topic" onclick="toggleNote('note5')">For Loop</div>
+    <div id="note5" class="note">
+        <h3>For Loop</h3>
+        <p>The <code>for</code> loop is the most commonly used loop. It allows you to iterate over a block of code a certain number of times, and it is particularly useful when you know in advance how many iterations are needed.</p>
+        <ul>
+            <li>The loop consists of three parts: initialization, condition, and update.</li>
+        </ul>
+
+        <strong>Example:</strong>
+        <pre><code>
+public class ForExample {
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+    }
+}
+        </code></pre>
+    </div>
+
+</div>
+
+<script>
+    function toggleNote(noteId) {
+        const note = document.getElementById(noteId);
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

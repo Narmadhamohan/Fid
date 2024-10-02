@@ -1,0 +1,22 @@
+range program, arrays.join, string join., string split, string find.
+Read and show algorith for sorting or fibonace:
+loop breaks inner loop
+
+
+
+1. LEarn to do one flowgarithm
+2. junit5
+3. parent creation
+4. upcasting, downcasting
+5. What's sequence,process, repetition?
+6. if condition check
+7. range program, 
+8. how many even numbers, numbers growing by multiplier. Observe, start and stop condition
+9. Recursion, factorial, swapig, reversal, palindrome...
+10. how strinng function works with substring, join
+11. learn to understand the flogarith, input, output, declare vs assign
+
+
+java:
+jdk, parsing, refere-ucast,downcast, arrayindex, stackoverflowerror
+this, super, super()functions, super constructors.

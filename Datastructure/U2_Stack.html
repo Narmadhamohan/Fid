@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+
+    .question-section {
+      margin-top: 20px;
+    }
+
+    .question-section input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    .question-section button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Stacks and Queues Explained</h1>
+    <p>Click the sticky notes to view the slides</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Introduction to Stacks</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Stack Implementation</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Operations on Stack</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Applications of Stack</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Queue Concepts</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide 1 Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Introduction to Stacks</h2>
+      <ul>
+        <li><strong>Definition:</strong> A stack is a data structure following Last In First Out (LIFO).</li>
+        <li><strong>Example:</strong> Like stacking plates; last added is the first removed.</li>
+        <li><strong>Usage:</strong> Operations only happen at the top of the stack.</li>
+        <li><strong>Tip:</strong> Think of a stack like a stack of books – last book placed is the first one taken.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 2 Content -->
+    <div id="slide2" class="slide-content">
+      <h2>Stack Implementation</h2>
+      <ul>
+        <li><strong>Push:</strong> Adds an element to the top of the stack.</li>
+        <li><strong>Pop:</strong> Removes the element from the top of the stack.</li>
+        <li><strong>Peek:</strong> Views the top element without removing it.</li>
+        <li><strong>Overflow:</strong> Happens when the stack is full.</li>
+        <li><strong>Underflow:</strong> Happens when trying to pop from an empty stack.</li>
+        <li><strong>Tip:</strong> Always check for underflow before popping.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 3 Content -->
+    <div id="slide3" class="slide-content">
+      <h2>Operations on Stack</h2>
+      <ul>
+        <li><strong>Push:</strong> Adds data at the top of the stack.</li>
+        <li><strong>Pop:</strong> Removes the top data from the stack.</li>
+        <li><strong>Peek:</strong> Looks at the top data without removing.</li>
+        <li><strong>Tip:</strong> Always keep track of the top element for efficient operations.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 4 Content -->
+    <div id="slide4" class="slide-content">
+      <h2>Applications of Stack</h2>
+      <ul>
+        <li><strong>Expression Evaluation:</strong> Stacks are used in converting and evaluating mathematical expressions.</li>
+        <li><strong>Recursion:</strong> Function calls use stack memory.</li>
+        <li><strong>Undo Feature:</strong> Applications like MS Word use stacks to track undo actions.</li>
+        <li><strong>Tip:</strong> Multiple stacks can be used for memory management.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 5 Content -->
+    <div id="slide5" class="slide-content">
+      <h2>Queue Concepts</h2>
+      <ul>
+        <li><strong>Queue Definition:</strong> Follows First In First Out (FIFO).</li>
+        <li><strong>Example:</strong> Like a line at the bank – first person in is first served.</li>
+        <li><strong>Enqueue:</strong> Adds an element to the rear.</li>
+        <li><strong>Dequeue:</strong> Removes an element from the front.</li>
+        <li><strong>Circular Queue:</strong> The queue wraps around to reuse spaces.</li>
+        <li><strong>Tip:</strong> Circular queues avoid memory waste in static queues.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content question-section">
+    <h2>Test Your Understanding</h2>
+    <p>What is the term used when trying to pop an element from an empty stack?</p>
+    <input type="text" id="answer" placeholder="Your Answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active'));
+      document.getElementById(slideId).classList.add('active');
+    }
+
+    function checkAnswer() {
+      const answer = document.getElementById('answer').value.trim().toLowerCase();
+      const result = document.getElementById('result');
+      if (answer === 'underflow') {
+        result.textContent = 'Correct! Underflow occurs when trying to pop from an empty stack.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'Incorrect! Try again.';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>

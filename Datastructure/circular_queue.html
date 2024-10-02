@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Queue with Modular Arithmetic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2E8B57;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Modular Arithmetic in Circular Queue</h1>
+
+    <h2>Basics of Circular Queue</h2>
+    <ul>
+        <li>A circular queue is implemented using a fixed-size array.</li>
+        <li>The size of the array is denoted as <code>N</code>.</li>
+        <li>The <code>rear</code> pointer represents the position where the next element will be inserted.</li>
+        <li>Modular arithmetic (<code>%</code>) is used to wrap the <code>rear</code> and <code>front</code> indices around when they exceed the size of the array.</li>
+    </ul>
+
+    <h2>Example: Circular Queue of Size N = 5</h2>
+    <ul>
+        <li>Array indices are <code>0, 1, 2, 3, 4</code>.</li>
+        <li><b>Initial State:</b>
+            <ul>
+                <li>Queue: [ _ , _ , _ , _ , _ ]</li>
+                <li><code>rear = -1</code> (empty queue)</li>
+                <li><code>front = -1</code> (empty queue)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Enqueue Operation (Insert)</h2>
+    <ul>
+        <li><b>First Enqueue (Value: 10)</b>
+            <ul>
+                <li><code>rear = (rear + 1) % N = (−1 + 1) % 5 = 0</code></li>
+                <li>Queue: [ 10, _, _, _, _ ]</li>
+                <li><code>rear = 0</code>, <code>front = 0</code></li>
+            </ul>
+        </li>
+        <li><b>Second Enqueue (Value: 20)</b>
+            <ul>
+                <li><code>rear = (rear + 1) % N = (0 + 1) % 5 = 1</code></li>
+                <li>Queue: [ 10, 20, _, _, _ ]</li>
+                <li><code>rear = 1</code></li>
+            </ul>
+        </li>
+        <li><b>Third Enqueue (Value: 30)</b>
+            <ul>
+                <li><code>rear = (rear + 1) % N = (1 + 1) % 5 = 2</code></li>
+                <li>Queue: [ 10, 20, 30, _, _ ]</li>
+                <li><code>rear = 2</code></li>
+            </ul>
+        </li>
+        <li><b>Fourth Enqueue (Value: 40)</b>
+            <ul>
+                <li><code>rear = (rear + 1) % N = (2 + 1) % 5 = 3</code></li>
+                <li>Queue: [ 10, 20, 30, 40, _ ]</li>
+                <li><code>rear = 3</code></li>
+            </ul>
+        </li>
+        <li><b>Fifth Enqueue (Value: 50)</b>
+            <ul>
+                <li><code>rear = (rear + 1) % N = (3 + 1) % 5 = 4</code></li>
+                <li>Queue: [ 10, 20, 30, 40, 50 ]</li>
+                <li><code>rear = 4</code></li>
+            </ul>
+        </li>
+        <li><b>Sixth Enqueue (Value: 60, Wrap-around)</b>
+            <ul>
+                <li><code>rear = (rear + 1) % N = (4 + 1) % 5 = 0</code></li>
+                <li>Queue: [ 60, 20, 30, 40, 50 ] (overwriting at index 0)</li>
+                <li><code>rear = 0</code> (wrap-around)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Dequeue Operation (Remove)</h2>
+    <ul>
+        <li><b>First Dequeue</b>
+            <ul>
+                <li><code>front = (front + 1) % N = (0 + 1) % 5 = 1</code></li>
+                <li>Queue: [ _, 20, 30, 40, 50 ]</li>
+                <li><code>front = 1</code></li>
+            </ul>
+        </li>
+        <li><b>Second Dequeue</b>
+            <ul>
+                <li><code>front = (front + 1) % N = (1 + 1) % 5 = 2</code></li>
+                <li>Queue: [ _, _, 30, 40, 50 ]</li>
+                <li><code>front = 2</code></li>
+            </ul>
+        </li>
+        <li><b>Third Dequeue (Wrap-around)</b>
+            <ul>
+                <li><code>front = (front + 1) % N = (4 + 1) % 5 = 0</code></li>
+                <li>Queue: [ _, _, _, 40, 50 ]</li>
+                <li><code>front = 0</code> (wrap-around)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Modular Arithmetic Explanation</h2>
+    <ul>
+        <li>The formula <code>(rear + 1) % N</code> ensures that the <code>rear</code> pointer wraps around to index <code>0</code> after reaching the last index (<code>N - 1</code>).</li>
+        <li>Similarly, <code>(front + 1) % N</code> allows the <code>front</code> pointer to wrap around to the beginning when dequeuing elements.</li>
+        <li>This modular arithmetic allows efficient use of the array space and ensures continuous usage of the circular queue.</li>
+    </ul>
+
+</body>
+</html>

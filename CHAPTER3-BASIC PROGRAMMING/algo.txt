@@ -1,0 +1,14 @@
+What is an Algorithm?
+An algorithm is a finite sequence of well-defined instructions that can be used to solve a computational problem.
+ It provides a step-by-step procedure that convert an input into a desired output.
+
+
+
+
+Characteristics of an Algorithm:
+Clear and Unambiguous:  The algorithm should be unambiguous. Each of its steps should be clear in all aspects and must lead to only one meaning.
+Well-defined Inputs: If an algorithm says to take inputs, it should be well-defined inputs. It may or may not take input.
+Well-defined Outputs: The algorithm must clearly define what output will be yielded and it should be well-defined as well. It should produce at least 1 output.
+Finiteness: The algorithm must be finite, i.e. it should terminate after a finite time.
+Feasible: The algorithm must be simple, generic, and practical, such that it can be executed using reasonable constraints and resources.
+Language Independent: Algorithm must be language-independent, i.e. it must be just plain instructions that can be implemented in any language, and yet the output will be the same, as expected.

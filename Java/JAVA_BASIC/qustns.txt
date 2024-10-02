@@ -1,0 +1,2 @@
+arrays.string
+STring.join, string buffer, builder,Answer: B. An inner class can access the members (fields and methods) of its enclosing class, while a static nested class cannot.

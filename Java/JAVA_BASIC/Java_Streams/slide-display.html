@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Stream</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Why use Stream API?</div>
+    <div class="sticky-note" onclick="showContent('slide3')">When to use Stream API?</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Questions</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Slide 5</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>What's stream API</h2>
+	  <img src="stream_1.png" width="50%" alt="stream_output">
+	  <br>
+	  Streams: A stream is a sequence of elements that can be processed in parallel or sequentially.<br>
+	  It does not store elements; instead, it operates on data from a source (like a collection, array, or I/O channel).
+<h2>Functional Operations: </h2>
+Stream operations are usually chained together and are either intermediate (like map, filter, and sorted) or terminal 
+(like collect, forEach, and reduce).
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2> Why Use Stream API?</h2>
+<ol style="text-align:left;">
+<li>	 
+<strong>Conciseness:</strong> Stream operations often require less code than traditional loops, making the code easier to read and maintain.
+</li>
+<li>
+<strong>Functional Programming:</strong> It encourages a functional programming style, allowing you to write cleaner code by using lambdas and method references.
+</li>
+<li><strong>Parallel Processing:</strong> Streams can easily be parallelized with minimal changes to your code (using parallelStream()), which can lead to performance improvements in multi-core environments.
+</li>
+<li><strong>Lazy Evaluation:</strong>  Streams are lazy; operations are not executed until a terminal operation is called. This can lead to performance optimizations.
+    </li>
+	<p>This is the content for Slide 2. More details can be added here.</p>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>When to use Stream API?</h2>
+	  
+	  
+	  <ol Style="text-align:left">
+	  Data Transformation: When you need to transform collections, such as converting a list of objects into a list of their properties.<br><br>
+Filtering Data: For selecting specific elements from a collection based on conditions.<br>
+Aggregating Data: When you need to calculate aggregates like sums, averages, or counts.<br>
+Sorting Collections: Stream API can be used to sort elements in a collection in a concise manner.<br>
+Working with I/O: You can also use streams for processing data from files or network sources.<br>
+	  </ol>
+	  
+	  
+	  
+	  
+      <p>This is the content for Slide 3. More details can be added here.</p>
+    </div>
+
+    <div id=Sorting" class="slide-content">
+      <h2>Questions</h2>
+	  Solution 1: Implement the Comparable<T> interface in the Book class and define the compareTo() method to provide a natural ordering.<br>
+Solution 2: Use a custom Comparator in the Collections.sort() method to define sorting logic without modifying the Book class.<br>
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Slide 5 Content</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

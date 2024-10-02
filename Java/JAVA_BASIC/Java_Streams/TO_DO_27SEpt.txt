@@ -1,0 +1,17 @@
+1. Show Exception Hanlding
+2. Show Streams API
+3. Unit test cae
+5. Wrapper class - value of
+
+
+
+Important  concepts  for understanding mcqs
+4. Object pass to method is pass by value of reference -> which changes the value
+6. Downcasting and keeping reference variable
+7. Integer parseint.
+Go through the concepts again for them.
+staic, final, interface usage, 
+
+
+
+

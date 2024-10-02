@@ -1,0 +1,99 @@
+Breadth-First Search (BFS)
+Step 1: Start at the root node (or starting node), and add it to a QUEUE. Mark it as visited.
+
+Queue<Integer> queue = new LinkedList<>();
+Set<Integer> visited = new HashSet<>();
+
+int startNode = 0;
+queue.add(startNode);     // Add the start node to the queue
+visited.add(startNode);   // Mark the start node as visited
+
+
+Step 2:
+Dequeue the front node from the queue (in this case, it's 0), and print it or process it.
+
+Here’s the code for this:
+
+int currentNode = queue.poll();  // Remove the front node from the queue
+System.out.print(currentNode + " ");  // Process the node (print it)
+
+*************************
+This removes node 0 from the queue and processes it by printing it. Let me know once you've done this!
+
+Step 3:
+Check all the neighbors (adjacent nodes) of the current node (0). For each neighbor that hasn't been visited yet, 
+add it to the queue and mark it as visited.
+
+Here’s the code:
+
+java
+Copy code
+for (int neighbor : adjList.getOrDefault(currentNode, new ArrayList<>())) {
+    if (!visited.contains(neighbor)) {
+        queue.add(neighbor);      // Add the neighbor to the queue
+        visited.add(neighbor);    // Mark the neighbor as visited
+    }
+}
+This step ensures that all neighbors of the current node are added to the queue for further exploration.
+ Let me know once you're done!
+*******
+Example:
+If node 0 is connected to nodes 1 and 2, and they haven't been visited yet,
+ they will both be added to the queue and marked as visited. 
+So, after this step, your queue will have 1 and 2.
+**************
+
+Yes, that's correct! If node 0 is connected to both 1 and 2, it means we have edges like this:
+
+rust
+Copy code
+0 -> 1
+0 -> 2
+Both 1 and 2 will be added to the queue when we process node 0. The BFS traversal is level-wise, so now both 1 and 2 are in the queue, waiting to be explored in the next steps.
+
+************************
+
+Step 4:
+Repeat the process: Dequeue the next node (in this case, 1), process it, and check its neighbors. Add unvisited neighbors to the queue and mark them as visited.
+
+Here's the code:
+
+java
+Copy code
+currentNode = queue.poll();  // Dequeue the next node (1)
+System.out.print(currentNode + " ");  // Process the node
+
+// Check neighbors of node 1, add unvisited ones to the queue
+for (int neighbor : adjList.getOrDefault(currentNode, new ArrayList<>())) {
+    if (!visited.contains(neighbor)) {
+        queue.add(neighbor);
+        visited.add(neighbor);
+    }
+}
+This continues the level-wise exploration by processing node 1 next. Let me know when you've done this!
+
+
+*******************************
+
+Step 5:
+Continue this process by dequeuing the next node (in this case, 2), processing it, and exploring its neighbors. 
+Repeat this until the queue is empty, meaning all reachable nodes have been visited.
+
+Here’s the code that keeps running until the queue is empty:
+
+java
+Copy code
+while (!queue.isEmpty()) {
+    currentNode = queue.poll();  // Dequeue the next node (2, then others)
+    System.out.print(currentNode + " ");  // Process the node
+
+    // Check neighbors and add unvisited ones to the queue
+    for (int neighbor : adjList.getOrDefault(currentNode, new ArrayList<>())) {
+        if (!visited.contains(neighbor)) {
+            queue.add(neighbor);
+            visited.add(neighbor);
+        }
+    }
+}
+This loop ensures that all nodes are visited in a level-wise manner until the queue is empty. 
+Once finished, the BFS traversal is complete.
