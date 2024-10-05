@@ -1,3 +1,22 @@
+
+CREATE TABLE employees (
+    name VARCHAR(100)
+);
+ALTER TABLE employees
+ALTER COLUMN name SET NOT NULL;
+ALTER TABLE employees
+ADD CONSTRAINT unique_employee_name UNIQUE (name);
+ALTER TABLE employees
+ADD CONSTRAINT check_name_not_empty CHECK (char_length(name) > 0);
+ALTER TABLE employees
+ADD COLUMN email VARCHAR(100);
+ALTER TABLE employees
+ADD COLUMN salary VARCHAR(100);
+ALTER TABLE employees
+ALTER COLUMN salary TYPE NUMERIC(10, 2);
+
+
+
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
