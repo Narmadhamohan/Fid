@@ -21,8 +21,12 @@ VALUES
     ('Bob Williams', 70000),
     ('Jane Smith', 60000),
     ('Sara Lee', 80000);
+
+select * from employees_A;
+select * from employees_B;
 *****************************************************************************************
 1. UNION
+-- tell participants to select 1 column and 2 columns in other table
 SELECT name, salary FROM employees_A
 UNION
 SELECT name, salary FROM employees_B;
@@ -36,6 +40,7 @@ INTERSECT
 SELECT name, salary FROM employees_B;
 
 4. EXCEPT
+
 SELECT name, salary FROM employees_A
 EXCEPT
 SELECT name, salary FROM employees_B;
@@ -44,8 +49,19 @@ SELECT name, salary
 FROM employees_A
 WHERE salary > 60000;
 SELECT name, salary
+FROM employees_A
+WHERE salary >= 60000;
+SELECT name, salary
 FROM employees_B
 WHERE salary < 70000;
+
+-- INSERT INTO employees_A (name, salary)
+VALUES
+    ('Dijo', 4000);
+SELECT name, salary
+FROM employees_A
+WHERE salary < ALL (SELECT salary FROM employees_B);
+
 SELECT name, salary
 FROM employees_A
 WHERE salary > ALL (SELECT salary FROM employees_B);

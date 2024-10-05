@@ -1,3 +1,33 @@
+alter table roles
+drop  constraint roles_employee_id_fkey;
+drop table employees
+
+(or)
+drop table employees cascade
+
+
+************jit*****************
+select * from employees;
+-- Start another transaction
+BEGIN transaction;
+
+savepoint a;
+-- Insert more data
+INSERT INTO employees (name, salary) VALUES ('Alice Johnson', 70000);
+rollback to savepoint a;
+INSERT INTO employees (name, salary) VALUES ('Bob Williams', 80000);
+
+-- Simulate an error and rollback
+commit; 
+end
+
+
+
+
+
+
+*************************************************
+
 -- Create the employees table
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
