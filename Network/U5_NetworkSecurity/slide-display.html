@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Slide 1</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Slide 2</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Slide 3</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Slide 4</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Slide 5</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Slide 1 Content</h2>
+	  <ol>
+    <li>
+        <strong>Network Security</strong>
+        <p>
+            Network security refers to policies and practices designed to protect network infrastructure and data from unauthorized access, misuse, or attacks. It encompasses technologies like firewalls, encryption, intrusion detection systems (IDS), and more. The main goal of network security is to ensure the confidentiality, integrity, and availability of data as it travels across networks, preventing cyber threats such as hacking, malware, and phishing.
+        </p>
+    </li>
+    <li>
+        <strong>Cryptography</strong>
+        <p>
+            Cryptography is the practice of securing information through encoding techniques, making it accessible only to authorized users. It involves creating and using algorithms to encrypt (scramble) and decrypt (unscramble) data. Cryptography ensures data confidentiality, integrity, and authentication by converting plaintext into ciphertext (encrypted form), using keys and algorithms. There are two main types of cryptography:
+            <ul>
+                <li><strong>Symmetric Cryptography:</strong> Uses the same key for both encryption and decryption.</li>
+                <li><strong>Asymmetric Cryptography:</strong> Uses different keys for encryption (public key) and decryption (private key).</li>
+            </ul>
+        </p>
+    </li>
+    <li>
+        <strong>Ciphers, Asymmetric Key, RSA</strong>
+        <p>
+            <ul>
+                <li><strong>Ciphers:</strong> Algorithms used for encryption and decryption. There are two main types of ciphers:
+                    <ul>
+                        <li><strong>Substitution Cipher:</strong> Replaces characters or bits of data with other characters or bits (e.g., Caesar Cipher).</li>
+                        <li><strong>Transposition Cipher:</strong> Scrambles the order of characters or bits in the data.</li>
+                    </ul>
+                </li>
+                <li><strong>Asymmetric Key Cryptography:</strong> Also known as public-key cryptography, it uses a pair of keys: a public key (for encryption) and a private key (for decryption). This approach ensures that even if the public key is known, only the holder of the private key can decrypt the message.</li>
+                <li><strong>RSA (Rivest–Shamir–Adleman):</strong> RSA is a widely-used asymmetric encryption algorithm that secures data by generating a pair of keys based on the mathematical properties of prime numbers. RSA ensures secure data transmission, and it is often used in secure data exchanges over the internet (e.g., during SSL/TLS handshakes).</li>
+            </ul>
+        </p>
+    </li>
+    <li>
+        <strong>Digital Signatures</strong>
+        <p>
+            A digital signature is a cryptographic technique used to verify the authenticity and integrity of a digital document or message. It provides proof that the message was created by a known sender (authentication) and that it hasn't been altered (integrity). Digital signatures use asymmetric encryption: the sender generates a hash of the message, encrypts it with their private key, and sends it. The recipient decrypts the hash using the sender's public key and compares it with the message’s actual hash to verify its authenticity.
+        </p>
+    </li>
+    <li>
+        <strong>Basics of SSL Certificate (Handshake Process, Certificate Chain)</strong>
+        <p>
+            Secure Sockets Layer (SSL) is a cryptographic protocol designed to provide secure communication over the internet. SSL certificates are used to establish trust between web servers and clients (e.g., browsers) by encrypting the data exchanged during a session. The SSL handshake process involves:
+            <ul>
+                <li><strong>SSL Handshake Process:</strong>
+                    <ol>
+                        <li>The client sends a request to the server for a secure connection.</li>
+                        <li>The server responds by sending its SSL certificate, which contains the server's public key.</li>
+                        <li>The client verifies the server’s certificate using the certificate authority (CA).</li>
+                        <li>If the certificate is trusted, the client generates a session key, encrypts it with the server’s public key, and sends it to the server.</li>
+                        <li>The server decrypts the session key using its private key, and secure communication begins with the session key used for encryption and decryption.</li>
+                    </ol>
+                </li>
+                <li><strong>Certificate Chain:</strong> SSL certificates are issued by trusted Certificate Authorities (CAs). The certificate chain includes:
+                    <ul>
+                        <li>The root certificate (issued by the CA itself).</li>
+                        <li>Intermediate certificates (used by the CA to sign the server's certificate).</li>
+                        <li>The server's certificate (used to establish secure communication with clients).</li>
+                    </ul>
+                The certificate chain ensures that each certificate in the chain is verified by the one above it, up to the trusted root CA.
+                </li>
+            </ul>
+        </p>
+    </li>
+</ol>
+
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Slide 2 Content</h2>
+      <p>This is the content for Slide 2. More details can be added here.</p>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Slide 3 Content</h2>
+      <p>This is the content for Slide 3. More details can be added here.</p>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Slide 4 Content</h2>
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Slide 5 Content</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

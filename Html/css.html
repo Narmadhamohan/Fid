@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Basics & Types of CSS</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Different Selectors</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Text & Border Properties</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Table & Image Properties</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Padding & CSS Layout</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Basics & Types of CSS</h2>
+      <p>CSS (Cascading Style Sheets) is a style sheet language used for describing the presentation of a document written in HTML or XML. It controls the layout of multiple web pages all at once and separates the content from the presentation.</p>
+      <h3>Types of CSS:</h3>
+      <ul>
+        <li><strong>Inline CSS:</strong> Styles applied directly within the HTML element.
+          <pre><code>&lt;p style="color: red;"&gt;This text is red.&lt;/p&gt;</code></pre>
+        </li>
+        <li><strong>Internal CSS:</strong> Styles defined within a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> section.
+          <pre><code>&lt;style&gt;
+p { color: blue; }
+&lt;/style&gt;</code></pre>
+        </li>
+        <li><strong>External CSS:</strong> Styles defined in a separate <code>.css</code> file linked to the HTML document.
+          <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Different Ways of Selectors</h2>
+      <p>Selectors in CSS are patterns used to select the elements you want to style. Here are some common types of selectors:</p>
+      <ul>
+        <li><strong>Element Selector:</strong> Selects elements based on the HTML tag name.
+          <pre><code>div { color: green; }</code></pre>
+        </li>
+        <li><strong>Class Selector:</strong> Selects elements with a specific class attribute.
+          <pre><code>.highlight { background-color: yellow; }</code></pre>
+        </li>
+        <li><strong>ID Selector:</strong> Selects a single element with a specific ID attribute.
+          <pre><code>#main-title { font-size: 24px; }</code></pre>
+        </li>
+        <li><strong>Attribute Selector:</strong> Selects elements based on a specific attribute.
+          <pre><code>[type="text"] { border: 1px solid #ccc; }</code></pre>
+        </li>
+        <li><strong>Pseudo-class Selector:</strong> Selects elements in a specific state.
+          <pre><code>a:hover { color: red; }</code></pre>
+        </li>
+        <li><strong>Pseudo-element Selector:</strong> Selects a specific part of an element.
+          <pre><code>p::first-line { font-weight: bold; }</code></pre>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Basic & Common Properties (Text & Border)</h2>
+      <p>Here are some basic properties:</p>
+      <h3>Text Properties:</h3>
+      <ul>
+        <li><strong>color:</strong> Sets the color of the text.
+          <pre><code>p { color: blue; }</code></pre>
+        </li>
+        <li><strong>font-size:</strong> Sets the size of the font.
+          <pre><code>h1 { font-size: 36px; }</code></pre>
+        </li>
+        <li><strong>font-family:</strong> Specifies the font of the text.
+          <pre><code>body { font-family: Arial, sans-serif; }</code></pre>
+        </li>
+        <li><strong>text-align:</strong> Sets the horizontal alignment of the text.
+          <pre><code>h2 { text-align: center; }</code></pre>
+        </li>
+      </ul>
+      <h3>Border Properties:</h3>
+      <ul>
+        <li><strong>border:</strong> Shorthand property to set width, style, and color.
+          <pre><code>div { border: 1px solid black; }</code></pre>
+        </li>
+        <li><strong>border-radius:</strong> Rounds the corners of an element.
+          <pre><code>img { border-radius: 10px; }</code></pre>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Table & Image Properties</h2>
+      <p>Common properties for tables and images:</p>
+      <h3>Table Properties:</h3>
+      <ul>
+        <li><strong>border-collapse:</strong> Specifies whether table borders should be collapsed into a single border.
+          <pre><code>table { border-collapse: collapse; }</code></pre>
+        </li>
+        <li><strong>padding:</strong> Sets the space between the cell content and the cell border.
+          <pre><code>td { padding: 10px; }</code></pre>
+        </li>
+      </ul>
+      <h3>Image Properties:</h3>
+      <ul>
+        <li><strong>width:</strong> Sets the width of the image.
+          <pre><code>img { width: 100%; }</code></pre>
+        </li>
+        <li><strong>height:</strong> Sets the height of the image.
+          <pre><code>img { height: auto; }</code></pre>
+        </li>
+      </ul>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Padding & CSS Layout</h2>
+      <p>Padding is the space between the content and the border of an element:</p>
+      <pre><code>div {
+  padding: 20px;
+}</code></pre>
+      <h3>CSS Layout Techniques:</h3>
+      <ul>
+        <li><strong>Flexbox:</strong> A layout model that allows you to design a layout structure without using float or positioning.
+          <pre><code>.container {
+  display: flex;
+  justify-content: space-between;
+}</code></pre>
+        </li>
+        <li><strong>Grid:</strong> A layout model that provides a two-dimensional grid-based layout system.
+          <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}</code></pre>
+        </li>
+        <li><strong>Positioning:</strong> Allows you to control the layout through static, relative, absolute, fixed, or sticky positioning.
+          <pre><code>div {
+  position: relative;
+  top: 10px;
+}</code></pre>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

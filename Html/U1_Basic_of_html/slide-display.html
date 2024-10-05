@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Intro to web pages</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Elements, Tags</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Structure of HTML Document</div>
+    <div class="sticky-note" onclick="showContent('slide4')">HTML 5 Features</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Questions</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Intro to web pages</h2>
+
+
+<h3>	  1. Intro to Web Pages </h3>
+A web page is a digital document that is written in HTML (HyperText Markup Language) and viewed in a web browser. It is a part of the World Wide Web, consisting of text, images, videos, and other multimedia elements that can be linked together using hyperlinks.
+<hr>
+<h3>Static vs Dynamic Web Pages:
+</h3>
+<strong>Static Web Pages:</strong> Written in HTML and display the same content to every visitor.
+<strong>Dynamic Web Pages:</strong> Can change content based on user interaction, often powered by server-side programming languages like PHP, Python, or JavaScript.
+<strong>Importance:</strong> Web pages are the building blocks of websites, serving information to users on the internet.
+
+
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Elements, Tags</h2>
+	  HTML Elements are the building blocks of HTML documents. They define the structure and content of a web page.
+<hr>
+Tags: HTML uses tags to mark elements. These tags are enclosed in angle brackets.
+<hr>
+Common HTML Elements:
+<hr>
+&lt;html&gt; : Defines the root of the HTML document.<hr>
+&lt; head &gt;: Contains meta-information, including the title, links to stylesheets, and scripts.<hr>
+&lt; body &gt;: Contains the visible content of the web page like text, images, etc.<hr>
+&lt; p &gt; : Paragraph tag.<hr>
+&lt;a &gt;: Anchor tag for hyperlinks.<hr>
+&lt;img&gt;: Tag for embedding images.<hr>
+
+      <p>This is the content for Slide 2. More details can be added here.</p>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Structure of HTML Document</h2>
+	  
+	  <img src="basic-structure-of-HTML-document.png" alt="structure" width="50%">
+	  <hr>
+	  &lt;!DOCTYPE html&gt;: This is a declaration that defines the document as HTML5.<hr>
+&lt;html&gt; : Root element that wraps all the content in the document.<hr>
+&lt; head &gt;: Contains meta-information about the document such as the title, character encoding, and linked stylesheets or scripts.<hr>
+&lt; body &gt;: Holds the visible content, including text, images, and multimedia.<hr>
+	  
+      <p>This is the content for Slide 3. More details can be added here.</p>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>HTML 5 Features</h2>
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Questions</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+	  text-align:left;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Slide 1</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Slide 2</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Slide 3</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Slide 4</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Slide 5</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Slide 1 Content</h2>
+	  <ol> <li> <strong>Networking Basics</strong> <ul> <li>Networking involves connecting multiple devices to share data and resources.</li> <li>Networks can be wired (using cables) or wireless (using radio waves).</li> <li>Key components include devices like computers, routers, switches, and protocols (e.g., TCP/IP).</li> <li>Networks allow for communication, data sharing, and efficient resource utilization.</li> <li>Common network models: <i>Client-Server</i> (centralized control) and <i>Peer-to-Peer</i> (decentralized).</li> </ul> </li> <li> <strong>Types of Networks</strong> <ul> <li><strong>LAN (Local Area Network)</strong>: A network that connects devices within a small geographical area, such as a home, office, or building.</li> <li><strong>WAN (Wide Area Network)</strong>: A network that spans large geographical areas, connecting multiple LANs across cities, countries, or even continents.</li> <li><strong>MAN (Metropolitan Area Network)</strong>: A network that covers a city or large campus, larger than LAN but smaller than WAN.</li> </ul> </li> <li> <strong>Local Area Network (LAN)</strong> <ul> <li>Covers a limited area, typically within a building or campus.</li> <li>Provides high data transfer speeds and low latency.</li> <li>Common technologies: Ethernet (wired) and Wi-Fi (wireless).</li> <li>Used for sharing resources like printers, files, and internet access within a small group.</li> <li>Requires devices such as switches, routers, and access points.</li> </ul> </li> <li> <strong>Metro Area Network (MAN)</strong> <ul> <li>Spans across a city or a large campus, larger than a LAN but smaller than a WAN.</li> <li>Usually operated by internet service providers (ISPs) or large organizations.</li> <li>Used for connecting various LANs within a city or organization.</li> <li>Commonly uses fiber-optic cables for high-speed data transmission.</li> </ul> </li> <li> <strong>Wide Area Network (WAN)</strong> <ul> <li>Connects multiple LANs over vast geographical distances, such as cities, countries, or continents.</li> <li>Relies on technologies like leased lines, satellites, and VPNs (Virtual Private Networks).</li> <li>Provides slower speeds compared to LAN but enables global communication.</li> <li>Used by large organizations to connect their branches across different regions.</li> <li>The internet itself is a type of WAN.</li> </ul> </li> </ol>
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Slide 2 Content</h2>
+	  <img src="Types-of-Network-PAN-LAN-MAN-WAN.png" alt="types of network" width="50%">
+	  <img src="isp_man_particular_Area_Coverage.jpeg" alt="area coverage" width="50%">
+	  <img src="fibers.jpeg" alt="Fiber running" width="50%">
+	  <img src="distance.jpeg" alt="jpeg" width="50%">
+	  <a href="https://tipsmake.com/how-to-share-a-printer-via-lan">Connect through bluetooth - LAN printer</a>
+	  <a href="https://network-layers.blogspot.com/2022/02/switch-vs-router.html"> switch vs router</a>
+	  
+      <p>This is the content for Slide 2. More details can be added here.</p>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Slide 3 Content</h2>
+      <p>This is the content for Slide 3. More details can be added here.</p>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Slide 4 Content</h2>
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Slide 5 Content</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>
