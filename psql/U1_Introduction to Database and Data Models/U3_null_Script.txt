@@ -14,6 +14,8 @@ INSERT INTO products (product_name, price, quantity, description) VALUES
 ('Tablet', 299.99, NULL, NULL),                          -- quantity and description are NULL
 ('Smartwatch', 199.99, 75, NULL);                        -- description is NULL
 
+-- always believe 
+select * from products - understand the data
 
 *******************************************************************************
 Dealing with NULL Values
@@ -27,6 +29,8 @@ To retrieve only products with a non-NULL price:
 
 
 SELECT * FROM products WHERE price IS NOT NULL;
+select * from products where description is not null and price is not null;
+
 ***************************************************************************
 Finding Products with NULL Values
 To retrieve products where the quantity is NULL:
@@ -38,6 +42,10 @@ To replace NULL values with a default value in the results (e.g., displaying "N/
 
 sql
 Copy code
+
+select product_id, COALESCE(price, 0) from products where price is null;
+
+select product_id, COALESCE(price, 0) as price from products where price is null;
 SELECT product_name, COALESCE(description, 'N/A') AS description FROM products;
 
 
@@ -48,6 +56,7 @@ To count how many products have a NULL price:
 sql
 Copy code
 SELECT COUNT(*) AS null_price_count FROM products WHERE price IS NULL;
+SELECT COUNT(5) AS null_price_count FROM products WHERE price IS NULL;
 **************************************************************
 
 

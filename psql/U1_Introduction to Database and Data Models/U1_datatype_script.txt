@@ -1,5 +1,20 @@
 create schema demo;
 set search_path to demo;
+
+
+
+
+CREATE TABLE sample_data(
+name VARCHAR(2)
+);
+
+insert into sample_data values ('Dijojose');
+insert into sample_data values ('Di');
+select * from  sample_data;
+
+DROP TABLE sample_Data;
+
+
 CREATE TABLE sample_data (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),           -- String type

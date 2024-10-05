@@ -1,21 +1,41 @@
-
+set search_path to demo;
 CREATE TABLE employees (
     name VARCHAR(100)
 );
 ALTER TABLE employees
+ADD COLUMN SALARY VARCHAR(20);
+
+ALTER TABLE employees
 ALTER COLUMN name SET NOT NULL;
+
+
+-- not works
+ALTER TABLE employees
+ALTER COLUMN salary TYPE NUMERIC(10, 2);
+--works
+ALTER TABLE employees
+ALTER COLUMN salary TYPE NUMERIC(10, 2)
+USING salary::NUMERIC(10, 2);
+select * from employees;
+
+-- drop column
+CREATE TABLE employee1(
+salary numeric(10,2)
+)
+alter table employee1
+drop column salary;
+alter table employee1
+add column salary int;
+
+
+-- constraints
 ALTER TABLE employees
 ADD CONSTRAINT unique_employee_name UNIQUE (name);
 ALTER TABLE employees
-ADD CONSTRAINT check_name_not_empty CHECK (char_length(name) > 0);
-ALTER TABLE employees
-ADD COLUMN email VARCHAR(100);
-ALTER TABLE employees
-ADD COLUMN salary VARCHAR(100);
-ALTER TABLE employees
-ALTER COLUMN salary TYPE NUMERIC(10, 2);
+ADD CONSTRAINT check_name_not_empty CHECK(char_length(name) >0)
 
 
+**********************************************************************
 
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
@@ -24,8 +44,8 @@ CREATE TABLE employees (
     email VARCHAR(100) UNIQUE NOT NULL,
     hire_date DATE NOT NULL,
     job_title VARCHAR(50),
-    salary NUMERIC(10, 2),
-    department_id INT,
+    salary NUMERIC(10, 2), -- general numeric with exact precision instead of float
+    department_id INT, -- use for whoe numbers
     is_full_time BOOLEAN DEFAULT TRUE
 );
 
@@ -36,10 +56,14 @@ INSERT INTO employees (first_name, last_name, email, hire_date, job_title, salar
 ('Alice', 'Johnson', 'alice.johnson@example.com', '2024-03-25', 'Data Analyst', 65000.00, 1, TRUE),
 ('Bob', 'Brown', 'bob.brown@example.com', '2024-04-30', 'Intern', 30000.00, 3, FALSE);
 ***************************************************************************************************
+
+
+-- not needed
 ALTER TABLE employees ADD COLUMN phone_number VARCHAR(15);
 ALTER TABLE employees ALTER COLUMN salary TYPE NUMERIC(12, 2);
 
-
+*****************************************************
+-- not needed
 DROP
 ALTER TABLE employees DROP COLUMN phone_number;
 SELECT * FROM employees;
