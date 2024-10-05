@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive TOC with Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* Sticky Notes container */
+    .sticky-notes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sticky note style */
+    .sticky-note {
+      background-color: #fffa65;
+      color: #333;
+      padding: 15px;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-note:hover {
+      transform: rotate(0deg);
+    }
+
+    /* Different colors for sticky notes */
+    .sticky-note:nth-child(1) {
+      background-color: #ff9a9e;
+    }
+
+    .sticky-note:nth-child(2) {
+      background-color: #fbc2eb;
+    }
+
+    .sticky-note:nth-child(3) {
+      background-color: #a1c4fd;
+    }
+
+    .sticky-note:nth-child(4) {
+      background-color: #fda085;
+    }
+
+    .sticky-note:nth-child(5) {
+      background-color: #ffecd2;
+    }
+
+    .sticky-note:nth-child(6) {
+      background-color: #c4e0e5;
+    }
+
+    /* Slide Content */
+    .slide-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+
+    .slide-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interactive Slide Deck with Sticky Notes</h1>
+    <p>Click the sticky notes to view content</p>
+  </header>
+
+  <!-- TOC Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="sticky-note" onclick="showContent('slide1')">Slide 1</div>
+    <div class="sticky-note" onclick="showContent('slide2')">Data</div>
+    <div class="sticky-note" onclick="showContent('slide3')">Slide 3</div>
+    <div class="sticky-note" onclick="showContent('slide4')">Slide 4</div>
+    <div class="sticky-note" onclick="showContent('slide5')">Slide 5</div>
+  </div>
+
+  <div class="content">
+    <!-- Slide Content -->
+    <div id="slide1" class="slide-content">
+      <h2>Slide 1 Content</h2>
+      <p>This is the content for Slide 1. More details can be added here.</p>
+    </div>
+
+    <div id="slide2" class="slide-content">
+      <h2>Slide 2 Content</h2>
+	  <table border="1">
+  <tr>
+    <th>userid</th>
+    <th>username</th>
+    <th>travelled_distance (km)</th>
+    <th>place</th>
+    <th>date_travelled</th>
+  </tr>
+  <tr>
+    <td>101</td>
+    <td>John Doe</td>
+    <td>350</td>
+    <td>Chennai</td>
+    <td>2024-09-18</td>
+  </tr>
+  <tr>
+    <td>102</td>
+    <td>Jane Smith</td>
+    <td>420</td>
+    <td>Hyderabad</td>
+    <td>2024-09-20</td>
+  </tr>
+  <tr>
+    <td>103</td>
+    <td>Arun Kumar</td>
+    <td>290</td>
+    <td>Chennai</td>
+    <td>2024-09-21</td>
+  </tr>
+  <tr>
+    <td>104</td>
+    <td>Meera Singh</td>
+    <td>510</td>
+    <td>Hyderabad</td>
+    <td>2024-09-23</td>
+  </tr>
+  <tr>
+    <td>105</td>
+    <td>Naveen Reddy</td>
+    <td>370</td>
+    <td>Chennai</td>
+    <td>2024-09-25</td>
+  </tr>
+</table>
+
+
+<table border="1" style="border: border-collapse;">
+  <tr>
+    <th>cityid</th>
+    <th>cityname</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Chennai</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Bangalore</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Hyderabad</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Cochin</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Mumbai</td>
+  </tr>
+</table>
+
+<table border="1">
+  <tr>
+    <th>cityid</th>
+    <th>cityname</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Chennai</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Hyderabad</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Bangalore</td>
+  </tr>
+</table>
+
+      <p>This is the content for Slide 2. More details can be added here.</p>
+    </div>
+
+    <div id="slide3" class="slide-content">
+      <h2>Slide 3 Content</h2>
+      <p>This is the content for Slide 3. More details can be added here.</p>
+    </div>
+
+    <div id="slide4" class="slide-content">
+      <h2>Slide 4 Content</h2>
+      <p>This is the content for Slide 4. More details can be added here.</p>
+    </div>
+
+    <div id="slide5" class="slide-content">
+      <h2>Slide 5 Content</h2>
+      <p>This is the content for Slide 5. More details can be added here.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to show content based on clicked sticky note
+    function showContent(slideId) {
+      const slides = document.querySelectorAll('.slide-content');
+      slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+      document.getElementById(slideId).classList.add('active'); // Show selected slide
+    }
+  </script>
+
+</body>
+</html>

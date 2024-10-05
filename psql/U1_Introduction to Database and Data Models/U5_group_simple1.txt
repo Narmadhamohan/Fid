@@ -1,0 +1,45 @@
+CREATE TABLE book_sales (
+    sale_id SERIAL PRIMARY KEY,
+    book_title VARCHAR(100) NOT NULL,
+    quantity_sold INT NOT NULL,
+    sale_date DATE NOT NULL
+);
+
+
+
+INSERT INTO book_sales (book_title, quantity_sold, sale_date) VALUES
+('The Great Gatsby', 10, '2024-01-01'),
+('1984', 5, '2024-01-05'),
+('Head First Java', 8, '2024-01-10'),
+('The Great Gatsby', 7, '2024-01-15'),
+('1984', 10, '2024-01-20'),
+('The Catcher in the Rye', 4, '2024-01-25'),
+('Head First Java', 6, '2024-01-30');
+**************************************
+Using GROUP BY to Summarize Sales by Book Title
+
+SELECT book_title, 
+       SUM(quantity_sold) AS total_sold 
+FROM book_sales 
+GROUP BY book_title;
+
+
+**************************************
+To find books that have sold more than 10 copies:Having filter
+SELECT book_title, 
+       SUM(quantity_sold) AS total_sold 
+FROM book_sales 
+GROUP BY book_title
+HAVING SUM(quantity_sold) > 10;
+*******************************************************************
+To order the results by total sales in descending order:
+
+
+SELECT book_title, 
+       SUM(quantity_sold) AS total_sold 
+FROM book_sales 
+GROUP BY book_title
+HAVING SUM(quantity_sold) > 10
+ORDER BY total_sold DESC;
+
+

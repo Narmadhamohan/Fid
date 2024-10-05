@@ -1,0 +1,63 @@
+1. Find the person whose name starts with a specific letter (e.g., 'A').
+Question:
+"Give the name of the person that starts with the letter 'A'."
+
+Query:
+sql
+Copy code
+SELECT username
+FROM travel_records
+WHERE username LIKE 'A%';
+This query retrieves all usernames that start with the letter 'A'.
+
+2. Select distinct cities that a person has visited.
+Question:
+"Select distinct cities that have been visited by users."
+
+Query:
+sql
+Copy code
+SELECT DISTINCT place
+FROM travel_records;
+This query lists all unique cities from the place column in travel_records.
+
+3. Find the person who has visited more than 3 distinct cities in a year.
+Question:
+"Find the people who have visited more than 3 different cities in the year 2024."
+
+Query:
+sql
+Copy code
+SELECT username
+FROM travel_records
+WHERE EXTRACT(YEAR FROM date_travelled) = 2024
+GROUP BY username
+HAVING COUNT(DISTINCT place) > 3;
+This query groups users by username, filters records for the year 2024, and checks whether the number of distinct cities they visited is greater than 3.
+
+4. Find the second last visited date for a specific person.
+Question:
+"What is the second last date a specific person (e.g., 'John Doe') visited any city?"
+
+Query:
+sql
+Copy code
+SELECT date_travelled
+FROM travel_records
+WHERE username = 'John Doe'
+ORDER BY date_travelled DESC
+OFFSET 1 LIMIT 1;
+This query orders the visit dates for 'John Doe' in descending order and uses OFFSET 1 to skip the most recent date and get the second last visited date.
+
+5. Select all persons who have visited a city from the cities table.
+Question:
+"Select all persons who have visited a city listed in the cities table."
+
+Query:
+sql
+Copy code
+SELECT DISTINCT tr.username
+FROM travel_records tr
+JOIN cities c ON tr.place = c.cityname;
+This query joins the travel_records and cities tables on city names and retrieves the usernames of users who visited the cities listed in the cities table.
+

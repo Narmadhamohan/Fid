@@ -1,0 +1,55 @@
+1. Retrieve Names of Individuals Whose Names Start with a Specific Letter
+Question: List the names of all individuals whose usernames start with the letter 'J'.
+
+Query:
+
+sql
+Copy code
+SELECT username
+FROM travel_records
+WHERE username LIKE 'J%';
+This query selects all usernames from the travel_records table that begin with the letter 'J'.
+
+2. Retrieve Distinct Cities from the Travel Records
+Question: What are the distinct cities present in the travel records?
+
+Query:
+
+sql
+Copy code
+SELECT DISTINCT place
+FROM travel_records;
+This query fetches all unique city names from the place column in the travel_records table.
+
+3. Identify Individuals Who Have Visited a City More Than Three Times in a Year
+Question: Which individuals have visited the same city more than three times in the year 2024?
+
+Query:
+
+sql
+Copy code
+SELECT username, place, COUNT(*) AS visit_count
+FROM travel_records
+WHERE date_travelled BETWEEN '2024-01-01' AND '2024-12-31'
+GROUP BY username, place
+HAVING COUNT(*) > 3;
+This query counts the number of visits each user has made to each city in the year 2024 and filters those who have visited more than three times.
+
+4. Retrieve the Second Last Visit Date for Each Individual
+Question: What is the second last date each individual visited any city?
+
+Query:
+
+sql
+Copy code
+SELECT username, MAX(date_travelled) AS second_last_visit
+FROM (
+    SELECT username, date_travelled,
+           ROW_NUMBER() OVER (PARTITION BY username ORDER BY date_travelled DESC) AS row_num
+    FROM travel_records
+) AS temp
+WHERE row_num = 2
+GROUP BY username;
+This query uses a subquery to assign row numbers to each visit per user, ordered by the visit date in descending order, and then retrieves the second last visit date for each user.
+
+These queries provide insights into user travel patterns and can be adjusted to fit different business scenarios as needed.

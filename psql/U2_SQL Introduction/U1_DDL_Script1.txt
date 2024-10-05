@@ -1,0 +1,50 @@
+-- DDL for creating the table
+CREATE TABLE travel_records (
+    userid SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    travelled_distance DECIMAL(10, 2) NOT NULL,
+    place VARCHAR(50) CHECK (place IN ('Chennai', 'Hyderabad')),
+    date_travelled DATE NOT NULL
+);
+
+
+-- Insert sample data into the table
+INSERT INTO travel_records (username, travelled_distance, place, date_travelled)
+VALUES 
+('John Doe', 350, 'Chennai', '2024-09-18'),
+('Jane Smith', 420, 'Hyderabad', '2024-09-20'),
+('Arun Kumar', 290, 'Chennai', '2024-09-21'),
+('Meera Singh', 510, 'Hyderabad', '2024-09-23'),
+('Naveen Reddy', 370, 'Chennai', '2024-09-25');
+
+
+************************************************************************************************
+-- DDL for creating the table with cityid and cityname
+CREATE TABLE cities (
+    cityid SERIAL PRIMARY KEY,
+    cityname VARCHAR(50) NOT NULL
+);
+
+
+-- Insert sample data into the cities table
+INSERT INTO cities (cityname)
+VALUES 
+('Chennai'),
+('Bangalore'),
+('Hyderabad'),
+('Cochin'),
+('Mumbai');
+******************************************************************************************
+CREATE TABLE peopleFirst_cities (
+    cityid SERIAL PRIMARY KEY,
+    cityname VARCHAR(50) NOT NULL
+);
+
+-- Insert specific cities into the cities table
+INSERT INTO peopleFirst_cities (cityname)
+VALUES 
+('Chennai'),
+('Hyderabad'),
+('Bangalore');
+
+***************************************************************************************************

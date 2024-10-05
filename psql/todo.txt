@@ -1,0 +1,59 @@
+create a flowchart with difference in the scenario based case study as tables using html. 
+each tab ask questions.
+
+
+They got to fill. after that next day -> show that.
+
+Also, take the exaple of networks and css.
+
+
+Your flow to teach and explain.
+
+
+
+html -> table data in chrome. Tell them to metion data just by looking.
+then introduce queries to display them
+
+then introduce ddl with TCL of commit, rollback
+
+isro: 
+mastercity
+
+
+sub-org
+peoplefirst
+Ask questions
+
+for keys, constraints
+
+
+
+create u6_Date
+create trigger_examples, download indx types image.
+syntax showcase of function, trigger, procedure
+for joins, keys,constraints, alter table to add constraint
+for union, instersectall , set operators
+for exists,ilike
+for functions
+
+for Sequence
+Synonym
+View, Operations on View
+Indexing
+Clusters
+
+
+
+Programming through PLSQL Basics
+SQL Vs Plsql
+Procedures and Functions
+
+Introduction, Different models
+MongoDB Basics
+
+
+
+
+
+
+
