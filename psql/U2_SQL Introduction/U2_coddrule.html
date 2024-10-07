@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codd's 12 Rules</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .section {
+            background: linear-gradient(to right, #ffffff, #e2e2e2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        code {
+            background-color: #eaeaea;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Codd's 12 Rules</h2>
+        <ul>
+            <li><strong>Rule 0: The Foundation Rule</strong>: For any system that is advertised as, or claimed to be, a relational database management system, that system must be able to manage databases entirely through their relational capabilities.</li>
+            <li><strong>Rule 1: The Information Rule</strong>: All information should be represented as a value in tables. This means that data must be stored in a tabular format.</li>
+            <li><strong>Rule 2: Guaranteed Access Rule</strong>: Each datum must be accessible by a combination of table name, primary key, and column name. For example:</li>
+            <pre>
+                <code>
+                    SELECT name FROM employees WHERE employee_id = 1;
+                </code>
+            </pre>
+            <li><strong>Common Violation:</strong> Attempting to access data without the proper primary key can lead to ambiguous results.</li>
+            
+            <li><strong>Rule 3: Systematic Treatment of Null Values</strong>: Null values must be uniformly treated as distinct from empty strings and zero, indicating missing or unknown data.</li>
+            <li><strong>Common Violation:</strong> Using NULL values in calculations without handling them:</li>
+            <pre>
+                <code>
+                    SELECT AVG(salary) FROM employees;
+                </code>
+            </pre>
+            <li>To handle NULL values correctly, use:</li>
+            <pre>
+                <code>
+                    SELECT AVG(salary) FROM employees WHERE salary IS NOT NULL;
+                </code>
+            </pre>
+
+            <li><strong>Rule 4: Dynamic On-Line Catalog Based on the Relational Model</strong>: The database description should be represented in the same way as ordinary data, allowing it to be queried like any other table.</li>
+            <li><strong>Common Violation:</strong> Using proprietary tools that do not expose metadata as tables. For example, querying metadata through an interface that does not allow SQL queries like:</li>
+            <pre>
+                <code>
+                    SELECT * FROM metadata;
+                </code>
+            </pre>
+
+            <li><strong>Rule 5: Comprehensive Data Sublanguage Rule</strong>: The system must support at least one relational language that allows data definition, manipulation, and transaction management.</li>
+            <li><strong>Common Violation:</strong> Using multiple different languages for different database operations, leading to inconsistencies. For instance, using SQL for data manipulation but relying on a proprietary language for defining schemas.</li>
+            
+            <li><strong>Rule 6: View Updating Rule</strong>: All views that are theoretically updatable should be updatable by the system.</li>
+            <li><strong>Common Violation:</strong> Attempting to update a view that is based on a complex join or aggregation:</li>
+            <pre>
+                <code>
+                    UPDATE view_salary SET salary = 50000 WHERE employee_id = 1;
+                </code>
+            </pre>
+            
+            <li><strong>Rule 7: High-Level Insert, Update, and Delete</strong>: The system must support set-at-a-time operations rather than requiring single-row operations.</li>
+            <li><strong>Common Violation:</strong> Using separate queries to update individual records:</li>
+            <pre>
+                <code>
+                    UPDATE employees SET salary = 60000 WHERE employee_id = 1;
+                    UPDATE employees SET salary = 65000 WHERE employee_id = 2;
+                </code>
+            </pre>
+            <li>Instead, use:</li>
+            <pre>
+                <code>
+                    UPDATE employees SET salary = CASE employee_id
+                        WHEN 1 THEN 60000
+                        WHEN 2 THEN 65000
+                    END WHERE employee_id IN (1, 2);
+                </code>
+            </pre>
+
+            <li><strong>Rule 8: Access Control Rule</strong>: The system must allow any relation to be accessible by means of a single, consistent interface.</li>
+            <li><strong>Common Violation:</strong> Using different methods for accessing different tables instead of a uniform approach. For example, accessing employee data through a direct SQL query but using a different method (like an API) for department data.</li>
+            
+            <li><strong>Rule 9: Logical Data Independence</strong>: Changes to the logical structure of the database should not require changes to applications that access the data.</li>
+            <li><strong>Common Violation:</strong> Directly referencing column names in applications rather than using views or stored procedures, leading to breaking changes on updates. For example, an application hardcoding column names like:</li>
+            <pre>
+                <code>
+                    SELECT employee_id, name, age FROM employees;
+                </code>
+            </pre>
+
+            <li><strong>Rule 10: Physical Data Independence</strong>: Changes to how data is stored should not affect how data is accessed.</li>
+            <li><strong>Common Violation:</strong> Hardcoding physical storage details in application logic, making changes cumbersome. For instance, writing queries that depend on specific table storage structures.</li>
+
+            <li><strong>Rule 11: Integrity Independence</strong>: Integrity constraints must be specified separately from application programs and stored in the catalog.</li>
+            <li><strong>Common Violation:</strong> Implementing data integrity directly in application logic rather than using database constraints like PRIMARY KEY, FOREIGN KEY, or CHECK constraints. For example:</li>
+            <pre>
+                <code>
+                    IF NOT EXISTS (SELECT * FROM employees WHERE employee_id = @employee_id) 
+                    BEGIN 
+                        -- Insert logic
+                    END
+                </code>
+            </pre>
+
+            <li><strong>Rule 12: Non-Subversion Rule</strong>: If the system has a low-level (single-record) interface, this interface cannot bypass the integrity rules defined by the relational model.</li>
+            <li><strong>Common Violation:</strong> Using low-level interfaces to manipulate data directly without enforcing the same integrity constraints that the relational model applies, such as bypassing foreign key checks when directly modifying records.</li>
+        </ul>
+    </div>
+</body>
+</html>
