@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PL/SQL and MongoDB Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h2.plsql_basics {
+            background: linear-gradient(to right, #e67e22, #f39c12);
+        }
+        h2.sql_vs_plsql {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        h2.procedures_functions {
+            background: linear-gradient(to right, #8e44ad, #9b59b6);
+        }
+        h2.different_models {
+            background: linear-gradient(to right, #16a085, #1abc9c);
+        }
+        h2.mongodb_basics {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        h2.triggers {
+            background: linear-gradient(to right, #f39c12, #e67e22);
+        }
+        h2.cursors {
+            background: linear-gradient(to right, #2ecc71, #3498db);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="plsql_basics">1. Programming through PL/SQL Basics</h2>
+    <p><strong>PL/SQL</strong> (Procedural Language/SQL) is Oracle's procedural extension for SQL. It allows you to combine SQL with procedural constructs like loops and conditions to perform complex database operations.</p>
+    
+    <ul>
+        <li><strong>Key Features:</strong></li>
+        <ul>
+            <li>Supports variables, constants, loops, and conditions.</li>
+            <li>Enables error handling using exceptions.</li>
+            <li>Allows for modular programming using procedures and functions.</li>
+        </ul>
+        <li><strong>Basic Structure:</strong></li>
+        <pre><code>DECLARE
+    variable_name datatype;
+BEGIN
+    -- SQL and PL/SQL operations
+END;</code></pre>
+    </ul>
+
+    <h2 class="sql_vs_plsql">2. SQL vs PL/SQL</h2>
+    <p>Understanding the difference between <strong>SQL</strong> and <strong>PL/SQL</strong> is crucial for effective database programming:</p>
+    
+    <ul>
+        <li><strong>SQL:</strong></li>
+        <ul>
+            <li>Declarative language used for querying and manipulating databases.</li>
+            <li>Handles data at a high level (e.g., SELECT, INSERT).</li>
+            <li>Does not support programming constructs like loops or conditions.</li>
+        </ul>
+        <li><strong>PL/SQL:</strong></li>
+        <ul>
+            <li>Procedural extension of SQL for Oracle databases.</li>
+            <li>Supports variables, loops, conditions, and error handling.</li>
+            <li>Enables complex programming logic within database applications.</li>
+        </ul>
+        <li><strong>PostgreSQL Syntax:</strong></li>
+        <pre><code>-- SQL example
+SELECT * FROM Employees;
+
+-- PL/SQL example
+DECLARE
+    v_employee_name VARCHAR2(50);
+BEGIN
+    SELECT Name INTO v_employee_name FROM Employees WHERE EmployeeID = 1;
+    DBMS_OUTPUT.PUT_LINE(v_employee_name);
+END;</code></pre>
+    </ul>
+
+    <h2 class="procedures_functions">3. Procedures and Functions</h2>
+    <p><strong>Procedures</strong> and <strong>Functions</strong> are essential components of PL/SQL, allowing you to encapsulate and reuse code.</p>
+
+    <ul>
+        <li><strong>Procedure:</strong> A subprogram that performs a specific task but does not return a value.</li>
+        <pre><code>CREATE OR REPLACE PROCEDURE emp_details (emp_id IN NUMBER) AS
+    v_name VARCHAR2(50);
+BEGIN
+    SELECT Name INTO v_name FROM Employees WHERE EmployeeID = emp_id;
+    DBMS_OUTPUT.PUT_LINE('Employee Name: ' || v_name);
+END;</code></pre>
+
+        <li><strong>Function:</strong> A subprogram that performs a task and returns a value.</li>
+        <pre><code>CREATE OR REPLACE FUNCTION get_salary (emp_id IN NUMBER) RETURN NUMBER AS
+    v_salary NUMBER;
+BEGIN
+    SELECT Salary INTO v_salary FROM Employees WHERE EmployeeID = emp_id;
+    RETURN v_salary;
+END;</code></pre>
+
+        <li><strong>PostgreSQL Syntax:</strong></li>
+        <pre><code>CREATE OR REPLACE FUNCTION get_salary(emp_id INT) 
+RETURNS NUMERIC AS $$
+DECLARE
+    v_salary NUMERIC;
+BEGIN
+    SELECT Salary INTO v_salary FROM Employees WHERE EmployeeID = emp_id;
+    RETURN v_salary;
+END; $$ LANGUAGE plpgsql;</code></pre>
+    </ul>
+
+    <h2 class="different_models">4. Introduction to Different Models</h2>
+    <p>There are various database models that dictate how data is organized and accessed:</p>
+
+    <ul>
+        <li><strong>Hierarchical Model:</strong> Data is organized in a tree-like structure, with parent-child relationships.</li>
+        <li><strong>Network Model:</strong> Allows for more complex relationships, with multiple parent-child links.</li>
+        <li><strong>Relational Model:</strong> Data is organized in tables (relations) with rows and columns, enabling powerful querying through SQL.</li>
+        <li><strong>Object-oriented Model:</strong> Integrates object-oriented programming principles into database design, allowing for complex data types and relationships.</li>
+        <li><strong>Document Model:</strong> Used in NoSQL databases, where data is stored in document formats (e.g., JSON) for flexible structures.</li>
+    </ul>
+
+    <h2 class="mongodb_basics">5. MongoDB Basics</h2>
+    <p><strong>MongoDB</strong> is a NoSQL database that stores data in a flexible, JSON-like format, making it easy to work with unstructured data.</p>
+
+    <ul>
+        <li><strong>Key Features:</strong></li>
+        <ul>
+            <li>Document-oriented storage model.</li>
+            <li>Schema-less, allowing for diverse data structures.</li>
+            <li>Scalability through sharding and replication.</li>
+        </ul>
+        <li><strong>Basic Commands:</strong></li>
+        <ul>
+            <li><strong>Insert:</strong> <code>db.collection.insertOne({key: 'value'});</code></li>
+            <li><strong>Query:</strong> <code>db.collection.find({key: 'value'});</code></li>
+            <li><strong>Update:</strong> <code>db.collection.updateOne({key: 'old_value'}, {$set: {key: 'new_value'}});</code></li>
+            <li><strong>Delete:</strong> <code>db.collection.deleteOne({key: 'value'});</code></li>
+        </ul>
+    </ul>
+
+    <h2 class="triggers">6. Triggers</h2>
+    <p><strong>Triggers</strong> are special procedures that automatically execute in response to certain events on a table or view. They are useful for enforcing business rules and data integrity.</p>
+
+    <ul>
+        <li><strong>Types of Triggers:</strong>
+            <ul>
+                <li><strong>BEFORE Trigger:</strong> Executes before an insert, update, or delete operation.</li>
+                <li><strong>AFTER Trigger:</strong> Executes after an insert, update, or delete operation.</li>
+                <li><strong>INSTEAD OF Trigger:</strong> Executes in place of an insert, update, or delete operation on views.</li>
+            </ul>
+        </li>
+        <li><strong>Syntax:</strong></li>
+        <pre><code>CREATE OR REPLACE TRIGGER trigger_name
+BEFORE INSERT ON table_name
+FOR EACH ROW
+BEGIN
+    -- Trigger logic
+END;</code></pre>
+    </ul>
+
+    <h2 class="cursors">7. Cursor Syntax</h2>
+    <p><strong>Cursors</strong> are pointers to the context area that allows you to fetch a row from the result set returned by a SQL query. They are used to process individual rows returned by a query.</p>
+
+    <ul>
+        <li><strong>Types of Cursors:</strong>
+            <ul>
+                <li><strong>Implicit Cursor:</strong> Automatically created by the Oracle database when an SQL statement is executed.</li>
+                <li><strong>Explicit Cursor:</strong> Defined by the programmer to handle multiple rows returned by a query.</li>
+            </ul>
+        </li>
+        <li><strong>Syntax for Explicit Cursor:</strong></li>
+        <pre><code>DECLARE
+    CURSOR cursor_name IS
+        SELECT column_name FROM table_name;
+    variable_name table_name.column_name%TYPE;
+BEGIN
+    OPEN cursor_name;
+    LOOP
+        FETCH cursor_name INTO variable_name;
+        EXIT WHEN cursor_name%NOTFOUND;
+        -- Process each row
+    END LOOP;
+    CLOSE cursor_name;
+END;</code></pre>
+
+        <li><strong>PostgreSQL Cursor Syntax:</strong></li>
+        <pre><code>BEGIN;
+    DECLARE cursor_name CURSOR FOR 
+        SELECT column_name FROM table_name;
+    
+    OPEN cursor_name;
+    FETCH cursor_name; -- Fetch a row
+    CLOSE cursor_name;
+END;</code></pre>
+    </ul>
+
+</body>
+</html>

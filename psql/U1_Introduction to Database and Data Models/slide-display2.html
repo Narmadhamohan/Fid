@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>1. Database Introduction</h2>
+    <p>A <strong>Database</strong> is a structured collection of data that is organized so it can easily be accessed, managed, and updated. Databases are used to store large amounts of information efficiently and are vital in applications like banking, retail, and social media.</p>
+
+    <ul>
+        <li><strong>DBMS (Database Management System):</strong> Software that manages databases, allowing users to create, read, update, and delete data efficiently.</li>
+        <li><strong>Types of Databases:</strong> Relational, NoSQL, Object-Oriented, Distributed Databases, etc.</li>
+    </ul>
+
+    <h2>2. Types of Data Models</h2>
+    <p>Data models are conceptual frameworks that define how data is stored, accessed, and related to other data.</p>
+    <ul>
+        <li><strong>Hierarchical Data Model:</strong> Data is organized in a tree-like structure where a single parent can have many children.</li>
+        <li><strong>Network Data Model:</strong> Allows more complex relationships by permitting each child to have multiple parents.</li>
+        <li><strong>Relational Data Model:</strong> Data is organized into tables (or relations), where each table is a set of rows and columns.</li>
+        <li><strong>Object-Oriented Data Model:</strong> Data is represented as objects, similar to OOP principles.</li>
+    </ul>
+
+    <h2>3. Introduction to RDBMS</h2>
+    <p><strong>Relational Database Management Systems (RDBMS)</strong> store data in tables where relationships between data are defined using keys (primary, foreign). Popular RDBMS software includes:</p>
+    <ul>
+        <li>MySQL</li>
+        <li>PostgreSQL</li>
+        <li>Oracle</li>
+        <li>SQL Server</li>
+    </ul>
+    <p>RDBMSs follow ACID properties (Atomicity, Consistency, Isolation, Durability) to ensure reliability.</p>
+
+    <h2>4. Codd's Rules</h2>
+    <p>Dr. Edgar F. Codd proposed 12 rules that define the requirements for a database management system to be considered relational:</p>
+    <ul>
+        <li><strong>Rule 1:</strong> The information rule – All information should be stored in tables.</li>
+        <li><strong>Rule 2:</strong> Guaranteed access – Each item should be accessible using a combination of table name, primary key, and column.</li>
+        <li><strong>Rule 3:</strong> Systematic treatment of null values – Null values must be uniformly treated as unknown or absent.</li>
+        <!-- More rules -->
+    </ul>
+
+    <h2>5. Normalization</h2>
+    <p><strong>Normalization</strong> is the process of organizing data in a database to reduce redundancy and improve data integrity. The steps include:</p>
+    <ul>
+        <li><strong>1NF (First Normal Form):</strong> Remove duplicate columns and ensure each column contains atomic values.</li>
+        <li><strong>2NF (Second Normal Form):</strong> Achieved when it is in 1NF and all non-key attributes are fully dependent on the primary key.</li>
+        <li><strong>3NF (Third Normal Form):</strong> Achieved when it is in 2NF and there are no transitive dependencies.</li>
+    </ul>
+
+    <h2>6. ER-Diagrams (Entity-Relationship Diagrams)</h2>
+    <p>An <strong>ER Diagram</strong> is a visual representation of the entities in a database and the relationships between them.</p>
+    <ul>
+        <li><strong>Entities:</strong> Represent objects or things (e.g., User, Product).</li>
+        <li><strong>Attributes:</strong> Characteristics of entities (e.g., User Name, Product ID).</li>
+        <li><strong>Relationships:</strong> Represent associations between entities (e.g., A User can place an Order).</li>
+    </ul>
+
+    <h2>Example ER Diagram</h2>
+    <pre>
+        Entity User
+            ├── User ID
+            ├── User Name
+            ├── Email
+        Entity Order
+            ├── Order ID
+            ├── Order Date
+            └── Amount
+        Relationship: A User can place multiple Orders.
+    </pre>
+
+    <h2>Example SQL Query</h2>
+    <p>Here's a simple SQL query to fetch users who placed orders:</p>
+    <pre><code>SELECT u.UserName, o.OrderID, o.OrderDate
+FROM Users u
+JOIN Orders o ON u.UserID = o.UserID
+WHERE o.OrderDate > '2023-01-01';</code></pre>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+JavaScript has a wide range of built-in functions and methods across various objects that are very useful for performing different tasks. Here’s a list of some important functions and methods commonly used in JavaScript, along with their descriptions:
+
+1. Math Functions
+Math.round(): Rounds a number to the nearest integer.
+Math.floor(): Rounds a number down to the nearest integer.
+Math.ceil(): Rounds a number up to the nearest integer.
+Math.max(): Returns the largest of the given numbers.
+Math.min(): Returns the smallest of the given numbers.
+Math.random(): Returns a random floating-point number between 0 and 1.
+Math.pow(base, exponent): Returns the base raised to the exponent power.
+2. String Functions
+.length: Returns the length of a string.
+.toUpperCase(): Converts a string to uppercase.
+.toLowerCase(): Converts a string to lowercase.
+.trim(): Removes whitespace from both ends of a string.
+.substring(start, end): Extracts characters from a string between two specified indices.
+.split(separator): Splits a string into an array of substrings based on a specified separator.
+.replace(searchValue, newValue): Replaces a specified substring with another substring.
+3. Array Functions
+.push(): Adds one or more elements to the end of an array and returns the new length of the array.
+.pop(): Removes the last element from an array and returns that element.
+.shift(): Removes the first element from an array and returns that element.
+.unshift(): Adds one or more elements to the beginning of an array and returns the new length of the array.
+.splice(start, deleteCount, item1, item2, ...): Adds/removes items to/from an array.
+.slice(start, end): Returns a shallow copy of a portion of an array.
+.forEach(callback): Executes a provided function once for each array element.
+.map(callback): Creates a new array with the results of calling a provided function on every element in the calling array.
+.filter(callback): Creates a new array with all elements that pass the test implemented by the provided function.
+4. Object Functions
+Object.keys(obj): Returns an array of a given object's own enumerable property names.
+Object.values(obj): Returns an array of a given object's own enumerable property values.
+Object.entries(obj): Returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+Object.assign(target, ...sources): Copies all enumerable own properties from one or more source objects to a target object.
+5. Date Functions
+new Date(): Creates a new date object with the current date and time.
+Date.now(): Returns the numeric value corresponding to the current time.
+date.getFullYear(): Returns the year of the specified date according to local time.
+date.getMonth(): Returns the month of the specified date according to local time (0-11).
+date.getDate(): Returns the day of the month for the specified date according to local time (1-31).
+6. Utility Functions
+parseInt(string, radix): Parses a string argument and returns an integer of the specified radix (base).
+parseFloat(string): Parses a string argument and returns a floating point number.
+JSON.stringify(value): Converts a JavaScript object or value to a JSON string.
+JSON.parse(text): Parses a JSON string, constructing the JavaScript value or object described by the string.
+7. Control Flow Functions
+setTimeout(function, milliseconds): Executes a function after a specified number of milliseconds.
+setInterval(function, milliseconds): Repeatedly calls a function with a fixed time delay between each call.
+clearTimeout(timeoutID): Cancels a timeout previously established by calling setTimeout().
+clearInterval(intervalID): Cancels a timed, repeating action that was previously established by calling setInterval().
+Conclusion
+These functions are foundational for JavaScript programming, covering mathematical operations, string
+ manipulation, array handling, object properties, date management, and utility functions. 
+Familiarizing yourself with these methods will significantly enhance your coding efficiency and problem-solving 
+skills in JavaScript!
+
+If your main goal is to display data in a structured way and maintain accessibility, go with a table layout.
+If your goal is to create a responsive and flexible layout, especially if the arrangement of fields might change or if you're using a modern design approach, consider using Flexbox.

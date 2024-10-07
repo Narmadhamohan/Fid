@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script>
+  function  doCalc(){
+
+    let value=document.getElementById('useri').value;
+
+    alert('hello'+(value*10));
+
+    // Example of Math.round()
+/*const numbers = [4.2, 5.7, 6.5, 2.3, 8.8];
+const roundedNumbers = numbers.map(num => Math.round(num));
+
+console.log("Original Numbers: ", numbers); // Output: Original Numbers:  [4.2, 5.7, 6.5, 2.3, 8.8]
+console.log("Rounded Numbers: ", roundedNumbers); // Output: Rounded Numbers:  [4, 6, 7, 2, 9]
+//xample of map
+// Example of Array.prototype.map()
+
+// Using map to create a new array with each element doubled
+const doubledNumbers = numbers.map(num => num * 2);
+
+console.log("Original Numbers: ", numbers); // Output: Original Numbers:  [1, 2, 3, 4, 5]
+console.log("Doubled Numbers: ", doubledNumbers); // Output: Doubled Numbers:  [2, 4, 6, 8, 10]
+
+// Example of if-else if-else
+const score = 85; // Change this score to test different cases
+
+if (score >= 90) {
+    console.log("Grade: A");
+} else if (score >= 80) {
+    console.log("Grade: B");
+} else if (score >= 70) {
+    console.log("Grade: C");
+} else {
+    console.log("Grade: F");
+}
+
+*/
+
+    return false;
+    }
+</script>
+<link href="legendform.css" rel="stylesheet">
+
+    <title> Hello World App </title>
+</head>
+<body>
+
+  <!--  <form onsubmit="alert('You clicked!'); alert(document.getElementById('useri').value*10);return false;">
+-->
+    <form onsubmit="return doCalc();">
+
+        <fieldset>
+            <legend>
+                User Personal information
+            </legend>
+            <label >Enter your full name</label>
+                <input type="text" name="username" id="userid" minlength="3" maxlength="6" required
+                placeholder="Enter your firstname"/>
+                <input type="number" name="unumber" id="useri" min="3" max="6" required/>
+
+            <label>Enter your email</label>
+                <input type="email" name="email" autofocus autocomplete="on"/>
+            <label> Enter your password</label>
+                <input type="password" name="pass"/>
+            <label> Enter allocated project</label>
+            <input type="radio" name="project" value="ecommerce"/>Ecommerce
+            <input type="radio" name="project" value="manuf"/>Manuf
+            <input type="radio" name="project" value="project2"/>project2
+
+            <input type="date" name="dob"/>
+            <textarea name="address"></textarea>
+
+            <input type="submit" value="submit" onsubmit="alert('you clicked!')"/>
+
+        </fieldset>
+
+    </form>
+
+</body>
+</html>

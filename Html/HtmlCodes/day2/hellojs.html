@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Border Spacing</title>
+
+    <script>
+        function doAdd(num){
+
+            var count = 0;
+            alert(num);
+            alert(count);
+            alert(document.getElementById('option1').value);
+            alert(document.getElementById('option1').checked);
+
+            // Display the result in the result div
+    var resultDiv = document.getElementById('result');
+          
+                resultDiv.innerHTML ="Added new content"
+        
+
+            return false;
+
+        }
+    </script>
+</head>
+<body>
+
+<form onsubmit="return doAdd(1)">
+
+
+    <input type="checkbox" id="option1" name="comboOffers" value=100>
+    Pack of colour crayons
+    <br><br> 
+    <br>
+
+
+    <input type="checkbox" id="option2" name="comboOffers"
+    value=29>pack of playdough
+    <br><br><br>
+<input type="submit" value="Click Here">Submit</input>
+
+</form>
+
+<div id="result"></div>
+
+</body>

@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Stop Mobile Accessories</title>
+    <style>
+
+/*
+1.HTML Structure:
+2.Input Validations:
+3. Combo Offers:
+4. CSS Styles:
+5. JavaScript Functionality:
+*/
+
+
+
+        body {
+          /*  background-image: url('background-image.jpg'); /* Replace with your background image URL */
+            background-color: blue;
+            font-weight: bold;
+        }
+        h3 {
+            color: #FFFFFF;
+            text-align: center;
+            font-family: Verdana;
+        }
+        table {
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-radius: 5px;
+           /* border-collapse: collapse; /* Prevents extra spacing */
+          /*  table-layout: fixed; /* Ensures columns have fixed widths */
+        }
+         td {
+            padding: 7px;
+            width:50%;
+            color: #08088A;
+            background-color: #FFFFFF;
+            text-align: left; /* Aligns text to the left */
+            border: 1px solid black;
+            border-radius: 4px; /* Rounded corners */
+        }
+        th{
+            padding: 7px;
+            background-color: #FFFFFF;
+            text-align: center; /* Aligns text to the left */
+            border: 1px solid black;
+            border-radius: 4px; /* Rounded corners */
+
+        }
+        label {
+            margin: 0; /* Remove any default margin */
+          
+            padding: 5px;   
+
+        }
+        input[type="text"], 
+        input[type="tel"], 
+        input[type="email"], 
+        textarea {
+            width: 80%; /* Set input and textarea width to fill the cell */
+            padding-left: 10%; /* Padding inside the input fields */
+            padding-right: 10%;
+            border: 1px solid #ccc; /* Border styling */
+            border-radius: 4px; /* Rounded corners */
+        }
+        #order {
+            color: #08088A;
+            margin-left: 45%;
+            margin-right: auto;
+            margin-top: 0%;
+            font-weight: bold;
+        }
+        #result {
+            color: #FFFFFF;
+            text-align: center;
+            font-family: Verdana;
+        }
+        .title {
+            color: #08088A;
+            text-align: center;
+        }
+        .flexdisplay{
+            padding-top: 2%;
+            padding-bottom: 2%;
+            background-color: white;
+            margin: 4% 30% 2% 30%;
+            /*top,right,bottom,left*/
+        }
+        .comboclass{
+            padding: 0% 20% 0% 20%;
+        }
+    /*    .flexdisplay{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vh;
+        }*/
+    </style>
+    <script>
+        // Function to calculate the total cost and display the result
+        function costCalculation() {
+            var totalCost = 0;
+
+            // Check if each combo option is selected and add to total cost
+            if (document.getElementById('option1').checked) {
+                value = parseInt(document.getElementById('option1').value);
+                totalCost += value; // Price for option 1
+            }
+            if (document.getElementById('option2').checked) {
+                value = parseInt(document.getElementById('option2').value);
+                totalCost += value; // Price for option 2
+                alert(totalCost);
+            }
+            if (document.getElementById('option3').checked) {
+                value = parseInt(document.getElementById('option3').value);
+                totalCost += value; // Price for option 2
+            }
+            if (document.getElementById('option4').checked) {
+                 value = parseInt(document.getElementById('option4').value);
+                totalCost += value; // Price for option 2
+            }
+            if (document.getElementById('option5').checked) {
+                value = parseInt(document.getElementById('option5').value);
+                totalCost += value; // Price for option 2
+            }
+
+            // Apply discount if total cost is 2000 or more
+            if (totalCost >= 2000) {
+                totalCost = Math.round(totalCost * 0.8); // Apply 20% discount
+            }
+
+            // Display the result in the result div
+            var resultDiv = document.getElementById('result');
+            if (totalCost > 0) {
+                resultDiv.innerHTML = "Order has been placed successfully. You are requested to pay Rs." + totalCost + " on delivery.";
+            } else {
+                resultDiv.innerHTML = "No selection has been made.";
+            }
+
+            return false; // Prevent default form submission
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align: center;color:white">Your e-store</h2>
+    <form class="flexdisplay">
+        <table class>
+
+            <thead>
+                <tr class="header">
+                    <th colspan="4">Enter details</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name" pattern="[A-Za-z\s]+" required></td>
+            </tr>
+            <tr>
+                <td><label for="phoneNumber">Phone Number:</label></td>
+                <td><input type="tel" id="phoneNumber" name="phoneNumber" pattern="^[789]\d{9}$" required></td>
+            </tr>
+            <tr>
+                <td><label for="emailId">Email:</label></td>
+                <td><input type="email" id="emailId" name="emailId" required></td>
+            </tr>
+            <tr>
+                <td><label for="address">Delivery Address:</label></td>
+                <td><textarea id="address" name="address" rows="4" cols="50" required></textarea></td>
+            </tr>
+           
+        </table>
+        <table>
+            <tr>
+                <td colspan="4" class="comboclass"><p>combo offer</p></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td rowspan="4">
+                    <input type="checkbox" id="option1" name="comboOffers" value=20>
+                    SanDisk 32GB micro SDHC Memory Card + iXCC Micro-USB cable
+                    <br><br> 
+                    <input type="checkbox" id="option2" name="comboOffers"
+                    value=100>Sandisk Cruzer Blade 32 GB Pen Drive + Samsung Type B 15W Travel Adaptor
+                    <br><br>
+                    <input type="checkbox" id="option3" name="comboOffers" value="5">Sony WF-1000XM3 Head Phone + SanDisk 16GB micro SDHC Memory Card
+                    <br><br>
+                    <input type="checkbox" id="option4" name="comboOffers" value="5"> 
+                    Mpow Car Phone Mount + Zebroni 1 Amp Turbo Car Mobile Charger
+                    <br><br>
+                    <input type="checkbox" id="option5" name="comboOffers" value="10">Tribit XSound Go Bluetooth Speaker + Mpow Car Phone Mount
+                    <br><br>
+                </td>
+                
+                <td><p>Rs 799/- only</p></td>
+                
+            </tr>
+            <tr>
+                <td><p>Rs 799/- only</p></td>
+  
+            </tr>
+            <tr>
+                <td><p>Rs 799/- only</p></td>
+            </tr>
+            <tr>
+                <td><p>Rs 799/- only</p></td>
+
+            </tr>
+            <tr>
+                <td  colspan="4"><p>*Enjoy the offer</p></td>
+
+            </tr>
+        </table>
+
+    </form>
+    <input type="submit" id="order" value="PLACE ORDER" onclick="return costCalculation();">
+    <div id="result"></div>
+</body>
+</html>
+

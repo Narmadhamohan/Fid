@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Advanced Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h2.sequence {
+            background: linear-gradient(to right, #e67e22, #f39c12);
+        }
+        h2.synonym {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        h2.view {
+            background: linear-gradient(to right, #8e44ad, #9b59b6);
+        }
+        h2.indexing {
+            background: linear-gradient(to right, #16a085, #1abc9c);
+        }
+        h2.clusters {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="sequence">1. Sequence</h2>
+    <p>A <strong>Sequence</strong> in SQL is a database object that generates a sequence of numeric values according to a specified increment. It is often used to auto-generate primary key values.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE SEQUENCE sequence_name START WITH start_value INCREMENT BY increment_value;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE SEQUENCE seq_employee_id
+START WITH 1
+INCREMENT BY 1;</code></pre>
+        <li><strong>Explanation:</strong> This sequence starts at 1 and increments by 1 each time a new value is requested.</li>
+        <li><strong>Usage:</strong> <code>INSERT INTO Employees (EmployeeID, Name) VALUES (seq_employee_id.NEXTVAL, 'John');</code></li>
+    </ul>
+
+    <h2 class="synonym">2. Synonym</h2>
+    <p>A <strong>Synonym</strong> in SQL is an alias for another database object, such as a table, view, or sequence. It simplifies the referencing of complex object names, particularly for large applications.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE SYNONYM synonym_name FOR object_name;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE SYNONYM emp FOR Employees;</code></pre>
+        <li><strong>Usage:</strong> After creating a synonym, you can use <code>emp</code> as a shorthand for referencing the <code>Employees</code> table: <code>SELECT * FROM emp;</code></li>
+    </ul>
+
+    <h2 class="view">3. View</h2>
+    <p>A <strong>View</strong> is a virtual table in SQL that is based on the result set of a `SELECT` query. It does not store data itself but provides a way to represent data from one or more tables.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE VIEW view_name AS SELECT columns FROM table WHERE condition;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE VIEW emp_view AS
+SELECT EmployeeID, Name, Salary
+FROM Employees
+WHERE Salary &gt; 50000;</code></pre>
+        <li><strong>Explanation:</strong> The view <code>emp_view</code> provides a simplified representation of employees who earn more than 50,000.</li>
+        <li><strong>Operations on View:</strong></li>
+        <ul>
+            <li><strong>Querying:</strong> <code>SELECT * FROM emp_view;</code></li>
+            <li><strong>Updating:</strong> Views can often be updated if they reference a single base table.</li>
+            <pre><code>UPDATE emp_view
+SET Salary = 60000
+WHERE EmployeeID = 1;</code></pre>
+            <li><strong>Dropping:</strong> <code>DROP VIEW emp_view;</code></li>
+        </ul>
+    </ul>
+
+    <h2 class="indexing">4. Indexing and Types</h2>
+    <p><strong>Indexing</strong> improves the speed of data retrieval operations in a database by creating an index on one or more columns. It is similar to the index in a book.</p>
+
+    <ul>
+        <li><strong>Types of Indexes:</strong></li>
+        <ul>
+            <li><strong>Unique Index:</strong> Ensures that all values in the indexed column are unique.</li>
+            <pre><code>CREATE UNIQUE INDEX idx_employee_id ON Employees(EmployeeID);</code></pre>
+
+            <li><strong>Non-Unique Index:</strong> Allows duplicate values in the indexed column.</li>
+            <pre><code>CREATE INDEX idx_name ON Employees(Name);</code></pre>
+
+            <li><strong>Composite Index:</strong> Indexes multiple columns together to improve query performance.</li>
+            <pre><code>CREATE INDEX idx_name_dept ON Employees(Name, Department);</code></pre>
+        </ul>
+
+        <li><strong>Operations on Index:</strong></li>
+        <ul>
+            <li><strong>Creating Index:</strong> <code>CREATE INDEX index_name ON table_name(column_name);</code></li>
+            <li><strong>Dropping Index:</strong> <code>DROP INDEX index_name;</code></li>
+        </ul>
+    </ul>
+
+    <h2 class="clusters">5. Clusters</h2>
+    <p><strong>Clusters</strong> are a method of storing related tables together in the same database block. They are useful when tables are frequently joined in queries. By clustering tables, you can reduce I/O operations and improve performance.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE CLUSTER cluster_name (column_name datatype);</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE CLUSTER emp_dept_cluster (DeptID INT);</code></pre>
+
+        <li><strong>Explanation:</strong> This creates a cluster for tables that share the <code>DeptID</code> column. Related rows from the `Employees` and `Departments` tables will be stored together.</li>
+
+        <li><strong>Adding Tables to Cluster:</strong> You can add tables to the cluster by specifying the cluster name when creating the table.</li>
+        <pre><code>CREATE TABLE Employees (
+    EmployeeID INT,
+    DeptID INT,
+    Name VARCHAR(50)
+) CLUSTER emp_dept_cluster (DeptID);</code></pre>
+    </ul>
+
+</body>
+</html>

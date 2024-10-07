@@ -1,0 +1,83 @@
+body{
+    display: flex;
+    height: 100vh;                
+    justify-content: center;                
+    align-items: center;
+    background-color: #f0f0f0;
+    }   form {              
+          width: 400px;           
+        background-color: #fff;           
+        padding: 20px;             
+         border-radius: 8px;    
+         /*
+         The CSS property box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); defines a shadow effect around an element. Here’s a breakdown of what each part means:
+    
+    0 (horizontal offset): The shadow is not shifted horizontally. A positive value would move the shadow to the right, and a negative value would move it to the left.
+    
+    0 (vertical offset): The shadow is not shifted vertically. A positive value would move the shadow downward, and a negative value would move it upward.
+    
+    10px (blur radius): This defines how blurry the shadow is. A larger value means the shadow is more spread out and softer. In this case, the shadow will be a soft blur of 10px.
+    
+    rgba(0, 0, 0, 0.1) (shadow color): This specifies the color of the shadow using RGBA values.
+    
+    rgba(0, 0, 0, 0.1) is a semi-transparent black.
+    0, 0, 0 represents the color black.
+    0.1 is the alpha (opacity) value, where 1 is fully opaque, and 0 is fully transparent. So, the shadow is black with 10% opacity (very light and transparent).
+         */
+        box-shadow: 0 0 10px   rgba(0, 0, 0, 0.1);        
+            }
+    
+           /* fieldset {              
+                  border: 1px solid black;           
+                     padding: 10px;          
+                           margin: 0;            }*/
+                           legend {
+                                          font-weight: bold;
+                                                     margin-bottom: 10px;
+                                                    
+                                                    
+                                                    }
+    
+    label{
+        display:block;
+        margin-bottom:5px;
+    }
+    input[type="submit"] {
+                    padding: 10px 20px;
+    
+                    border-radius: 5px;
+                }
+              
+                input[type="radio"] {
+                    margin-left: 20px;
+                }
+                
+                input[type="text"],
+                input[type="email"],
+                input[type="password"],
+                textarea,
+                input[type="date"] {
+                    width: calc(100% - 20px);
+                    padding: 10px;
+                    margin-bottom: 30px;
+                    box-sizing: border-box;
+                    /*, the padding does not cause the width to exceed what you've defined, resulting in a cleaner layout.*/
+                    border: 1px 10px solid #ccc;
+                    border-radius: 4px;
+                   /*   input[type="date"] {
+      width: calc(100% - 20px);
+      -> calc(100% - 20px): This is a CSS function that calculates the width dynamically.
+        -> 100% refers to the full width of the parent container.
+       -> 20px subtracts 20 pixels from that full width.
+        -> The result is that the width of the input[type="date"] will always be slightly smaller
+         than its parent by 20px, 
+         leaving some space on either side (usually to account for padding or margins).
+        padding: 10px;
+    
+    
+        if the box-sizing is set to border-box, the padding does not cause the width to exceed what you've defined, resulting in a cleaner layout. 
+        box-sizing: border-box; /* Assume you have this set */ 
+    
+    
+                }
+     

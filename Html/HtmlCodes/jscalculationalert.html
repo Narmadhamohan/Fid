@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculation Alert</title>
+    <script src="calcscript.js"></script>
+    </script>
+    <script>
+        // Function to calculate the sum of two numbers
+        function doCalculation() {
+            // Get the values from the input fields
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+
+            // Check if the inputs are valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers!");
+            } else {
+                // Calculate the sum
+                const sum = num1 + num2;
+                // Show the result in an alert
+                alert("The sum of " + num1 + " and " + num2 + " is: " + sum);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form onsubmit="return false;"> <!-- Prevent form submission -->
+        <label for="number1">Number 1:</label>
+        <input type="number" id="number1" required>
+        <br><br>
+        <label for="number2">Number 2:</label>
+        <input type="number" id="number2" required>
+        <br><br>
+        <button type="button" onclick="doCalculation()">Calculate Sum</button>
+    </form>
+</body>
+</html>

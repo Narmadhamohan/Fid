@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Stop Mobile Accessories</title>
+    <style>
+
+/*
+1.HTML Structure:
+2.Input Validations:
+3. Combo Offers:
+4. CSS Styles:
+5. JavaScript Functionality:
+*/
+
+
+
+        body {
+            background-image: url('background-image.jpg'); /* Replace with your background image URL */
+            font-weight: bold;
+        }
+        h3 {
+            color: #FFFFFF;
+            text-align: center;
+            font-family: Verdana;
+        }
+        table, tr, td {
+            width: 50%;
+            margin: auto;
+            border-radius: 5px;
+            padding: 7px;
+            color: #08088A;
+            background-color: #FFFFFF;
+        }
+        #order {
+            color: #08088A;
+            margin-left: 45%;
+            margin-right: auto;
+            font-weight: bold;
+        }
+        #result {
+            color: #FFFFFF;
+            text-align: center;
+            font-family: Verdana;
+        }
+        .title {
+            color: #08088A;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Function to calculate the total cost and display the result
+        function costCalculation() {
+            var totalCost = 0;
+
+            // Check if each combo option is selected and add to total cost
+            if (document.getElementById('option1').checked) {
+                totalCost += 400; // Price for option 1
+            }
+            if (document.getElementById('option2').checked) {
+                totalCost += 500; // Price for option 2
+            }
+            if (document.getElementById('option3').checked) {
+                totalCost += 600; // Price for option 3
+            }
+            if (document.getElementById('option4').checked) {
+                totalCost += 700; // Price for option 4
+            }
+            if (document.getElementById('option5').checked) {
+                totalCost += 800; // Price for option 5
+            }
+
+            // Apply discount if total cost is 2000 or more
+            if (totalCost >= 2000) {
+                totalCost = Math.round(totalCost * 0.8); // Apply 20% discount
+            }
+
+            // Display the result in the result div
+            var resultDiv = document.getElementById('result');
+            if (totalCost > 0) {
+                resultDiv.innerHTML = "Order has been placed successfully. You are requested to pay Rs." + totalCost + " on delivery.";
+            } else {
+                resultDiv.innerHTML = "No selection has been made.";
+            }
+
+            return false; // Prevent default form submission
+        }
+    </script>
+</head>
+<body>
+    <h3>One Stop Mobile Accessories</h3>
+    <form>
+        <table>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name" pattern="[A-Za-z\s]+" required></td>
+            </tr>
+            <tr>
+                <td><label for="phoneNumber">Phone Number:</label></td>
+                <td><input type="tel" id="phoneNumber" name="phoneNumber" pattern="^[789]\d{9}$" required></td>
+            </tr>
+            <tr>
+                <td><label for="emailId">Email:</label></td>
+                <td><input type="email" id="emailId" name="emailId" required></td>
+            </tr>
+            <tr>
+                <td><label for="address">Delivery Address:</label></td>
+                <td><textarea id="address" name="address" rows="4" cols="50" required></textarea></td>
+            </tr>
+        </table>
+        <h3 class="title">Combo Offers (Save up to Rs. 400 on each combo!)</h3>
+        <table>
+            <tr>
+                <td><input type="checkbox" id="option1" name="comboOffers" value="SanDisk 32GB micro SDHC Memory Card + iXCC Micro-USB cable"> SanDisk 32GB micro SDHC Memory Card + iXCC Micro-USB cable</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="option2" name="comboOffers" value="Sandisk Cruzer Blade 32 GB Pen Drive + Samsung Type B 15W Travel Adaptor"> Sandisk Cruzer Blade 32 GB Pen Drive + Samsung Type B 15W Travel Adaptor</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="option3" name="comboOffers" value="Sony WF-1000XM3 Head Phone + SanDisk 16GB micro SDHC Memory Card"> Sony WF-1000XM3 Head Phone + SanDisk 16GB micro SDHC Memory Card</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="option4" name="comboOffers" value="Mpow Car Phone Mount + Zebroni 1 Amp Turbo Car Mobile Charger"> Mpow Car Phone Mount + Zebroni 1 Amp Turbo Car Mobile Charger</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="option5" name="comboOffers" value="Tribit XSound Go Bluetooth Speaker + Mpow Car Phone Mount"> Tribit XSound Go Bluetooth Speaker + Mpow Car Phone Mount</td>
+            </tr>
+        </table>
+        <input type="submit" id="order" value="PLACE ORDER" onclick="return costCalculation();">
+    </form>
+    <div id="result"></div>
+</body>
+</html>
+

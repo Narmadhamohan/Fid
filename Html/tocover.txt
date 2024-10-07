@@ -1,0 +1,28 @@
+selectors
+css - key notes
+javascript
+iframes
+animation
+tables  - css setup
+media queries - responsive web design
+
+position
+
+Draw:
+inline - horizontal
+block - vertical stack
+
+width, padding, border, margin, border-radius
+
+element - actions and selectors
+Placeholder
+autofocus
+required
+comments
+ulol
+selctors
+font-family
+color-code
+legend.css - width calc(100%-30px)
+
+width takes precedence that padding.

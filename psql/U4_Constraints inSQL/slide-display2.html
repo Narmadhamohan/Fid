@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Constraints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h2.constraint {
+            background: linear-gradient(to right, #e74c3c, #f39c12);
+        }
+        h2.not_null {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        h2.check {
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+        }
+        h2.primary_key {
+            background: linear-gradient(to right, #1abc9c, #16a085);
+        }
+        h2.unique {
+            background: linear-gradient(to right, #f1c40f, #f39c12);
+        }
+        h2.foreign_key {
+            background: linear-gradient(to right, #e67e22, #d35400);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="constraint">1. What is a Constraint?</h2>
+    <p>A <strong>Constraint</strong> in SQL is a rule applied to the columns of a table to enforce data integrity and ensure that the data meets certain conditions. Constraints help maintain accuracy and reliability of the data in a database.</p>
+    
+    <ul>
+        <li><strong>Constraints Types:</strong></li>
+        <ul>
+            <li><strong>NOT NULL:</strong> Ensures that a column cannot have a NULL value.</li>
+            <li><strong>CHECK:</strong> Ensures that all values in a column meet a specific condition.</li>
+            <li><strong>PRIMARY KEY:</strong> Uniquely identifies each record in a table.</li>
+            <li><strong>UNIQUE:</strong> Ensures that all values in a column are different.</li>
+            <li><strong>FOREIGN KEY:</strong> Ensures referential integrity by linking a column to the primary key of another table.</li>
+        </ul>
+    </ul>
+
+    <h2 class="not_null">2. Not Null Constraint</h2>
+    <p>The <strong>NOT NULL</strong> constraint ensures that a column cannot contain a NULL value. This is used to prevent missing data in a column.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE TABLE table_name ( column_name datatype NOT NULL );</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE TABLE Employees (
+    EmployeeID INT NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL
+);</code></pre>
+        <li><strong>Explanation:</strong> In this example, the columns <code>EmployeeID</code>, <code>FirstName</code>, and <code>LastName</code> are required to have a value.</li>
+    </ul>
+
+    <h2 class="check">3. Check Constraint</h2>
+    <p>The <strong>CHECK</strong> constraint is used to limit the value range that can be placed in a column. If a condition is not met, the operation will be aborted.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE TABLE table_name ( column_name datatype CHECK (condition) );</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE TABLE Employees (
+    EmployeeID INT NOT NULL,
+    Age INT CHECK (Age >= 18)
+);</code></pre>
+        <li><strong>Explanation:</strong> The <code>Age</code> column is constrained to allow only values greater than or equal to 18.</li>
+    </ul>
+
+    <h2 class="primary_key">4. Primary Key Constraint</h2>
+    <p>The <strong>PRIMARY KEY</strong> constraint uniquely identifies each record in a table. A table can have only one primary key, which can consist of one or more columns.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE TABLE table_name ( column_name datatype PRIMARY KEY );</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL
+);</code></pre>
+        <li><strong>Composite Primary Key:</strong> A primary key can also be made up of multiple columns.</li>
+        <pre><code>CREATE TABLE Orders (
+    OrderID INT,
+    ProductID INT,
+    PRIMARY KEY (OrderID, ProductID)
+);</code></pre>
+    </ul>
+
+    <h2 class="unique">5. Unique Constraint</h2>
+    <p>The <strong>UNIQUE</strong> constraint ensures that all values in a column or a set of columns are distinct from each other. It allows NULL values, but only one NULL per column.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE TABLE table_name ( column_name datatype UNIQUE );</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE TABLE Employees (
+    Email VARCHAR(100) UNIQUE
+);</code></pre>
+        <li><strong>Explanation:</strong> In this example, the <code>Email</code> column must contain unique values, ensuring no two employees have the same email.</li>
+    </ul>
+
+    <h2 class="foreign_key">6. Foreign Key Constraint</h2>
+    <p>The <strong>FOREIGN KEY</strong> constraint is used to link two tables together. It ensures referential integrity by creating a relationship between the columns in two tables. The foreign key in one table points to the primary key in another table.</p>
+
+    <ul>
+        <li><strong>Syntax:</strong> <code>CREATE TABLE table_name ( column_name datatype, FOREIGN KEY (column_name) REFERENCES other_table_name (column_name) );</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);</code></pre>
+        <li><strong>Explanation:</strong> The <code>CustomerID</code> in the <code>Orders</code> table references the <code>CustomerID</code> in the <code>Customers</code> table. This ensures that every order must be associated with a valid customer.</li>
+    </ul>
+
+</body>
+</html>

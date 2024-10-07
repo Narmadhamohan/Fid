@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Procedures, Functions, and Triggers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h2.procedures {
+            background: linear-gradient(to right, #3498db, #2980b9);
+        }
+        h2.functions {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        h2.triggers {
+            background: linear-gradient(to right, #8e44ad, #9b59b6);
+        }
+        h2.trigger_types {
+            background: linear-gradient(to right, #f39c12, #e67e22);
+        }
+        h2.enable_disable {
+            background: linear-gradient(to right, #16a085, #1abc9c);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="procedures">1. PostgreSQL Procedures</h2>
+    <p><strong>Procedures</strong> in PostgreSQL are blocks of code that can perform various tasks and can be executed with specific parameters. They allow for modular programming and code reusability.</p>
+    
+    <ul>
+        <li><strong>Key Features:</strong></li>
+        <ul>
+            <li>Can accept parameters.</li>
+            <li>May perform operations on the database.</li>
+            <li>Can return values through OUT parameters.</li>
+        </ul>
+        <li><strong>Basic Syntax:</strong></li>
+        <pre><code>CREATE OR REPLACE PROCEDURE procedure_name(param1 TYPE, param2 TYPE)
+LANGUAGE plpgsql AS $$
+BEGIN
+    -- Procedure logic
+END; $$</code></pre>
+    </ul>
+
+    <h2 class="functions">2. PostgreSQL Functions</h2>
+    <p><strong>Functions</strong> in PostgreSQL are similar to procedures but are designed to return a value. They can be used in SQL queries.</p>
+
+    <ul>
+        <li><strong>Key Features:</strong></li>
+        <ul>
+            <li>Must return a value.</li>
+            <li>Can be used in SQL statements.</li>
+            <li>Can accept parameters.</li>
+        </ul>
+        <li><strong>Basic Syntax:</strong></li>
+        <pre><code>CREATE OR REPLACE FUNCTION function_name(param1 TYPE, param2 TYPE)
+RETURNS return_type AS $$
+BEGIN
+    -- Function logic
+    RETURN value;
+END; $$ LANGUAGE plpgsql;</code></pre>
+    </ul>
+
+    <h2 class="triggers">3. PostgreSQL Triggers</h2>
+    <p><strong>Triggers</strong> are special types of stored procedures that automatically execute in response to certain events on a table, such as insertions, updates, or deletions.</p>
+
+    <ul>
+        <li><strong>Types of Triggers:</strong>
+            <ul>
+                <li><strong>BEFORE Trigger:</strong> Executes before an INSERT, UPDATE, or DELETE operation.</li>
+                <li><strong>AFTER Trigger:</strong> Executes after an INSERT, UPDATE, or DELETE operation.</li>
+                <li><strong>INSTEAD OF Trigger:</strong> Executes in place of an INSERT, UPDATE, or DELETE operation on views.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2 class="trigger_types">4. Insert, Update, and Delete Triggers</h2>
+    <p>Triggers can be set for specific actions on tables:</p>
+    
+    <ul>
+        <li><strong>Insert Trigger:</strong></li>
+        <pre><code>CREATE TRIGGER insert_trigger
+AFTER INSERT ON table_name
+FOR EACH ROW
+EXECUTE FUNCTION trigger_function();</code></pre>
+
+        <li><strong>Update Trigger:</strong></li>
+        <pre><code>CREATE TRIGGER update_trigger
+AFTER UPDATE ON table_name
+FOR EACH ROW
+EXECUTE FUNCTION trigger_function();</code></pre>
+
+        <li><strong>Delete Trigger:</strong></li>
+        <pre><code>CREATE TRIGGER delete_trigger
+AFTER DELETE ON table_name
+FOR EACH ROW
+EXECUTE FUNCTION trigger_function();</code></pre>
+    </ul>
+
+    <h2 class="enable_disable">5. Enabling and Disabling Triggers</h2>
+    <p>PostgreSQL allows you to enable or disable triggers as needed.</p>
+
+    <ul>
+        <li><strong>Enable a Trigger:</strong></li>
+        <pre><code>ALTER TABLE table_name ENABLE TRIGGER trigger_name;</code></pre>
+
+        <li><strong>Disable a Trigger:</strong></li>
+        <pre><code>ALTER TABLE table_name DISABLE TRIGGER trigger_name;</code></pre>
+
+        <li><strong>Disable All Triggers:</strong></li>
+        <pre><code>ALTER TABLE table_name DISABLE TRIGGER ALL;</code></pre>
+
+        <li><strong>Enable All Triggers:</strong></li>
+        <pre><code>ALTER TABLE table_name ENABLE TRIGGER ALL;</code></pre>
+    </ul>
+
+</body>
+</html>

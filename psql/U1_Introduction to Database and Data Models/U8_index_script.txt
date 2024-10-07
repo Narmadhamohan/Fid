@@ -1,3 +1,9 @@
+B-tree Index: Default index type; good for most general queries, supporting equality and range queries.
+Hash Index: Optimized for simple equality comparisons (=), but does not support range queries.
+GIN (Generalized Inverted Index): Ideal for full-text search, array columns, and JSONB, as it indexes multiple values per row.
+GiST (Generalized Search Tree): Useful for complex data types like geometrical shapes, and supports range queries and full-text searches.
+BRIN (Block Range INdex): Efficient for large datasets with naturally sorted columns, storing summaries of value ranges rather than every entry.
+
 1. B-tree Index (Default Index Type)
 -- Create a sample table
 CREATE TABLE employees (

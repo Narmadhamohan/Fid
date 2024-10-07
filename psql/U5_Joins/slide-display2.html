@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Set Operators and Joins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h2.set_operators {
+            background: linear-gradient(to right, #e67e22, #f39c12);
+        }
+        h2.joins {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        h2.simple_join {
+            background: linear-gradient(to right, #8e44ad, #9b59b6);
+        }
+        h2.equi_join {
+            background: linear-gradient(to right, #16a085, #1abc9c);
+        }
+        h2.non_equi_join {
+            background: linear-gradient(to right, #f1c40f, #e67e22);
+        }
+        h2.self_join {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        h2.cartesian_product {
+            background: linear-gradient(to right, #34495e, #2c3e50);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="set_operators">1. Set Operators in SQL</h2>
+    <p>SQL <strong>Set Operators</strong> are used to combine the results of two or more SELECT queries. The rows returned by the SELECT statements are combined into a single result set. Set operators include:</p>
+    
+    <ul>
+        <li><strong>UNION:</strong> Combines the results of two SELECT queries, removing duplicate rows.</li>
+        <pre><code>SELECT Name FROM Employees
+UNION
+SELECT Name FROM Managers;</code></pre>
+        
+        <li><strong>UNION ALL:</strong> Combines results of two SELECT queries but keeps duplicate rows.</li>
+        <pre><code>SELECT Name FROM Employees
+UNION ALL
+SELECT Name FROM Managers;</code></pre>
+        
+        <li><strong>INTERSECT:</strong> Returns only the rows that are common to both SELECT queries.</li>
+        <pre><code>SELECT Name FROM Employees
+INTERSECT
+SELECT Name FROM Managers;</code></pre>
+        
+        <li><strong>EXCEPT:</strong> Returns rows from the first query that are not in the second query.</li>
+        <pre><code>SELECT Name FROM Employees
+EXCEPT
+SELECT Name FROM Managers;</code></pre>
+    </ul>
+
+    <h2 class="joins">2. Introduction to Joins</h2>
+    <p>SQL <strong>Joins</strong> are used to combine rows from two or more tables based on a related column. The most common types of joins are:</p>
+    
+    <ul>
+        <li><strong>INNER JOIN:</strong> Returns records that have matching values in both tables.</li>
+        <li><strong>LEFT JOIN:</strong> Returns all records from the left table, and the matched records from the right table.</li>
+        <li><strong>RIGHT JOIN:</strong> Returns all records from the right table, and the matched records from the left table.</li>
+        <li><strong>FULL OUTER JOIN:</strong> Returns all records when there is a match in either left or right table.</li>
+    </ul>
+
+    <h2 class="simple_join">3. Simple Join</h2>
+    <p>A <strong>Simple Join</strong> (or Inner Join) is the most basic type of join, where it returns rows when there is a match in both tables being joined.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>SELECT columns FROM table1 JOIN table2 ON table1.column = table2.column;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>SELECT Employees.Name, Departments.DeptName
+FROM Employees
+INNER JOIN Departments
+ON Employees.DeptID = Departments.DeptID;</code></pre>
+    </ul>
+
+    <h2 class="equi_join">4. Equi Join</h2>
+    <p>An <strong>Equi Join</strong> is a specific type of join where the join condition uses the equal operator (<code>=</code>) to match columns.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>SELECT columns FROM table1 JOIN table2 ON table1.column = table2.column;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID = Customers.CustomerID;</code></pre>
+    </ul>
+
+    <h2 class="non_equi_join">5. Non-Equi Join</h2>
+    <p>A <strong>Non-Equi Join</strong> is a join condition that uses operators other than equal (<code>=</code>) to compare columns, such as <code>&gt;</code>, <code>&lt;</code>, or <code>&gt;=</code>.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>SELECT columns FROM table1 JOIN table2 ON table1.column &lt;> table2.column;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>SELECT Employees.Name, Salaries.Salary
+FROM Employees
+INNER JOIN Salaries
+ON Employees.SalaryRange &gt;= Salaries.MinSalary
+AND Employees.SalaryRange &lt;= Salaries.MaxSalary;</code></pre>
+    </ul>
+
+    <h2 class="self_join">6. Self Join</h2>
+    <p>A <strong>Self Join</strong> is a join in which a table is joined with itself. It is useful when you need to compare rows within the same table.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>SELECT A.column, B.column FROM table A, table B WHERE condition;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>SELECT A.EmployeeID, A.Name, B.Name AS Manager
+FROM Employees A, Employees B
+WHERE A.ManagerID = B.EmployeeID;</code></pre>
+    </ul>
+
+    <h2 class="cartesian_product">7. Cartesian Product</h2>
+    <p>A <strong>Cartesian Product</strong> occurs when there is no specified join condition between two tables, resulting in each row from the first table being combined with every row from the second table.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>SELECT columns FROM table1, table2;</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>SELECT Employees.Name, Departments.DeptName
+FROM Employees, Departments;</code></pre>
+        <li><strong>Note:</strong> Cartesian products can result in large result sets and should generally be avoided unless explicitly needed.</li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        h2.introduction {
+            background: linear-gradient(to right, #6a82fb, #fc5c7d);
+        }
+        h2.ddl {
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+        }
+        h2.datatypes {
+            background: linear-gradient(to right, #f2994a, #f2c94c);
+        }
+        h2.operators {
+            background: linear-gradient(to right, #8e44ad, #3498db);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="introduction">1. Introduction to SQL</h2>
+    <p><strong>SQL (Structured Query Language)</strong> is a standardized language used to manage relational databases. It allows for querying, updating, and managing data, as well as controlling access to it. SQL is widely used in applications that involve database management systems like MySQL, PostgreSQL, and SQL Server.</p>
+    
+    <ul>
+        <li><strong>Queries:</strong> Fetch and manipulate data stored in relational databases.</li>
+        <li><strong>Commands:</strong> SQL commands like SELECT, INSERT, UPDATE, DELETE, and more.</li>
+        <li><strong>Transactions:</strong> SQL supports transactions that allow multiple operations to be treated as a single unit of work.</li>
+    </ul>
+
+    <h2 class="ddl">2. DDL, DML, DCL, TCL Commands</h2>
+    <p>SQL commands are categorized into different groups based on their functionality:</p>
+
+    <ul>
+        <li><strong>DDL (Data Definition Language):</strong> Defines database schema and structure.</li>
+        <ul>
+            <li><code>CREATE</code>: Create a new table or database.</li>
+            <li><code>ALTER</code>: Modify an existing table.</li>
+            <li><code>DROP</code>: Delete a table or database.</li>
+            <li><code>TRUNCATE</code>: Remove all records from a table, without logging individual row deletions.</li>
+        </ul>
+        <li><strong>DML (Data Manipulation Language):</strong> Manages data within tables.</li>
+        <ul>
+            <li><code>INSERT</code>: Insert new data into a table.</li>
+            <li><code>UPDATE</code>: Update existing data in a table.</li>
+            <li><code>DELETE</code>: Remove data from a table.</li>
+            <li><code>SELECT</code>: Retrieve data from a table based on specific conditions.</li>
+        </ul>
+        <li><strong>DCL (Data Control Language):</strong> Controls access to the data.</li>
+        <ul>
+            <li><code>GRANT</code>: Grants access rights.</li>
+            <li><code>REVOKE</code>: Removes access rights.</li>
+        </ul>
+        <li><strong>TCL (Transaction Control Language):</strong> Manages transactions within the database.</li>
+        <ul>
+            <li><code>COMMIT</code>: Save changes made in a transaction.</li>
+            <li><code>ROLLBACK</code>: Undo changes in a transaction.</li>
+            <li><code>SAVEPOINT</code>: Set a savepoint within a transaction.</li>
+        </ul>
+    </ul>
+
+    <h2 class="datatypes">3. Datatypes and Its Usage in SQL (PostgreSQL)</h2>
+    <p><strong>Datatypes</strong> define the type of data that can be stored in a table's columns. In PostgreSQL, the datatype ensures proper handling and optimization of data. Here are the key PostgreSQL datatypes:</p>
+
+    <ul>
+        <li><strong>Numeric Data Types:</strong></li>
+        <ul>
+            <li><code>SMALLINT</code>: Small-range integer (-32,768 to 32,767).</li>
+            <li><code>INTEGER</code>: Standard integer (-2,147,483,648 to 2,147,483,647).</li>
+            <li><code>BIGINT</code>: Large-range integer (-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807).</li>
+            <li><code>DECIMAL(p, s)</code>: Exact numeric type with precision <code>p</code> and scale <code>s</code> (e.g., <code>DECIMAL(10, 2)</code>).</li>
+            <li><code>NUMERIC(p, s)</code>: Similar to DECIMAL, used for exact numeric types.</li>
+            <li><code>REAL</code>: Single precision floating-point number (4 bytes).</li>
+            <li><code>DOUBLE PRECISION</code>: Double precision floating-point number (8 bytes).</li>
+            <li><code>SERIAL</code>: Auto-incrementing integer.</li>
+        </ul>
+
+        <li><strong>Character/String Data Types:</strong></li>
+        <ul>
+            <li><code>CHAR(n)</code>: Fixed-length string.</li>
+            <li><code>VARCHAR(n)</code>: Variable-length string.</li>
+            <li><code>TEXT</code>: Variable-length string with no length limit.</li>
+        </ul>
+
+        <li><strong>Date/Time Data Types:</strong></li>
+        <ul>
+            <li><code>DATE</code>: Stores a date (e.g., '2024-10-07').</li>
+            <li><code>TIMESTAMP</code>: Stores both date and time (without time zone).</li>
+            <li><code>TIMESTAMPTZ</code>: Stores both date and time (with time zone).</li>
+            <li><code>TIME</code>: Stores time of day (without date).</li>
+            <li><code>INTERVAL</code>: Represents time span.</li>
+        </ul>
+
+        <li><strong>Boolean Data Type:</strong></li>
+        <ul>
+            <li><code>BOOLEAN</code>: Stores TRUE or FALSE values.</li>
+        </ul>
+
+        <li><strong>UUID Data Type:</strong></li>
+        <ul>
+            <li><code>UUID</code>: Stores universally unique identifiers.</li>
+        </ul>
+
+        <li><strong>Array Data Type:</strong></li>
+        <ul>
+            <li><code>ARRAY</code>: Allows storage of arrays (e.g., <code>INTEGER[]</code>, <code>TEXT[]</code>).</li>
+        </ul>
+
+        <li><strong>JSON Data Types:</strong></li>
+        <ul>
+            <li><code>JSON</code>: Stores JSON data (without validation).</li>
+            <li><code>JSONB</code>: Stores JSON data (with validation and indexing).</li>
+        </ul>
+
+        <li><strong>Geometric Data Types:</strong></li>
+        <ul>
+            <li><code>POINT</code>, <code>LINE</code>, <code>CIRCLE</code>: Represent geometric shapes like points and circles.</li>
+        </ul>
+
+        <li><strong>Other Data Types:</strong></li>
+        <ul>
+            <li><code>BYTEA</code>: Stores binary data.</li>
+            <li><code>ENUM</code>: Stores a static, ordered set of values (e.g., <code>'low', 'medium', 'high'</code>).</li>
+            <li><code>XML</code>: Stores XML data.</li>
+        </ul>
+    </ul>
+
+    <h2 class="operators">4. SQL Operators</h2>
+    <p><strong>SQL Operators</strong> are used to perform operations on data. They are essential for filtering results, performing calculations, and managing conditions in queries.</p>
+    <ul>
+        <li><strong>Arithmetic Operators:</strong> Used for calculations.</li>
+        <ul>
+            <li><code>+</code>: Addition.</li>
+            <li><code>-</code>: Subtraction.</li>
+            <li><code>*</code>: Multiplication.</li>
+            <li><code>/</code>: Division.</li>
+        </ul>
+        <li><strong>Comparison Operators:</strong> Used to compare values.</li>
+        <ul>
+            <li><code>=</code>: Equal to.</li>
+            <li><code>!=</code> or <code>&lt;&gt;</code>: Not equal to.</li>
+            <li><code>&gt;</code>: Greater than.</li>
+            <li><code>&lt;</code>: Less than.</li>
+            <li><code>&gt;=</code>: Greater than or equal to.</li>
+        </ul>
+        <li><strong>Logical Operators:</strong> Used to combine conditions.</li>
+        <ul>
+            <li><code>AND</code>: Returns true if both conditions are true.</li>
+            <li><code>OR</code>: Returns true if any condition is true.</li>
+            <li><code>NOT</code>: Negates a condition.</li>
+        </ul>
+    </ul>
+
+    <h2>Example SQL Query Using SELECT and Operators</h2>
+    <pre><code>SELECT FirstName, LastName
+FROM Employees
+WHERE Age >= 30 AND Salary > 50000;</code></pre>
+
+    <h2>Example TRUNCATE Statement</h2>
+    <pre><code>TRUNCATE TABLE Employees;</code></pre>
+
+</body>
+</html>

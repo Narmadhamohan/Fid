@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        h2.operators {
+            background: linear-gradient(to right, #8e44ad, #3498db);
+        }
+        h2.select_clause {
+            background: linear-gradient(to right, #e44d26, #f16529);
+        }
+        h2.where_having {
+            background: linear-gradient(to right, #2c3e50, #bdc3c7);
+        }
+        h2.operations {
+            background: linear-gradient(to right, #ff6a00, #ee0979);
+        }
+        h2.group_functions {
+            background: linear-gradient(to right, #11998e, #38ef7d);
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="operators">1. Operators Used in SQL</h2>
+    <p>SQL operators are used to perform various operations on data. Here are some key categories of SQL operators:</p>
+    
+    <ul>
+        <li><strong>Arithmetic Operators:</strong> Perform mathematical calculations.</li>
+        <ul>
+            <li><code>+</code>: Addition (e.g., <code>SELECT 5 + 2;</code>)</li>
+            <li><code>-</code>: Subtraction (e.g., <code>SELECT 10 - 3;</code>)</li>
+            <li><code>*</code>: Multiplication (e.g., <code>SELECT 4 * 5;</code>)</li>
+            <li><code>/</code>: Division (e.g., <code>SELECT 20 / 4;</code>)</li>
+        </ul>
+        <li><strong>Comparison Operators:</strong> Compare values.</li>
+        <ul>
+            <li><code>=</code>: Equal to.</li>
+            <li><code>&lt;&gt;</code> or <code>!=</code>: Not equal to.</li>
+            <li><code>&gt;</code>: Greater than.</li>
+            <li><code>&lt;</code>: Less than.</li>
+            <li><code>&gt;=</code>: Greater than or equal to.</li>
+            <li><code>&lt;=</code>: Less than or equal to.</li>
+        </ul>
+        <li><strong>Logical Operators:</strong> Used to combine conditions.</li>
+        <ul>
+            <li><code>AND</code>: Returns true if both conditions are true.</li>
+            <li><code>OR</code>: Returns true if either condition is true.</li>
+            <li><code>NOT</code>: Negates a condition.</li>
+        </ul>
+        <li><strong>Other Operators:</strong></li>
+        <ul>
+            <li><code>BETWEEN</code>: Check if a value is within a range (e.g., <code>age BETWEEN 20 AND 30</code>).</li>
+            <li><code>IN</code>: Check if a value matches any value in a list (e.g., <code>country IN ('USA', 'Canada')</code>).</li>
+            <li><code>LIKE</code>: Search for a pattern (e.g., <code>name LIKE 'A%'</code>).</li>
+            <li><code>IS NULL</code>: Check if a value is null.</li>
+        </ul>
+    </ul>
+
+    <h2 class="select_clause">2. Select Clause and Condition</h2>
+    <p>The <strong>SELECT</strong> clause is used to query specific data from a database. It retrieves data from one or more tables and is usually followed by conditions.</p>
+    
+    <ul>
+        <li><strong>Syntax:</strong> <code>SELECT column1, column2 FROM table_name [WHERE condition];</code></li>
+        <li><strong>Example:</strong></li>
+        <pre><code>SELECT FirstName, LastName
+FROM Employees
+WHERE Age > 30;</code></pre>
+        <li><strong>Aliasing:</strong> You can assign a temporary name to a column using the <code>AS</code> keyword.</li>
+        <pre><code>SELECT FirstName AS "First Name", LastName AS "Last Name"
+FROM Employees;</code></pre>
+    </ul>
+
+    <h2 class="where_having">3. Usage of WHERE and HAVING Clauses</h2>
+    <p><strong>WHERE</strong> and <strong>HAVING</strong> are used to filter results in SQL:</p>
+
+    <ul>
+        <li><strong>WHERE Clause:</strong> Filters rows before grouping.</li>
+        <ul>
+            <li><strong>Syntax:</strong> <code>SELECT * FROM table_name WHERE condition;</code></li>
+            <li><strong>Example:</strong></li>
+            <pre><code>SELECT * FROM Employees
+WHERE Age &gt; 30;</code></pre>
+        </ul>
+        <li><strong>HAVING Clause:</strong> Filters groups after grouping.</li>
+        <ul>
+            <li><strong>Syntax:</strong> <code>SELECT column, AGGREGATE_FUNCTION(column) FROM table_name GROUP BY column HAVING condition;</code></li>
+            <li><strong>Example:</strong></li>
+            <pre><code>SELECT Department, COUNT(*)
+FROM Employees
+GROUP BY Department
+HAVING COUNT(*) &gt; 10;</code></pre>
+        </ul>
+    </ul>
+
+    <h2 class="operations">4. Different Types of Operations in SQL</h2>
+    <p>SQL supports various operations on data:</p>
+
+    <ul>
+        <li><strong>Set Operations:</strong></li>
+        <ul>
+            <li><code>UNION</code>: Combine results of two queries, removing duplicates.</li>
+            <li><code>UNION ALL</code>: Combine results of two queries, keeping duplicates.</li>
+            <li><code>INTERSECT</code>: Returns rows common to both queries.</li>
+            <li><code>EXCEPT</code>: Returns rows from the first query that are not in the second query.</li>
+        </ul>
+
+        <li><strong>Join Operations:</strong></li>
+        <ul>
+            <li><code>INNER JOIN</code>: Returns records that have matching values in both tables.</li>
+            <li><code>LEFT JOIN</code>: Returns all records from the left table and the matched records from the right table.</li>
+            <li><code>RIGHT JOIN</code>: Returns all records from the right table and the matched records from the left table.</li>
+            <li><code>FULL OUTER JOIN</code>: Returns all records when there is a match in either left or right table.</li>
+        </ul>
+    </ul>
+
+    <h2 class="group_functions">5. Usage of Group Function in SELECT Command</h2>
+    <p><strong>Group functions</strong>, also called aggregate functions, operate on sets of rows to give one result per group:</p>
+
+    <ul>
+        <li><code>COUNT()</code>: Returns the number of rows.</li>
+        <li><code>SUM()</code>: Returns the sum of a numeric column.</li>
+        <li><code>AVG()</code>: Returns the average value of a numeric column.</li>
+        <li><code>MAX()</code>: Returns the maximum value.</li>
+        <li><code>MIN()</code>: Returns the minimum value.</li>
+    </ul>
+
+    <h2>Example Group Function Usage</h2>
+    <pre><code>SELECT Department, COUNT(*), AVG(Salary)
+FROM Employees
+GROUP BY Department;</code></pre>
+
+</body>
+</html>

@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <style>
-       
-    </style>
+<link href="legendform.css" rel="stylesheet">
+
     <title> Hello World App </title>
 </head>
 <body>
 
-    <form>
+    <form onsubmit="alert('You clicked!'); alert(document.getElementById('useri').value*10);return false;">
 
         <fieldset>
             <legend>
                 User Personal information
             </legend>
             <label >Enter your full name</label>
-                <input type="text" name="username" id="userid" min="3" max="6"/>
+                <input type="text" name="username" id="userid" minlength="3" maxlength="6" required/>
+                <input type="number" name="unumber" id="useri" min="3" max="6" required/>
+
             <label>Enter your email</label>
                 <input type="email" name="email"/>
             <label> Enter your password</label>
@@ -31,7 +32,7 @@
             <input type="date" name="dob"/>
             <textarea name="address"></textarea>
 
-            <input type="submit" value="submit"/>
+            <input type="submit" value="submit" onsubmit="alert('you clicked!')"/>
 
         </fieldset>
 
