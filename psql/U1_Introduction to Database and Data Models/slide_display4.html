@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Operation with Trigger</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>INSERT Operation with Trigger Example</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Operation</th>
+            <th>Table Data Before Operation</th>
+            <th>Query Triggered by User</th>
+            <th>Table Data After Operation</th>
+            <th>Trigger Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>INSERT</td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>No Data Before Insertion</em>
+            </td>
+            <td>
+                <code>INSERT INTO employees (employee_id, name, salary) VALUES (104, 'Alice Brown', 80000);</code>
+            </td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>After Insertion</em><br>
+                <ul>
+                    <li>employee_id: 104</li>
+                    <li>name: Alice Brown</li>
+                    <li>salary: 80000</li>
+                </ul>
+            </td>
+            <td>
+                <strong>employee_creation_logs</strong> table:<br>
+                <em>Log Created</em><br>
+                <ul>
+                    <li>employee_id: 104</li>
+                    <li>name: Alice Brown</li>
+                    <li>salary: 80000</li>
+                    <li>creation_date: [timestamp]</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

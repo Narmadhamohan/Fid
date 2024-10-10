@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asymmetric Encryption Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        h2 {
+            color: #333;
+        }
+        .key-pair {
+            background-color: #e7f3fe;
+            padding: 10px;
+            border-left: 6px solid #2196F3;
+            margin: 10px 0;
+        }
+        .example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Asymmetric Encryption Example</h1>
+
+<h2>Scenario: Alice and Bob Want to Send the Word "CAT"</h2>
+
+<p>Alice and Bob will use asymmetric encryption to securely send the word "CAT" using a simple number-based system.</p>
+
+<h2>Step 1: Assign Numbers to Letters</h2>
+<ul>
+    <li><strong>C = 3</strong></li>
+    <li><strong>A = 1</strong></li>
+    <li><strong>T = 20</strong></li>
+</ul>
+
+<p>So, the message "CAT" becomes the numbers: <strong>3, 1, 20</strong>.</p>
+
+<h2>Step 2: Generate Keys</h2>
+<div class="key-pair">
+    <strong>Alice’s Public Key:</strong> 7<br>
+    <strong>Alice’s Private Key:</strong> 3<br>
+    <strong>Bob’s Public Key:</strong> 11<br>
+    <strong>Bob’s Private Key:</strong> 5
+</div>
+
+<h2>Step 3: Encrypt the Message ("CAT")</h2>
+<p>Bob wants to send "CAT" to Alice.</p>
+<div class="example">
+    <strong>For "C" (3):</strong><br>
+    Encrypted letter = <strong>3 × 7 = 21</strong>
+</div>
+<div class="example">
+    <strong>For "A" (1):</strong><br>
+    Encrypted letter = <strong>1 × 7 = 7</strong>
+</div>
+<div class="example">
+    <strong>For "T" (20):</strong><br>
+    Encrypted letter = <strong>20 × 7 = 140</strong>
+</div>
+
+<p>So, the encrypted message Bob sends to Alice is: <strong>21, 7, 140</strong>.</p>
+
+<h2>Step 4: Decrypt the Message</h2>
+<p>Alice receives the encrypted message and uses her private key (3) to decrypt it.</p>
+<div class="example">
+    <strong>For "21":</strong><br>
+    Decrypted letter = <strong>21 ÷ 3 = 7</strong> (C)
+</div>
+<div class="example">
+    <strong>For "7":</strong><br>
+    Decrypted letter = <strong>7 ÷ 3 = 1</strong> (A)
+</div>
+<div class="example">
+    <strong>For "140":</strong><br>
+    Decrypted letter = <strong>140 ÷ 3 = 20</strong> (T)
+</div>
+
+<p>Alice successfully decrypts the message "CAT".</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>Bob encrypts the message using Alice's public key.</li>
+    <li>Alice decrypts the message using her private key.</li>
+    <li>Only Alice can read the message sent by Bob.</li>
+</ul>
+
+</body>
+</html>

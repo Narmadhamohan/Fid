@@ -1,0 +1,83 @@
+To make it even simpler using three-letter words, let’s modify the example by encoding letters into numbers (A=1, B=2, C=3, and so on) and using a simple encryption process with small public/private keys. Here's the updated scenario:
+
+### Scenario: Alice and Bob want to send the word "CAT" using asymmetric encryption.
+
+#### Step 1: Assign Numbers to Letters
+We will convert each letter to a number using this pattern:
+- **C = 3**
+- **A = 1**
+- **T = 20**
+
+So, the message "CAT" becomes the numbers: **3, 1, 20**.
+
+#### Step 2: Generate Keys
+- **Alice’s public key**: `7`
+- **Alice’s private key**: `3`
+- **Bob’s public key**: `11`
+- **Bob’s private key**: `5`
+
+#### Step 3: Encrypt the Message ("CAT")
+Bob wants to send "CAT" to Alice.
+
+1. **For "C" (3)**:
+   - Encrypted letter = `3 × 7 = 21`
+
+2. **For "A" (1)**:
+   - Encrypted letter = `1 × 7 = 7`
+
+3. **For "T" (20)**:
+   - Encrypted letter = `20 × 7 = 140`
+
+So, the encrypted message that Bob sends to Alice is: **21, 7, 140**.
+
+#### Step 4: Decrypt the Message
+Alice receives the encrypted message and uses her private key (`3`) to decrypt it.
+
+1. **For "21"** (which represents "C"):
+   - Decrypted letter = `21 ÷ 3 = 7`
+   - This corresponds to the letter **C** (3).
+
+2. **For "7"** (which represents "A"):
+   - Decrypted letter = `7 ÷ 3 = 1`
+   - This corresponds to the letter **A** (1).
+
+3. **For "140"** (which represents "T"):
+   - Decrypted letter = `140 ÷ 3 = 20`
+   - This corresponds to the letter **T** (20).
+
+So, Alice successfully decrypts the message "CAT."
+
+### Simple Steps for the Students:
+1. **Bob encrypts**: Multiply the letter's number by Alice's public key (`7`).
+2. **Alice decrypts**: Divide the encrypted number by her private key (`3`).
+
+This example helps the students see how letters can be encoded into numbers, encrypted, and decrypted in a straightforward way using small keys.
+
+
+**************************************************************
+
+
+Alice generates her **own private key** when she sets up her asymmetric encryption system. In asymmetric encryption:
+
+1. **Key Pair Generation**: 
+   - Alice uses a cryptographic algorithm (such as RSA) to generate **two keys**: 
+     - **Public key** (shared with others)
+     - **Private key** (kept secret)
+
+2. **Ownership**: 
+   - The private key is not given to Alice by anyone else; it is **created** during the key pair generation process.
+   - Since Alice is the one generating both keys, she keeps her **private key** secure and never shares it.
+
+### How Key Generation Works:
+- **Public-Private Key Pair**: These keys are mathematically linked. Any message encrypted with the public key can only be decrypted with the corresponding private key, and vice versa.
+- For example, if Alice uses an RSA algorithm, the algorithm will generate two keys at once:
+  - Public key (to be shared).
+  - Private key (which Alice keeps safe).
+
+This generation process ensures that Alice is the **only** one who ever possesses her private key, making it secure. 
+
+### Summary:
+Alice **creates her own private key** during the setup of the encryption system, and no one else is involved in giving her that private key.
+
+
+*******************************************************************************

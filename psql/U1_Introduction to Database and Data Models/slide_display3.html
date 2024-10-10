@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger Operation Example</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Trigger Operation Example</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Trigger Operation</th>
+            <th>Table Data Before Trigger</th>
+            <th>Query Triggered by User</th>
+            <th>Table Data After Trigger</th>
+            <th>Trigger Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>INSERT</td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>No Data Before Insertion</em>
+            </td>
+            <td>
+                <code>INSERT INTO employees (employee_id, name, salary) VALUES (102, 'Jane Smith', 70000);</code>
+            </td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>After Insertion</em><br>
+                <ul>
+                    <li>employee_id: 102</li>
+                    <li>name: Jane Smith</li>
+                    <li>salary: 70000</li>
+                </ul>
+            </td>
+            <td>
+                <strong>No log created in salary_changes</strong><br>
+                <em>Consider logging in employee_logs for new entries</em>
+            </td>
+        </tr>
+        <tr>
+            <td>UPDATE</td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>Before Update</em><br>
+                <ul>
+                    <li>employee_id: 101</li>
+                    <li>name: John Doe</li>
+                    <li>salary: 50000</li>
+                </ul>
+            </td>
+            <td>
+                <code>UPDATE employees SET salary = 60000 WHERE employee_id = 101;</code>
+            </td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>After Update</em><br>
+                <ul>
+                    <li>employee_id: 101</li>
+                    <li>name: John Doe</li>
+                    <li>salary: 60000</li>
+                </ul>
+            </td>
+            <td>
+                <strong>salary_changes</strong> table:<br>
+                <em>Log Created</em><br>
+                <ul>
+                    <li>employee_id: 101</li>
+                    <li>old_salary: 50000</li>
+                    <li>new_salary: 60000</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>Before Deletion</em><br>
+                <ul>
+                    <li>employee_id: 103</li>
+                    <li>name: Alice Johnson</li>
+                    <li>salary: 75000</li>
+                </ul>
+            </td>
+            <td>
+                <code>DELETE FROM employees WHERE employee_id = 103;</code>
+            </td>
+            <td>
+                <strong>employees</strong> table:<br>
+                <em>After Deletion</em><br>
+                <em>No Record Found</em>
+            </td>
+            <td>
+                <strong>salary_changes</strong> table:<br>
+                <em>Log Created</em><br>
+                <ul>
+                    <li>employee_id: 103</li>
+                    <li>old_salary: 75000</li>
+                    <li>new_salary: NULL</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
