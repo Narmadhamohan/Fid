@@ -1,0 +1,8 @@
+Vijayalakshmi -> For primary key passed value
+
+abinash -> not used serial - keys
+
+Rajendhiran - implemented kruskal?
+
+those who directly ttached constraints to table, learn the syntax to alter and add constraints 
+
