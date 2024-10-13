@@ -1,0 +1,20 @@
+C:\Users\Dell\Desktop\Dada\Content_Creation\psql\U1_Introduction to Database and Data Models
+/U2_index_pgsql.html
+C:\Users\Dell\Desktop\Dada\Content_Creation\psql\U8_index_explain
+/U1_GRIN_index.html
+
+
+
+C:\Users\Dell\Desktop\Dada\Content_Creation\psql\U7_sql_plSQL
+U2_mongodb_comparison
+
+C:\Users\Dell\Desktop\Dada\Content_Creation\Network\U6_questions_practice
+U1_Questions.html
+U2_questions.html
+
+C:\Users\Dell\Desktop\Dada\Content_Creation\Html\
+position.html
+
+correlated suquery:
+C:\Users\Dell\Desktop\Dada\Content_Creation\psql\U1_Introduction to Database and Data Models
+U17_exists_ilike_correlatedsubquery

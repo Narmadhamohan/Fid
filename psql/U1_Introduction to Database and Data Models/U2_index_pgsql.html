@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Index Pointer Types</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>PostgreSQL Index Pointer Types</h2>
+
+<table>
+    <tr>
+        <th>Index Type</th>
+        <th>Pointer Type</th>
+        <th>Best For Data Types</th>
+        <th>Query Example</th>
+    </tr>
+    <tr>
+        <td>B-tree (Default)</td>
+        <td>Row-based (TIDs)</td>
+        <td>General-purpose types (e.g., integers, strings, dates)</td>
+        <td><code>SELECT * FROM employees WHERE salary &gt; 50000;</code> 
+		<br>
+		<code>SELECT * FROM employees WHERE name like '%jo';</code> 
+		(range query)</td>
+    </tr>
+    <tr>
+        <td>Hash</td>
+        <td>Hash buckets</td>
+        <td>Equality searches (e.g., integers, strings)</td>
+        <td><code>SELECT * FROM users WHERE id = 123;</code> (equality query)</td>
+    </tr>
+    <tr>
+        <td>GIN</td>
+        <td>List of TIDs</td>
+        <td>Full-text, arrays, JSONB</td>
+        <td><code>SELECT * FROM documents WHERE content @@ to_tsquery('cat &amp; dog');</code> (full-text query)</td>
+    </tr>
+    <tr>
+        <td>GiST</td>
+        <td>Bounding boxes or ranges</td>
+        <td>Geometric, range, nearest-neighbor</td>
+        <td><code>SELECT * FROM locations ORDER BY geom &lt;-&gt; point '(1,1)' LIMIT 1;</code> (nearest neighbor query)</td>
+    </tr>
+    <tr>
+        <td>BRIN</td>
+        <td>Block ranges</td>
+        <td>Large, ordered datasets (e.g., time-series)</td>
+        <td><code>SELECT * FROM sensor_data WHERE timestamp &gt; '2024-01-01';</code> (time-series query)</td>
+    </tr>
+    <tr>
+        <td>SP-GiST</td>
+        <td>Partitions of data space</td>
+        <td>Spatial partitioning, tree-like structures</td>
+        <td><code>SELECT * FROM networks WHERE ip_address &lt;@ '192.168.1.0/24';</code> (prefix query)</td>
+    </tr>
+</table>
+
+</body>
+</html>

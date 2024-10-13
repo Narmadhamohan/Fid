@@ -1,0 +1,9 @@
+1. Feeling of they know mongodb
+Questions on mongodb
+2. Ports
+3. Index types
+4. Subquery - correlated, 
+no rowid, no limit offset - for notcached results
+5. A1 group -> with that sub net, certificates
+upload trigger in github
+6. 

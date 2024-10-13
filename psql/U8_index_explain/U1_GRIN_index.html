@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL GIN Index Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .query-output {
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>PostgreSQL GIN Index Demo</h1>
+    <h2>Introduction to GIN Index and Query Analysis</h2>
+    
+    <div class="container">
+        <!-- Section: GIN Index Basics -->
+        <div class="section">
+            <h3>1. What is a GIN Index?</h3>
+            <p>A GIN (Generalized Inverted Index) is used for efficient search operations on:</p>
+            <ul>
+                <li>Full-text search</li>
+                <li>JSONB fields</li>
+                <li>Arrays</li>
+            </ul>
+            <p>GIN indexes allow PostgreSQL to quickly find matching rows without scanning the entire table.</p>
+        </div>
+
+        <!-- Section: Full-text Search Example -->
+        <div class="section">
+            <h3>2. Full-text Search Example</h3>
+            <code>
+-- Create a table
+CREATE TABLE articles (
+    id SERIAL PRIMARY KEY,
+    title TEXT,
+    content TEXT
+);
+
+-- Insert sample data
+INSERT INTO articles (title, content) 
+VALUES 
+('PostgreSQL Basics', 'Learn the basics of PostgreSQL indexing and queries.'),
+('Text Search', 'PostgreSQL supports full-text search with GIN indexes.'),
+('Advanced SQL', 'Master advanced SQL techniques using PostgreSQL.');
+
+-- Create a GIN index on the content field
+CREATE INDEX idx_content ON articles USING GIN (to_tsvector('english', content));
+
+-- Query using the GIN index
+EXPLAIN ANALYZE 
+SELECT * 
+FROM articles 
+WHERE to_tsvector('english', content) @@ to_tsquery('PostgreSQL');
+            </code>
+            <div class="query-output">
+Bitmap Heap Scan on articles (cost=12.45..45.90 rows=2 width=72) (actual time=0.045..0.050 rows=1 loops=1)<br>
+Recheck Cond: (to_tsvector('english', content) @@ to_tsquery('PostgreSQL'))<br>
+Bitmap Index Scan on idx_content (actual time=0.034..0.035 rows=1)<br>
+Execution Time: 0.092 ms
+            </div>
+        </div>
+
+        <!-- Section: JSONB Field Example -->
+        <div class="section">
+            <h3>3. JSONB Field Example</h3>
+            <code>
+-- Create a table with JSONB field
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    details JSONB
+);
+
+-- Insert sample data
+INSERT INTO products (details) 
+VALUES 
+('{"name": "Laptop", "category": "electronics", "price": 1000}'),
+('{"name": "Phone", "category": "electronics", "price": 500}'),
+('{"name": "Tablet", "category": "electronics", "price": 300}');
+
+-- Create a GIN index on the JSONB field
+CREATE INDEX idx_products_details ON products USING GIN (details);
+
+-- Query using the GIN index
+EXPLAIN ANALYZE 
+SELECT * 
+FROM products 
+WHERE details @> '{"category": "electronics"}';
+            </code>
+            <div class="query-output">
+Bitmap Heap Scan on products (cost=12.40..37.50 rows=3 width=64) (actual time=0.021..0.024 rows=3)<br>
+Bitmap Index Scan on idx_products_details (actual time=0.011..0.012 rows=3)<br>
+Execution Time: 0.034 ms
+            </div>
+        </div>
+
+        <!-- Section: Array Field Example -->
+        <div class="section">
+            <h3>4. Array Field Example</h3>
+            <code>
+-- Create a table with an array field
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    hobbies TEXT[]
+);
+
+-- Insert sample data
+INSERT INTO users (hobbies) 
+VALUES 
+(ARRAY['reading', 'swimming']),
+(ARRAY['coding', 'swimming']),
+(ARRAY['reading', 'gaming']);
+
+-- Create a GIN index on the hobbies array
+CREATE INDEX idx_hobbies ON users USING GIN (hobbies);
+
+-- Query using the GIN index
+EXPLAIN ANALYZE 
+SELECT * 
+FROM users 
+WHERE hobbies @> ARRAY['reading'];
+            </code>
+            <div class="query-output">
+Bitmap Heap Scan on users (cost=12.50..30.00 rows=2 width=64) (actual time=0.020..0.022 rows=2)<br>
+Bitmap Index Scan on idx_hobbies (actual time=0.010..0.012 rows=2)<br>
+Execution Time: 0.028 ms
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSL/TLS Handshake and Certificate Chain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .section {
+            width: 45%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .step {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .chain {
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-left: 5px solid #4CAF50;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>SSL/TLS Handshake and Certificate Chain</h1>
+
+<div class="container">
+    <!-- Client Side (LHS) -->
+    <div class="section">
+        <h2>Client (Browser)</h2>
+        <div class="step">
+            <strong>Step 1:</strong> Client Hello  
+            <br>  
+            The client sends a "Client Hello" message to the server, which includes the following:  
+            <ul>
+                <li>Supported SSL/TLS versions</li>
+                <li>Supported cipher suites</li>
+                <li>Random nonce (random number)</li>
+            </ul>
+        </div>
+        <div class="step">
+            <strong>Step 2:</strong> Server Certificate Validation  
+            <br>  
+            The client receives the server certificate and starts the validation process:  
+            <ul>
+                <li>Checks the certificate chain starting from the root CA</li>
+                <li>Validates the certificate against trusted Certificate Authorities (CAs)</li>
+                <li>Verifies that the certificate has not expired or been revoked</li>
+                <li>Ensures the server’s public key matches the private key</li>
+            </ul>
+        </div>
+        <div class="step">
+            <strong>Step 3:</strong> Pre-Master Secret Generation  
+            <br>  
+            The client generates a "pre-master secret" and encrypts it using the server's public key. It then sends the encrypted pre-master secret to the server.
+        </div>
+        <div class="step">
+            <strong>Step 4:</strong> Finished Message  
+            <br>  
+            The client sends a "Finished" message, indicating that the handshake part is complete, and encryption using the shared key (derived from the pre-master secret) is now active.
+        </div>
+    </div>
+
+    <!-- Server Side (RHS) -->
+    <div class="section">
+        <h2>Server (Web Server)</h2>
+        <div class="step">
+            <strong>Step 1:</strong> Server Hello  
+            <br>  
+            The server responds with a "Server Hello" message, which includes:  
+            <ul>
+                <li>Chosen SSL/TLS version</li>
+                <li>Chosen cipher suite</li>
+                <li>Random nonce</li>
+            </ul>
+        </div>
+        <div class="step">
+            <strong>Step 2:</strong> Server Certificate  
+            <br>  
+            The server sends its digital certificate to the client. The certificate contains:  
+            <ul>
+                <li>Server's public key</li>
+                <li>Certificate chain (intermediate and root certificates)</li>
+            </ul>
+        </div>
+        <div class="step">
+            <strong>Step 3:</strong> Decryption and Master Secret  
+            <br>  
+            The server uses its private key to decrypt the pre-master secret sent by the client. Both parties now generate the same "master secret" from this pre-master secret.
+        </div>
+        <div class="step">
+            <strong>Step 4:</strong> Finished Message  
+            <br>  
+            The server also sends a "Finished" message, completing the handshake and confirming that it is ready to use encryption with the shared key.
+        </div>
+    </div>
+</div>
+
+<h2 style="text-align: center; margin-top: 40px;">Certificate Chain (Real-World Example: example.com)</h2>
+<div class="chain">
+    <strong>Root Certificate Authority:</strong>  
+    <br>  
+    DigiCert Global Root CA  
+    <br><br>  
+    <strong>Intermediate Certificate:</strong>  
+    <br>  
+    DigiCert TLS RSA SHA256 2020 CA1  
+    <br><br>  
+    <strong>Server Certificate:</strong>  
+    <br>  
+    example.com (Issued to example.com)  
+</div>
+
+<h2 style="text-align: center; margin-top: 40px;">TLS Handshake Visualization (Client-Server)</h2>
+
+</body>
+</html>

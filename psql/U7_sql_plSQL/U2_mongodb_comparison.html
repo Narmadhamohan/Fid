@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL vs MongoDB Queries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SQL vs MongoDB Queries</h1>
+
+    <div class="container">
+        <!-- Insert -->
+        <div class="box">
+            <h2>SQL: Insert</h2>
+            <pre>INSERT INTO users (name, age) VALUES ('Alice', 25);</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Insert</h2>
+            <pre>db.users.insertOne({ name: "Alice", age: 25 });</pre>
+        </div>
+
+        <!-- Select All -->
+        <div class="box">
+            <h2>SQL: Select All</h2>
+            <pre>SELECT * FROM users;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Select All</h2>
+            <pre>db.users.find();</pre>
+        </div>
+
+        <!-- Select Specific Fields -->
+        <div class="box">
+            <h2>SQL: Select Specific Fields</h2>
+            <pre>SELECT name, age FROM users;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Select Specific Fields</h2>
+            <pre>db.users.find({}, { name: 1, age: 1, _id: 0 });</pre>
+        </div>
+
+        <!-- Where Clause -->
+        <div class="box">
+            <h2>SQL: Where Clause</h2>
+            <pre>SELECT * FROM users WHERE age > 20;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Where Clause</h2>
+            <pre>db.users.find({ age: { $gt: 20 } });</pre>
+        </div>
+
+        <!-- Update -->
+        <div class="box">
+            <h2>SQL: Update</h2>
+            <pre>UPDATE users SET age = 26 WHERE name = 'Alice';</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Update</h2>
+            <pre>db.users.updateOne({ name: "Alice" }, { $set: { age: 26 } });</pre>
+        </div>
+
+        <!-- Delete -->
+        <div class="box">
+            <h2>SQL: Delete</h2>
+            <pre>DELETE FROM users WHERE name = 'Alice';</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Delete</h2>
+            <pre>db.users.deleteOne({ name: "Alice" });</pre>
+        </div>
+
+        <!-- Order By -->
+        <div class="box">
+            <h2>SQL: Order By</h2>
+            <pre>SELECT * FROM users ORDER BY age DESC;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Order By</h2>
+            <pre>db.users.find().sort({ age: -1 });</pre>
+        </div>
+
+        <!-- Limit -->
+        <div class="box">
+            <h2>SQL: Limit</h2>
+            <pre>SELECT * FROM users LIMIT 5;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Limit</h2>
+            <pre>db.users.find().limit(5);</pre>
+        </div>
+
+        <!-- Count -->
+        <div class="box">
+            <h2>SQL: Count</h2>
+            <pre>SELECT COUNT(*) FROM users;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Count</h2>
+            <pre>db.users.countDocuments();</pre>
+        </div>
+
+        <!-- Join Equivalent -->
+        <div class="box">
+            <h2>SQL: Join</h2>
+            <pre>SELECT users.name, orders.item FROM users
+JOIN orders ON users.user_id = orders.user_id;</pre>
+        </div>
+        <div class="box">
+            <h2>MongoDB: Join (Aggregation)</h2>
+            <pre>db.users.aggregate([
+  { $lookup: {
+      from: "orders",
+      localField: "user_id",
+      foreignField: "user_id",
+      as: "orders_info"
+  }},
+  { $unwind: "$orders_info" },
+  { $project: { name: 1, "orders_info.item": 1, _id: 0 } }
+]);</pre>
+        </div>
+    </div>
+
+</body>
+</html>

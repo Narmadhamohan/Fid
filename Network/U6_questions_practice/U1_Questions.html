@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP/UDP Ports and Protocols Matching</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>TCP/UDP Ports Matching</h2>
+
+<!-- TCP Ports Table -->
+<h3>TCP Ports</h3>
+<table>
+    <tr>
+        <th>Service</th>
+        <th>Port Number</th>
+    </tr>
+    <tr>
+        <td>FTP</td>
+        <td><input type="text" id="tcp-ftp" placeholder="Enter TCP Port"></td>
+    </tr>
+    <tr>
+        <td>SMTP</td>
+        <td><input type="text" id="tcp-smtp" placeholder="Enter TCP Port"></td>
+    </tr>
+    <tr>
+        <td>HTTP</td>
+        <td><input type="text" id="tcp-http" placeholder="Enter TCP Port"></td>
+    </tr>
+    <tr>
+        <td>HTTPS</td>
+        <td><input type="text" id="tcp-https" placeholder="Enter TCP Port"></td>
+    </tr>
+</table>
+
+<!-- UDP Ports Table -->
+<h3>UDP Ports</h3>
+<table>
+    <tr>
+        <th>Service</th>
+        <th>Port Number</th>
+    </tr>
+    <tr>
+        <td>DNS</td>
+        <td><input type="text" id="udp-dns" placeholder="Enter UDP Port"></td>
+    </tr>
+    <tr>
+        <td>DHCP</td>
+        <td><input type="text" id="udp-dhcp" placeholder="Enter UDP Port"></td>
+    </tr>
+    <tr>
+        <td>TFTP</td>
+        <td><input type="text" id="udp-tftp" placeholder="Enter UDP Port"></td>
+    </tr>
+</table>
+
+<button onclick="checkPorts()">Check Ports</button>
+
+<!-- Section to show the answers -->
+<div id="port-result" class="hidden">
+    <h4>Correct Port Matches</h4>
+    <p><b>FTP:</b> TCP 21</p>
+    <p><b>SMTP:</b> TCP 25</p>
+    <p><b>HTTP:</b> TCP 80</p>
+    <p><b>HTTPS:</b> TCP 443</p>
+    <p><b>DNS:</b> UDP 53</p>
+    <p><b>DHCP:</b> UDP 67/68</p>
+    <p><b>TFTP:</b> UDP 69</p>
+</div>
+
+<h2>Protocol Matching with Real-Time Examples</h2>
+
+<table>
+    <tr>
+        <th>Protocol</th>
+        <th>Example Use Case</th>
+    </tr>
+    <tr>
+        <td>SMTP</td>
+        <td><input type="text" id="protocol-smtp" placeholder="Enter example"></td>
+    </tr>
+    <tr>
+        <td>FTP</td>
+        <td><input type="text" id="protocol-ftp" placeholder="Enter example"></td>
+    </tr>
+    <tr>
+        <td>HTTP</td>
+        <td><input type="text" id="protocol-http" placeholder="Enter example"></td>
+    </tr>
+    <tr>
+        <td>HTTPS</td>
+        <td><input type="text" id="protocol-https" placeholder="Enter example"></td>
+    </tr>
+</table>
+
+<button onclick="checkProtocols()">Check Protocols</button>
+
+<div id="protocol-result" class="hidden">
+    <h4>Correct Protocol Matches</h4>
+    <p><b>SMTP:</b> Gmail, Outlook, Yahoo Mail</p>
+    <p><b>FTP:</b> File transfer between servers (e.g., FileZilla)</p>
+    <p><b>HTTP:</b> Regular websites (e.g., example.com)</p>
+    <p><b>HTTPS:</b> Secure websites (e.g., banking sites, online shopping)</p>
+</div>
+
+<h2>HTTP Status Codes Matching</h2>
+
+<table>
+    <tr>
+        <th>Status Code</th>
+        <th>Meaning</th>
+    </tr>
+    <tr>
+        <td>200</td>
+        <td><input type="text" id="code-200" placeholder="Enter meaning"></td>
+    </tr>
+    <tr>
+        <td>404</td>
+        <td><input type="text" id="code-404" placeholder="Enter meaning"></td>
+    </tr>
+    <tr>
+        <td>500</td>
+        <td><input type="text" id="code-500" placeholder="Enter meaning"></td>
+    </tr>
+</table>
+
+<button onclick="checkCodes()">Check HTTP Codes</button>
+
+<div id="code-result" class="hidden">
+    <h4>Correct HTTP Status Code Meanings</h4>
+    <p><b>200:</b> OK (The request was successful)</p>
+    <p><b>404:</b> Not Found (The requested resource was not found)</p>
+    <p><b>500:</b> Internal Server Error (The server encountered an error)</p>
+</div>
+
+<script>
+    function checkPorts() {
+        document.getElementById('port-result').classList.remove('hidden');
+    }
+
+    function checkProtocols() {
+        document.getElementById('protocol-result').classList.remove('hidden');
+    }
+
+    function checkCodes() {
+        document.getElementById('code-result').classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>
